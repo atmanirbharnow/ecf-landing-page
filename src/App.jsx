@@ -39,58 +39,100 @@ export default function App() {
         <div className="ecf-value-flow-inner">
 
           <div className="ecf-value-flow-heading">
-            <span>FROM ACTION TO VALUE</span>
+            <span>FROM LOW-CARBON ACTION TO VALUE</span>
+
+            <h2>
+              Turn what you already do into measurable value.
+            </h2>
+
+            <p>
+              ECF helps assess your low-carbon actions, develop eligible
+              projects, progress them through the appropriate registry pathway,
+              generate credits and connect them with the market.
+            </p>
           </div>
 
           <div className="ecf-flow-steps">
 
+            {/* 01 — ASSESS */}
             <div className="ecf-flow-step">
-              <strong>YOUR ACTIONS</strong>
-              <small>Low-carbon actions</small>
-            </div>
+              <span className="ecf-flow-number">01</span>
 
-            <div className="ecf-flow-arrow">→</div>
-
-            <div className="ecf-flow-step">
               <strong>ASSESS</strong>
-              <small>Get assessed</small>
+
+              <small>
+                Get your low-carbon actions assessed
+              </small>
             </div>
 
             <div className="ecf-flow-arrow">→</div>
 
+            {/* 02 — DEVELOP */}
             <div className="ecf-flow-step">
-              <strong>PROJECT</strong>
-              <small>Convert into a project</small>
+              <span className="ecf-flow-number">02</span>
+
+              <strong>DEVELOP</strong>
+
+              <small>
+                Develop your eligible action into a project
+              </small>
             </div>
 
             <div className="ecf-flow-arrow">→</div>
 
+            {/* 03 — REGISTER */}
             <div className="ecf-flow-step">
-              <strong>REGISTRY</strong>
-              <small>Submit &amp; process</small>
+              <span className="ecf-flow-number">03</span>
+
+              <strong>REGISTER</strong>
+
+              <small>
+                Process the project through the appropriate registry pathway
+              </small>
             </div>
 
             <div className="ecf-flow-arrow">→</div>
 
+            {/* 04 — GENERATE */}
             <div className="ecf-flow-step">
-              <strong>CREDITS</strong>
-              <small>Credits issued</small>
+              <span className="ecf-flow-number">04</span>
+
+              <strong>GENERATE</strong>
+
+              <small>
+                Generate measurable environmental credits
+              </small>
             </div>
 
             <div className="ecf-flow-arrow">→</div>
 
-            <div className="ecf-flow-step">
-              <strong>MARKET</strong>
-              <small>Trade credits</small>
-            </div>
-
-            <div className="ecf-flow-arrow">→</div>
-
+            {/* 05 — TRADE */}
             <div className="ecf-flow-step ecf-flow-income">
-              <strong>INCOME</strong>
-              <small>Unlock additional income</small>
+              <span className="ecf-flow-number">05</span>
+
+              <strong>TRADE</strong>
+
+              <small>
+                Connect credits with buyers and unlock additional value
+              </small>
             </div>
 
+          </div>
+
+          <div className="ecf-value-flow-bottom">
+            <strong>Your action</strong>
+
+            <span>→</span>
+
+            <strong>Measurable impact</strong>
+
+            <span>→</span>
+
+            <strong>Environmental credits</strong>
+
+            <span>→</span>
+
+            <strong>Market value</strong>
           </div>
 
         </div>

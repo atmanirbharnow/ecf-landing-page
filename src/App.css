@@ -838,3 +838,278 @@
     font-size: 12px;
   }
 }
+/* =========================================================
+   ECF VALUE JOURNEY
+   Replaces the oversized "FROM ACTION TO VALUE" flow
+   ========================================================= */
+
+.ecf-value-journey {
+  padding: 76px 24px 82px;
+  background: #ffffff;
+  border-top: 1px solid var(--border, #e5e7eb);
+}
+
+.ecf-value-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ---------- Heading ---------- */
+
+.ecf-value-heading {
+  max-width: 760px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.ecf-section-kicker {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--primary-green, #0d631b);
+}
+
+.ecf-value-heading h2 {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.15;
+  color: var(--deep-slate, #17202a);
+}
+
+.ecf-value-heading p {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text-muted, #667085);
+}
+
+/* ---------- Steps ---------- */
+
+.ecf-value-steps {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr);
+
+  align-items: stretch;
+  gap: 14px;
+}
+
+.ecf-value-step {
+  position: relative;
+  min-height: 285px;
+  padding: 28px 24px 26px;
+
+  background: #ffffff;
+  border: 1px solid #dfe7e1;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 28px rgba(16, 24, 40, 0.06);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ecf-value-step:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-green, #0d631b);
+  box-shadow: 0 14px 34px rgba(16, 24, 40, 0.09);
+}
+
+.ecf-value-step-final {
+  border-color: var(--primary-green, #0d631b);
+  background: #f8fcf9;
+}
+
+/* ---------- Number ---------- */
+
+.ecf-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  margin-bottom: 18px;
+
+  border-radius: 50%;
+  background: var(--primary-green, #0d631b);
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Icon ---------- */
+
+.ecf-step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  margin-bottom: 18px;
+
+  border-radius: 50%;
+  background: #edf7ef;
+
+  color: var(--primary-green, #0d631b);
+
+  font-size: 21px;
+  font-weight: 700;
+}
+
+/* ---------- Text ---------- */
+
+.ecf-value-step h3 {
+  margin: 0 0 8px;
+
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  color: var(--primary-green, #0d631b);
+}
+
+.ecf-value-step h4 {
+  margin: 0 0 10px;
+
+  font-size: 18px;
+  line-height: 1.3;
+
+  color: var(--deep-slate, #17202a);
+}
+
+.ecf-value-step p {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  color: var(--text-muted, #667085);
+}
+
+/* ---------- Arrows ---------- */
+
+.ecf-value-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 28px;
+
+  color: var(--primary-green, #0d631b);
+  font-size: 25px;
+  font-weight: 400;
+}
+
+/* ---------- Bottom message ---------- */
+
+.ecf-value-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin: 36px auto 28px;
+  padding: 17px 24px;
+
+  max-width: 900px;
+
+  border: 1px solid #dfe7e1;
+  border-radius: 12px;
+
+  background: #f8faf9;
+
+  font-size: 15px;
+}
+
+.ecf-value-bottom strong {
+  color: var(--deep-slate, #17202a);
+}
+
+.ecf-value-bottom span {
+  color: var(--primary-green, #0d631b);
+  font-weight: 700;
+}
+
+/* ---------- CTA ---------- */
+
+.ecf-value-cta {
+  display: flex;
+  justify-content: center;
+}
+
+.ecf-value-cta .btn-primary {
+  min-width: 220px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .ecf-value-steps {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .ecf-value-arrow {
+    display: none;
+  }
+
+  .ecf-value-step {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .ecf-value-journey {
+    padding: 58px 18px 64px;
+  }
+
+  .ecf-value-heading {
+    margin-bottom: 34px;
+  }
+
+  .ecf-value-heading p {
+    font-size: 15px;
+  }
+
+  .ecf-value-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .ecf-value-step {
+    padding: 24px 22px;
+  }
+
+  .ecf-value-bottom {
+    flex-direction: column;
+    gap: 7px;
+    text-align: center;
+  }
+
+  .ecf-value-bottom span {
+    transform: rotate(90deg);
+  }
+}
