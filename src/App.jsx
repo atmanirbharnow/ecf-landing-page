@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
 
+// Active Google Forms Configuration
+const FORM_URLS = {
+  buy: 'https://forms.gle/1SSxSGfyjrHfNtJQ9',
+  sale: 'https://forms.gle/59QQtZFJKitpQfAy9',
+  development: 'https://forms.gle/ptNjE6nXGCn2MTWG8'
+};
+
 const factors = {
   solar: { factor: 0.82, label: "Capacity / Volume / Area (kW)", unit: "kW", min: 500, max: 10000, step: 500, defaultVal: 500 },
   water: { factor: 0.0012, label: "Volume Recycled (KL/yr)", unit: "KL", min: 10000, max: 500000, step: 10000, defaultVal: 50000 },
@@ -12,7 +19,7 @@ const factors = {
 export default function App() {
   const [assetType, setAssetType] = useState('solar');
   const [capacity, setCapacity] = useState(500);
-  const [modalType, setModalType] = useState(null); // 'assessment', 'partner', 'login'
+  const [activeModal, setActiveModal] = useState(null); // 'buy', 'sale', 'development', 'login'
   const [showEmailInput, setShowEmailInput] = useState(false);
 
   const activeFactor = factors[assetType];
@@ -43,8 +50,8 @@ export default function App() {
             <a href="#faq">FAQ</a>
           </div>
           <div className="ecf-nav-actions">
-            <button className="ecf-btn-secondary" onClick={() => setModalType('login')}>Login</button>
-            <button className="ecf-btn-primary" onClick={() => setModalType('assessment')}>
+            <button className="ecf-btn-secondary" onClick={() => setActiveModal('login')}>Login</button>
+            <button className="ecf-btn-primary" onClick={() => setActiveModal('development')}>
               Start Assessment <span className="ecf-tag">₹4,999</span>
             </button>
           </div>
@@ -60,25 +67,34 @@ export default function App() {
           <p className="ecf-hero-tagline">One platform. Buy · Sell · Generate</p>
 
           <div className="ecf-grid-3">
+            {/* BUY CTA */}
             <div className="ecf-card">
               <div className="ecf-arrow">↗ BUY</div>
-              <h3>Procure Credits</h3>
-              <p>Find verified carbon and environmental credits for your institutional compliance mandates.</p>
-              <button className="ecf-btn-outline" onClick={() => setModalType('partner')}>Explore Credits →</button>
+              <h3>Environment Credit Buying</h3>
+              <p>Find and procure verified carbon and environmental credits for institutional compliance and net-zero targets.</p>
+              <button className="ecf-btn-outline" onClick={() => setActiveModal('buy')}>
+                Buy Credits Mandate →
+              </button>
             </div>
 
+            {/* SELL CTA */}
             <div className="ecf-card">
               <div className="ecf-arrow">↙ SELL</div>
-              <h3>List Credits</h3>
-              <p>List your issued credits or pipeline projects and connect directly with verified buyers.</p>
-              <button className="ecf-btn-outline" onClick={() => setModalType('partner')}>List Credits →</button>
+              <h3>Environment Credit Sale</h3>
+              <p>List your issued credits, registry serials, or pipeline projects to connect directly with institutional buyers.</p>
+              <button className="ecf-btn-outline" onClick={() => setActiveModal('sale')}>
+                Sale Mandate →
+              </button>
             </div>
 
+            {/* GENERATE / DEVELOP CTA */}
             <div className="ecf-card ecf-card-highlight">
               <div className="ecf-arrow text-mint">＋ GENERATE</div>
-              <h3 className="text-white">Start Assessment</h3>
-              <p>Turn eligible low-carbon actions into measurable credits through registry aggregation.</p>
-              <button className="ecf-btn-mint" onClick={() => setModalType('assessment')}>Assess Asset (₹4,999) →</button>
+              <h3 className="text-white">Environmental Asset Development</h3>
+              <p>Onboard operating solar, water, waste, or efficiency assets into the 15 MW Aggregation Pool.</p>
+              <button className="ecf-btn-mint" onClick={() => setActiveModal('development')}>
+                Development Mandate (₹4,999) →
+              </button>
             </div>
           </div>
         </div>
@@ -90,7 +106,7 @@ export default function App() {
           <div className="ecf-pill">Execution Architecture</div>
           <h2 className="ecf-section-title">From Low-Carbon Action to Value</h2>
           <p className="ecf-section-desc">
-            Turn what you already do into measurable value. ECF helps assess your low-carbon actions, develop eligible projects, progress them through the appropriate registry pathway, generate credits and connect them with the market.
+            Turn what you already do into measurable value. ECF helps assess your low-carbon actions, develop eligible projects, progress them through the appropriate registry pathway, generate credits, and connect them with the market.
           </p>
 
           <div className="ecf-flow-steps">
@@ -132,7 +148,7 @@ export default function App() {
         <div className="ecf-container-sm text-center">
           <div className="ecf-pill">Free Calculator</div>
           <h2 className="ecf-section-title">Want a Quick Indication?</h2>
-          <p className="ecf-section-desc">Estimate the potential environmental value of your asset.</p>
+          <p className="ecf-section-desc">Estimate the potential environmental value of your operating asset.</p>
 
           <div className="ecf-calc-box">
             <div className="ecf-calc-tabs">
@@ -178,12 +194,16 @@ export default function App() {
             </small>
 
             <div className="ecf-calc-cta">
-              <button className="ecf-btn-primary" onClick={() => setModalType('assessment')}>Start Assessment (₹4,999)</button>
-              <button className="ecf-btn-secondary" onClick={() => setShowEmailInput(!showEmailInput)}>📧 Email Estimate</button>
+              <button className="ecf-btn-primary" onClick={() => setActiveModal('development')}>
+                Start Assessment (₹4,999)
+              </button>
+              <button className="ecf-btn-secondary" onClick={() => setShowEmailInput(!showEmailInput)}>
+                📧 Email Estimate
+              </button>
             </div>
 
             {showEmailInput && (
-              <form className="ecf-inline-email" onSubmit={(e) => { e.preventDefault(); alert('Estimate sent!'); setShowEmailInput(false); }}>
+              <form className="ecf-inline-email" onSubmit={(e) => { e.preventDefault(); alert('Estimate dispatched to your email!'); setShowEmailInput(false); }}>
                 <input type="email" placeholder="Enter work email" required />
                 <button type="submit" className="ecf-btn-primary">Send</button>
               </form>
@@ -273,10 +293,10 @@ export default function App() {
             <small>CIN: U85300GJ2019NPL106818</small>
           </div>
           <div>
-            <h4>Credits & Navigation</h4>
-            <a href="#about">About</a>
-            <a href="#progress">Progress</a>
-            <a href="#calculator">Calculator</a>
+            <h4>Mandate Links</h4>
+            <a href="#about" onClick={(e) => { e.preventDefault(); setActiveModal('buy'); }}>Environment Credit Buying</a>
+            <a href="#about" onClick={(e) => { e.preventDefault(); setActiveModal('sale'); }}>Environment Credit Sale</a>
+            <a href="#about" onClick={(e) => { e.preventDefault(); setActiveModal('development'); }}>Asset Development Mandate</a>
           </div>
           <div>
             <h4>Resources</h4>
@@ -296,39 +316,54 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Modals */}
-      {modalType === 'assessment' && (
+      {/* MODAL 1: ENVIRONMENT CREDIT BUYING MANDATE */}
+      {activeModal === 'buy' && (
         <div className="ecf-modal-backdrop">
           <div className="ecf-modal-body">
             <div className="ecf-modal-header">
-              <span>Environmental Asset Engagement Form (₹4,999)</span>
-              <button onClick={() => setModalType(null)}>✕</button>
+              <span>Environment Credit Buying Mandate</span>
+              <button onClick={() => setActiveModal(null)}>✕</button>
             </div>
-            <iframe src="https://forms.gle/PHZePsX1jieAQ3p38" title="Assessment Form" />
+            <iframe src={FORM_URLS.buy} title="Environment Credit Buying Mandate Form" />
           </div>
         </div>
       )}
 
-      {modalType === 'partner' && (
+      {/* MODAL 2: ENVIRONMENT CREDIT SALE MANDATE */}
+      {activeModal === 'sale' && (
         <div className="ecf-modal-backdrop">
           <div className="ecf-modal-body">
             <div className="ecf-modal-header">
-              <span>ECF Credits & Partner Application</span>
-              <button onClick={() => setModalType(null)}>✕</button>
+              <span>Environment Credit Sale Mandate</span>
+              <button onClick={() => setActiveModal(null)}>✕</button>
             </div>
-            <iframe src="https://forms.gle/A9K4ZvTZ94HvAisR7" title="Partner Form" />
+            <iframe src={FORM_URLS.sale} title="Environment Credit Sale Mandate Form" />
           </div>
         </div>
       )}
 
-      {modalType === 'login' && (
+      {/* MODAL 3: ENVIRONMENTAL ASSET DEVELOPMENT MANDATE */}
+      {activeModal === 'development' && (
+        <div className="ecf-modal-backdrop">
+          <div className="ecf-modal-body">
+            <div className="ecf-modal-header">
+              <span>Environmental Asset Development Mandate (₹4,999)</span>
+              <button onClick={() => setActiveModal(null)}>✕</button>
+            </div>
+            <iframe src={FORM_URLS.development} title="Environmental Asset Development Mandate Form" />
+          </div>
+        </div>
+      )}
+
+      {/* LOGIN MODAL */}
+      {activeModal === 'login' && (
         <div className="ecf-modal-backdrop">
           <div className="ecf-modal-small">
             <div className="ecf-modal-header">
               <span>Client Portal Login</span>
-              <button onClick={() => setModalType(null)}>✕</button>
+              <button onClick={() => setActiveModal(null)}>✕</button>
             </div>
-            <form onSubmit={(e) => { e.preventDefault(); alert('Redirecting to Portal...'); setModalType(null); }} className="ecf-login-form">
+            <form onSubmit={(e) => { e.preventDefault(); alert('Redirecting to Portal...'); setActiveModal(null); }} className="ecf-login-form">
               <input type="email" placeholder="Work Email" required />
               <input type="password" placeholder="Password" required />
               <button type="submit" className="ecf-btn-primary w-full">Login</button>
