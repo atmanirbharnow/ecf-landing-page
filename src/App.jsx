@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
 
-// Active Google Forms Configuration (Using direct embed endpoints)
-const FORM_URLS = {
-  buy: 'https://docs.google.com/forms/d/e/1FAIpQLSdXyAQt3DvyaNZ06T69Dog9o4MzxE2AoxWJT1XjbE-ggMzFdQ/viewform?embedded=true',
-  sale: 'https://docs.google.com/forms/d/e/1FAIpQLSfwC8mF3gXl9_wM6c47X-59QQtZFJKitpQfAy9/viewform?embedded=true',
-  development: 'https://docs.google.com/forms/d/e/1FAIpQLSfVb5qNhhgMKgRMqjV7Stv3khqA5Zv6ANKy7/viewform?embedded=true'
-};
-
-const DIRECT_FORM_LINKS = {
+// Active Direct Mandate & Meeting Links
+const MANDATE_LINKS = {
   buy: 'https://forms.gle/1SSxSGfyjrHfNtJQ9',
   sale: 'https://forms.gle/59QQtZFJKitpQfAy9',
-  development: 'https://forms.gle/Stv3khqA5Zv6ANKy7'
+  development: 'https://forms.gle/Stv3khqA5Zv6ANKy7',
+  cal: 'https://cal.com/earthcarbon/20-minutediscovery-call'
 };
 
 const factors = {
@@ -25,7 +20,7 @@ const factors = {
 export default function App() {
   const [assetType, setAssetType] = useState('solar');
   const [capacity, setCapacity] = useState(500);
-  const [activeModal, setActiveModal] = useState(null); // 'buy', 'sale', 'development', 'login'
+  const [activeModal, setActiveModal] = useState(null);
   const [showEmailInput, setShowEmailInput] = useState(false);
 
   const activeFactor = factors[assetType];
@@ -36,6 +31,10 @@ export default function App() {
   const handleAssetSwitch = (key) => {
     setAssetType(key);
     setCapacity(factors[key].defaultVal);
+  };
+
+  const openExternal = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -56,8 +55,13 @@ export default function App() {
             <a href="#faq">FAQ</a>
           </div>
           <div className="ecf-nav-actions">
-            <button className="ecf-btn-secondary" onClick={() => setActiveModal('login')}>Login</button>
-            <button className="ecf-btn-primary" onClick={() => setActiveModal('development')}>
+            <button className="ecf-btn-secondary" onClick={() => openExternal(MANDATE_LINKS.cal)}>
+              📅 Book Call
+            </button>
+            <button className="ecf-btn-secondary" onClick={() => setActiveModal('login')}>
+              Login
+            </button>
+            <button className="ecf-btn-primary" onClick={() => openExternal(MANDATE_LINKS.development)}>
               Start Assessment <span className="ecf-tag">₹4,999</span>
             </button>
           </div>
@@ -78,8 +82,8 @@ export default function App() {
               <div className="ecf-arrow">↗ BUY</div>
               <h3>Environment Credit Buying</h3>
               <p>Find and procure verified carbon and environmental credits for institutional compliance and net-zero targets.</p>
-              <button className="ecf-btn-outline" onClick={() => setActiveModal('buy')}>
-                Buy Credits Mandate →
+              <button className="ecf-btn-outline" onClick={() => openExternal(MANDATE_LINKS.buy)}>
+                Buy Credits Mandate ↗
               </button>
             </div>
 
@@ -88,8 +92,8 @@ export default function App() {
               <div className="ecf-arrow">↙ SELL</div>
               <h3>Environment Credit Sale</h3>
               <p>List your issued credits, registry serials, or pipeline projects to connect directly with institutional buyers.</p>
-              <button className="ecf-btn-outline" onClick={() => setActiveModal('sale')}>
-                Sale Mandate →
+              <button className="ecf-btn-outline" onClick={() => openExternal(MANDATE_LINKS.sale)}>
+                Sale Mandate ↗
               </button>
             </div>
 
@@ -98,8 +102,8 @@ export default function App() {
               <div className="ecf-arrow text-mint">＋ GENERATE</div>
               <h3 className="text-white">Environmental Asset Development</h3>
               <p>Onboard operating solar, water, waste, or efficiency assets into the 15 MW Aggregation Pool.</p>
-              <button className="ecf-btn-mint" onClick={() => setActiveModal('development')}>
-                Development Mandate (₹4,999) →
+              <button className="ecf-btn-mint" onClick={() => openExternal(MANDATE_LINKS.development)}>
+                Development Mandate (₹4,999) ↗
               </button>
             </div>
           </div>
@@ -200,8 +204,8 @@ export default function App() {
             </small>
 
             <div className="ecf-calc-cta">
-              <button className="ecf-btn-primary" onClick={() => setActiveModal('development')}>
-                Start Assessment (₹4,999)
+              <button className="ecf-btn-primary" onClick={() => openExternal(MANDATE_LINKS.development)}>
+                Start Assessment (₹4,999) ↗
               </button>
               <button className="ecf-btn-secondary" onClick={() => setShowEmailInput(!showEmailInput)}>
                 📧 Email Estimate
@@ -300,9 +304,10 @@ export default function App() {
           </div>
           <div>
             <h4>Mandate Links</h4>
-            <a href="#about" onClick={(e) => { e.preventDefault(); setActiveModal('buy'); }}>Environment Credit Buying</a>
-            <a href="#about" onClick={(e) => { e.preventDefault(); setActiveModal('sale'); }}>Environment Credit Sale</a>
-            <a href="#about" onClick={(e) => { e.preventDefault(); setActiveModal('development'); }}>Asset Development Mandate</a>
+            <a href={MANDATE_LINKS.buy} target="_blank" rel="noreferrer">Environment Credit Buying ↗</a>
+            <a href={MANDATE_LINKS.sale} target="_blank" rel="noreferrer">Environment Credit Sale ↗</a>
+            <a href={MANDATE_LINKS.development} target="_blank" rel="noreferrer">Asset Development Mandate ↗</a>
+            <a href={MANDATE_LINKS.cal} target="_blank" rel="noreferrer">Book Discovery Call ↗</a>
           </div>
           <div>
             <h4>Resources</h4>
@@ -321,60 +326,6 @@ export default function App() {
           &copy; 2026 Earth Carbon Foundation. Prototype — figures are illustrative.
         </div>
       </footer>
-
-      {/* MODAL 1: ENVIRONMENT CREDIT BUYING MANDATE */}
-      {activeModal === 'buy' && (
-        <div className="ecf-modal-backdrop">
-          <div className="ecf-modal-body">
-            <div className="ecf-modal-header">
-              <span>Environment Credit Buying Mandate</span>
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                <a href={DIRECT_FORM_LINKS.buy} target="_blank" rel="noreferrer" style={{ color: '#fff', fontSize: '12px', textDecoration: 'underline' }}>
-                  Open in new tab ↗
-                </a>
-                <button onClick={() => setActiveModal(null)}>✕</button>
-              </div>
-            </div>
-            <iframe src={FORM_URLS.buy} title="Environment Credit Buying Mandate Form" />
-          </div>
-        </div>
-      )}
-
-      {/* MODAL 2: ENVIRONMENT CREDIT SALE MANDATE */}
-      {activeModal === 'sale' && (
-        <div className="ecf-modal-backdrop">
-          <div className="ecf-modal-body">
-            <div className="ecf-modal-header">
-              <span>Environment Credit Sale Mandate</span>
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                <a href={DIRECT_FORM_LINKS.sale} target="_blank" rel="noreferrer" style={{ color: '#fff', fontSize: '12px', textDecoration: 'underline' }}>
-                  Open in new tab ↗
-                </a>
-                <button onClick={() => setActiveModal(null)}>✕</button>
-              </div>
-            </div>
-            <iframe src={FORM_URLS.sale} title="Environment Credit Sale Mandate Form" />
-          </div>
-        </div>
-      )}
-
-      {/* MODAL 3: ENVIRONMENTAL ASSET DEVELOPMENT MANDATE */}
-      {activeModal === 'development' && (
-        <div className="ecf-modal-backdrop">
-          <div className="ecf-modal-body">
-            <div className="ecf-modal-header">
-              <span>Environmental Asset Development Mandate (₹4,999)</span>
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                <a href={DIRECT_FORM_LINKS.development} target="_blank" rel="noreferrer" style={{ color: '#fff', fontSize: '12px', textDecoration: 'underline' }}>
-                  Open in new tab ↗
-                </a>
-                <button onClick={() => setActiveModal(null)}>✕</button>
-              </div>
-            </div>
-            <iframe src={FORM_URLS.development} title="Environmental Asset Development Mandate Form" />
-          </div>
-        </div>
-      )}
 
       {/* LOGIN MODAL */}
       {activeModal === 'login' && (
