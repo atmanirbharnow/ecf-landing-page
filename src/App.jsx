@@ -47,7 +47,7 @@ export default function App() {
             <a href="#how-it-works">How It Works</a>
             <a href="#journey">The Journey</a>
             <a href="#pricing">Pricing</a>
-            <a href="#roi">ROI Case</a>
+            <a href="#roi-case">ROI Case</a>
             <a href="#faq">FAQ</a>
           </div>
           <div className="b2b-nav-actions">
@@ -249,26 +249,26 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECTION: CONCRETE ROI BUSINESS CASE */}
-      <section id="roi" className="b2b-section bg-light">
+      {/* SECTION: THE BUSINESS CASE & ROI */}
+      <section id="roi-case" className="b2b-section bg-light">
         <div className="b2b-container text-center">
           <div className="b2b-pill">Financial Model</div>
           <h2 className="b2b-section-title">The Business Case: Your ROI in Year 1</h2>
           <p className="b2b-section-desc">What you get for your investment vs. traditional alternatives.</p>
 
-          {/* Investment Summary Box */}
+          {/* Investment Highlight Box */}
           <div className="roi-investment-box">
             <h3>Your Total Year 1 Investment</h3>
             <div className="roi-big-number">₹44,999</div>
-            <p className="roi-small-text">The Foundation (₹19,999) + Carbon Footprint Report (₹25,000)</p>
-            <span className="roi-context-badge">Less than the monthly salary of a single junior engineer</span>
+            <p className="roi-small-text">(Layer 1: ₹19,999 + Carbon Footprint Report: ₹25,000)</p>
+            <span className="roi-context-badge">Less than the monthly salary of a junior engineer</span>
           </div>
 
-          {/* Returns Grid */}
-          <div className="b2b-grid-3 text-left" style={{ marginBottom: '40px' }}>
+          {/* Tangible Returns Grid */}
+          <div className="b2b-grid-3 text-left" style={{ marginBottom: '35px' }}>
             <div className="roi-return-card">
               <div className="roi-card-icon">📋</div>
-              <h4>Audit-Ready Compliance</h4>
+              <h4>Audit-Ready Compliance Report</h4>
               <div className="roi-return-value">₹75,000+</div>
               <p className="roi-return-desc">Market value of a verified, professional GHG compliance portfolio</p>
             </div>
@@ -276,8 +276,8 @@ export default function App() {
             <div className="roi-return-card">
               <div className="roi-card-icon">⚡</div>
               <h4>Energy Savings</h4>
-              <div className="roi-return-value">₹50,000 - ₹1,00,000</div>
-              <p className="roi-return-desc">Realized from identifying just ONE motor or thermal inefficiency</p>
+              <div className="roi-return-value">₹50,000 – ₹1,00,000</div>
+              <p className="roi-return-desc">From identifying and optimizing just ONE shop-floor inefficiency</p>
             </div>
 
             <div className="roi-return-card roi-return-highlight">
@@ -288,14 +288,14 @@ export default function App() {
             </div>
           </div>
 
-          {/* Final Calculation Box */}
+          {/* Net Result Calculation Card */}
           <div className="roi-calc-container">
             <div className="roi-calc-row">
-              <span>Total Value Gained:</span>
+              <span>Total Gained:</span>
               <span className="roi-positive">₹2,00,000+</span>
             </div>
             <div className="roi-calc-row">
-              <span>Minus Total Year 1 Investment:</span>
+              <span>Minus Investment:</span>
               <span className="roi-negative">- ₹44,999</span>
             </div>
             <div className="roi-calc-row roi-calc-total">
@@ -303,11 +303,11 @@ export default function App() {
               <span className="roi-net-highlight">₹1,55,001</span>
             </div>
             <div className="roi-percentage-banner">
-              🎯 <strong>~344% Net ROI in Year 1</strong>
+              🎯 <strong>ROI: ~344% in Year 1</strong>
             </div>
           </div>
 
-          {/* Comparison Table */}
+          {/* Alternative Comparison Table */}
           <div className="roi-comparison-container">
             <h3 className="roi-comp-title">Why the Hybrid Model Wins</h3>
             <div className="roi-table-responsive">
@@ -316,32 +316,32 @@ export default function App() {
                   <tr>
                     <th>Option</th>
                     <th>Annual Cost</th>
-                    <th>Expertise Level</th>
+                    <th>Expertise</th>
                     <th>Tech Platform</th>
-                    <th>Carbon Monetization</th>
+                    <th>Carbon Revenue</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td><strong>Hire Full-Time Manager</strong></td>
-                    <td>₹6.0 – ₹9.0 Lakhs/yr</td>
-                    <td>Junior to Mid-level</td>
-                    <td>❌ None (Static Excel)</td>
-                    <td>0% (In-house overhead)</td>
+                    <td>₹6-9 Lakhs</td>
+                    <td>Junior-Mid Level</td>
+                    <td>❌ Excel</td>
+                    <td>0% (Keep all)</td>
                   </tr>
                   <tr>
-                    <td><strong>Traditional ESG Consultant</strong></td>
-                    <td>₹1.5 – ₹3.0 Lakhs/report</td>
-                    <td>Senior (Remote Only)</td>
+                    <td><strong>Traditional Consultant</strong></td>
+                    <td>₹1.5-3 Lakhs</td>
+                    <td>Senior (Remote)</td>
                     <td>❌ None</td>
-                    <td>0% (Static PDF delivery only)</td>
+                    <td>0% (PDF only)</td>
                   </tr>
                   <tr className="roi-row-highlight">
                     <td><strong>Earth Carbon Hybrid</strong></td>
                     <td><strong>₹44,999 base</strong></td>
-                    <td>✅ Senior GHG Practitioner + On-Site</td>
-                    <td>✅ Included (Vault)</td>
-                    <td><strong>75% Net Revenue to You</strong></td>
+                    <td><strong>Senior + On-site</strong></td>
+                    <td>✅ Included</td>
+                    <td><strong>75% to you</strong></td>
                   </tr>
                 </tbody>
               </table>

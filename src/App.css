@@ -191,11 +191,10 @@ body {
   border: 1px solid rgba(46, 125, 50, 0.2);
 }
 
-/* HERO */
+/* HERO SECTION */
 .b2b-hero {
   padding: 95px 0 85px;
   background: radial-gradient(circle at 50% 0%, #eef7f2 0%, var(--bg-page) 75%);
-  position: relative;
 }
 
 .b2b-hero-title {
@@ -281,7 +280,6 @@ body {
   text-align: left;
   box-shadow: var(--shadow-sm);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
 }
 
 .b2b-card:hover {
@@ -293,7 +291,6 @@ body {
 .b2b-card-icon {
   font-size: 32px;
   margin-bottom: 16px;
-  display: inline-block;
 }
 
 .b2b-card h3 {
@@ -309,13 +306,8 @@ body {
   line-height: 1.6;
 }
 
-.b2b-card-alert {
-  border-top: 4px solid #ef4444;
-}
-
-.b2b-card-solution {
-  border-top: 4px solid var(--primary);
-}
+.b2b-card-alert { border-top: 4px solid #ef4444; }
+.b2b-card-solution { border-top: 4px solid var(--primary); }
 
 /* JOURNEY STEPPER */
 .b2b-journey-grid {
@@ -331,7 +323,6 @@ body {
   padding: 28px 22px;
   text-align: left;
   box-shadow: var(--shadow-sm);
-  position: relative;
 }
 
 .b2b-step-num {
@@ -360,7 +351,7 @@ body {
   border-color: #194333;
 }
 
-/* PRICING */
+/* PRICING CARDS */
 .b2b-price-card {
   background: #ffffff;
   border: 1px solid var(--border-subtle);
@@ -370,11 +361,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
-}
-
-.b2b-price-card:hover {
-  box-shadow: var(--shadow-md);
 }
 
 .b2b-price-featured {
@@ -419,9 +405,7 @@ body {
   margin-bottom: 28px;
 }
 
-.b2b-price-list li {
-  margin-bottom: 12px;
-}
+.b2b-price-list li { margin-bottom: 12px; }
 
 .b2b-addon-list {
   display: flex;
@@ -449,7 +433,184 @@ body {
   font-size: 14.5px;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 22px;
-  line-height: 1.6;
+}
+
+/* ROI FINANCIAL MODEL */
+.roi-investment-box {
+  background: #ffffff;
+  border: 2px solid var(--primary);
+  border-radius: 16px;
+  padding: 32px 24px;
+  max-width: 620px;
+  margin: 0 auto 35px;
+  box-shadow: var(--shadow-md);
+}
+
+.roi-investment-box h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.roi-big-number {
+  font-size: 46px;
+  font-weight: 900;
+  color: var(--primary);
+  margin: 6px 0;
+  letter-spacing: -1px;
+}
+
+.roi-small-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.roi-context-badge {
+  display: inline-block;
+  background: #e8f5e9;
+  color: var(--primary);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.roi-return-card {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 28px 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease;
+}
+
+.roi-return-card:hover {
+  transform: translateY(-3px);
+}
+
+.roi-card-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.roi-return-card h4 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.roi-return-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.roi-return-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.roi-return-highlight {
+  background: var(--dark-forest);
+  border-color: #194333;
+}
+
+.roi-calc-container {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 620px;
+  margin: 0 auto 45px;
+  box-shadow: var(--shadow-sm);
+}
+
+.roi-calc-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 15.5px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.roi-positive { color: var(--primary); }
+.roi-negative { color: #dc2626; }
+
+.roi-calc-total {
+  font-size: 18px;
+  font-weight: 800;
+  border-bottom: none;
+  padding-top: 16px;
+}
+
+.roi-net-highlight {
+  font-size: 24px;
+  color: var(--primary);
+}
+
+.roi-percentage-banner {
+  margin-top: 18px;
+  background: #e8f5e9;
+  border: 1.5px solid var(--primary);
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--primary-dark);
+  font-size: 15px;
+}
+
+.roi-comparison-container {
+  margin-top: 45px;
+}
+
+.roi-comp-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.roi-table-responsive {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+.roi-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.roi-table th {
+  background: #f8faf9;
+  padding: 14px 18px;
+  font-weight: 700;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.roi-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+}
+
+.roi-row-highlight {
+  background: #eef7f2 !important;
+  font-weight: 600;
+}
+
+.roi-row-highlight td {
+  color: var(--primary-dark) !important;
 }
 
 /* ROI QUOTE */
@@ -464,20 +625,12 @@ body {
   font-weight: 500;
   line-height: 1.55;
   margin-bottom: 26px;
-  letter-spacing: -0.3px;
 }
 
-.b2b-attribution strong {
-  font-size: 17px;
-  display: block;
-}
+.b2b-attribution strong { font-size: 17px; display: block; }
+.b2b-attribution span { font-size: 13.5px; color: rgba(255, 255, 255, 0.75); }
 
-.b2b-attribution span {
-  font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-/* FAQ SECTION */
+/* FAQ */
 .b2b-faq-list {
   display: flex;
   flex-direction: column;
@@ -490,7 +643,6 @@ body {
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
   padding: 20px 24px;
-  transition: all 0.2s ease;
 }
 
 .b2b-faq-item[open] {
@@ -501,38 +653,23 @@ body {
 .b2b-faq-item summary {
   font-size: 16px;
   font-weight: 700;
-  color: var(--text-main);
   cursor: pointer;
-  outline: none;
   list-style: none;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-.b2b-faq-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.b2b-faq-item summary::after {
-  content: "+";
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--primary);
-}
-
-.b2b-faq-item[open] summary::after {
-  content: "−";
-}
+.b2b-faq-item summary::-webkit-details-marker { display: none; }
+.b2b-faq-item summary::after { content: "+"; font-size: 20px; color: var(--primary); }
+.b2b-faq-item[open] summary::after { content: "−"; }
 
 .b2b-faq-item p {
   font-size: 14px;
   color: var(--text-muted);
   margin-top: 14px;
-  line-height: 1.6;
 }
 
-/* CONTACT FORM */
+/* CONTACT */
 .b2b-contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -540,29 +677,10 @@ body {
   align-items: center;
 }
 
-.b2b-contact-info h2 {
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 1.25;
-  margin-bottom: 16px;
-}
-
-.b2b-contact-info p {
-  color: var(--text-muted);
-  font-size: 16px;
-  margin-bottom: 30px;
-}
-
-.b2b-contact-details div {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 14px;
-}
-
-.b2b-contact-details a {
-  color: var(--primary);
-  text-decoration: none;
-}
+.b2b-contact-info h2 { font-size: 32px; font-weight: 800; margin-bottom: 16px; }
+.b2b-contact-info p { color: var(--text-muted); font-size: 16px; margin-bottom: 30px; }
+.b2b-contact-details div { font-size: 15px; font-weight: 600; margin-bottom: 14px; }
+.b2b-contact-details a { color: var(--primary); text-decoration: none; }
 
 .b2b-direct-cal-box {
   margin-top: 36px;
@@ -570,17 +688,6 @@ body {
   background: var(--bg-page);
   border-radius: 12px;
   border: 1px solid var(--border-subtle);
-}
-
-.b2b-direct-cal-box h4 {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.b2b-direct-cal-box p {
-  font-size: 13.5px;
-  margin-bottom: 16px;
 }
 
 .b2b-form-card {
@@ -591,11 +698,7 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-.b2b-form-card h3 {
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 24px;
-}
+.b2b-form-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 24px; }
 
 .b2b-form-group {
   display: flex;
@@ -605,32 +708,15 @@ body {
   text-align: left;
 }
 
-.b2b-form-group label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #334155;
-}
-
-.b2b-form-group input,
-.b2b-form-group select {
+.b2b-form-group label { font-size: 13px; font-weight: 600; color: #334155; }
+.b2b-form-group input, .b2b-form-group select {
   padding: 12px 16px;
   border-radius: 8px;
   border: 1.5px solid var(--border-subtle);
   font-size: 14px;
-  transition: border-color 0.2s;
-  outline: none;
 }
 
-.b2b-form-group input:focus,
-.b2b-form-group select:focus {
-  border-color: var(--border-focus);
-}
-
-.b2b-form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
+.b2b-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
 /* FOOTER */
 .b2b-footer {
@@ -638,7 +724,6 @@ body {
   color: #ffffff;
   padding: 48px 0;
   font-size: 13px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .b2b-footer-inner {
@@ -649,33 +734,14 @@ body {
   gap: 20px;
 }
 
-.b2b-footer-links {
-  display: flex;
-  gap: 24px;
-}
-
-.b2b-footer-links a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.b2b-footer-links a:hover {
-  color: var(--accent-mint);
-}
+.b2b-footer-links { display: flex; gap: 24px; }
+.b2b-footer-links a { color: rgba(255, 255, 255, 0.7); text-decoration: none; }
+.b2b-footer-links a:hover { color: var(--accent-mint); }
 
 /* RESPONSIVE */
 @media (max-width: 960px) {
-  .b2b-grid-3, .b2b-journey-grid, .b2b-contact-grid {
-    grid-template-columns: 1fr;
-  }
-  .b2b-hero-title {
-    font-size: 34px;
-  }
-  .b2b-nav-links {
-    display: none;
-  }
-  .b2b-form-card {
-    padding: 26px;
-  }
+  .b2b-grid-3, .b2b-journey-grid, .b2b-contact-grid { grid-template-columns: 1fr; }
+  .b2b-hero-title { font-size: 34px; }
+  .b2b-nav-links { display: none; }
+  .b2b-form-card { padding: 26px; }
 }
