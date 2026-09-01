@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
 
-  // Active Direct Mandate & Meeting Links
+// Active Direct Mandate & Meeting Links
 const MANDATE_LINKS = {
   buy: 'https://forms.gle/1SSxSGfyjrHfNtJQ9',
   sale: 'https://forms.gle/59QQtZFJKitpQfAy9',
   development: 'https://forms.gle/Stv3khqA5Zv6ANKy7',
   cal: 'https://cal.com/amit-sinh-earth-carbon-wbfdu4'
 };
-
 
 const factors = {
   solar: { factor: 0.82, label: "Capacity / Volume / Area (kW)", unit: "kW", min: 500, max: 10000, step: 500, defaultVal: 500 },
