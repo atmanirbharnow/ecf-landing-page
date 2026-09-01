@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import './App.css';
 
-// Active Google Forms Configuration
+// Active Google Forms Configuration (Using direct embed endpoints)
 const FORM_URLS = {
+  buy: 'https://docs.google.com/forms/d/e/1FAIpQLSdXyAQt3DvyaNZ06T69Dog9o4MzxE2AoxWJT1XjbE-ggMzFdQ/viewform?embedded=true',
+  sale: 'https://docs.google.com/forms/d/e/1FAIpQLSfwC8mF3gXl9_wM6c47X-59QQtZFJKitpQfAy9/viewform?embedded=true',
+  development: 'https://docs.google.com/forms/d/e/1FAIpQLSfVb5qNhhgMKgRMqjV7Stv3khqA5Zv6ANKy7/viewform?embedded=true'
+};
+
+const DIRECT_FORM_LINKS = {
   buy: 'https://forms.gle/1SSxSGfyjrHfNtJQ9',
   sale: 'https://forms.gle/59QQtZFJKitpQfAy9',
-  development: 'https://forms.gle/ptNjE6nXGCn2MTWG8'
+  development: 'https://forms.gle/Stv3khqA5Zv6ANKy7'
 };
 
 const factors = {
@@ -322,7 +328,12 @@ export default function App() {
           <div className="ecf-modal-body">
             <div className="ecf-modal-header">
               <span>Environment Credit Buying Mandate</span>
-              <button onClick={() => setActiveModal(null)}>✕</button>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                <a href={DIRECT_FORM_LINKS.buy} target="_blank" rel="noreferrer" style={{ color: '#fff', fontSize: '12px', textDecoration: 'underline' }}>
+                  Open in new tab ↗
+                </a>
+                <button onClick={() => setActiveModal(null)}>✕</button>
+              </div>
             </div>
             <iframe src={FORM_URLS.buy} title="Environment Credit Buying Mandate Form" />
           </div>
@@ -335,7 +346,12 @@ export default function App() {
           <div className="ecf-modal-body">
             <div className="ecf-modal-header">
               <span>Environment Credit Sale Mandate</span>
-              <button onClick={() => setActiveModal(null)}>✕</button>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                <a href={DIRECT_FORM_LINKS.sale} target="_blank" rel="noreferrer" style={{ color: '#fff', fontSize: '12px', textDecoration: 'underline' }}>
+                  Open in new tab ↗
+                </a>
+                <button onClick={() => setActiveModal(null)}>✕</button>
+              </div>
             </div>
             <iframe src={FORM_URLS.sale} title="Environment Credit Sale Mandate Form" />
           </div>
@@ -348,7 +364,12 @@ export default function App() {
           <div className="ecf-modal-body">
             <div className="ecf-modal-header">
               <span>Environmental Asset Development Mandate (₹4,999)</span>
-              <button onClick={() => setActiveModal(null)}>✕</button>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                <a href={DIRECT_FORM_LINKS.development} target="_blank" rel="noreferrer" style={{ color: '#fff', fontSize: '12px', textDecoration: 'underline' }}>
+                  Open in new tab ↗
+                </a>
+                <button onClick={() => setActiveModal(null)}>✕</button>
+              </div>
             </div>
             <iframe src={FORM_URLS.development} title="Environmental Asset Development Mandate Form" />
           </div>
