@@ -745,3 +745,195 @@ body {
   .b2b-nav-links { display: none; }
   .b2b-form-card { padding: 26px; }
 }
+/* 1-GLANCE ROI FLOW */
+.roi-flow-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 30px auto 50px;
+  flex-wrap: wrap;
+}
+
+.roi-flow-card {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle, #e2e8f0);
+  border-radius: 14px;
+  padding: 28px 22px;
+  width: 310px;
+  text-align: left;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.roi-card-profit {
+  background: #0b1e17 !important;
+  border-color: #194333 !important;
+}
+
+.roi-card-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: #f1f5f9;
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+.tag-green {
+  background: #e8f5e9 !important;
+  color: #1b5e20 !important;
+}
+
+.tag-mint {
+  background: rgba(0, 208, 132, 0.2) !important;
+  color: #00d084 !important;
+}
+
+.roi-card-amount {
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: #0f172a;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.roi-flow-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+
+.roi-flow-card p {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 14px;
+  min-height: 40px;
+}
+
+.roi-footnote {
+  font-size: 11.5px;
+  color: #94a3b8;
+  border-top: 1px dashed #e2e8f0;
+  padding-top: 10px;
+  margin-top: auto;
+}
+
+.roi-card-profit .roi-footnote {
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+.roi-arrow {
+  font-size: 26px;
+  font-weight: 800;
+  color: #94a3b8;
+}
+
+.roi-badge-roi {
+  background: #00d084;
+  color: #0b1e17;
+  font-weight: 800;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 14px;
+  align-self: flex-start;
+}
+
+/* CLEAN COMPARISON TABLE */
+.roi-table-wrap {
+  margin-top: 40px;
+}
+
+.roi-table-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 18px;
+  color: #0f172a;
+}
+
+.roi-table-scroll {
+  overflow-x: auto;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.roi-table-v2 {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.roi-table-v2 th {
+  background: #f8faf9;
+  padding: 14px 18px;
+  font-weight: 700;
+  color: #1e293b;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.roi-table-v2 td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #475569;
+}
+
+.roi-winner-row {
+  background: #eef7f2 !important;
+}
+
+.roi-winner-row td {
+  color: #0f3d14 !important;
+}
+
+@media (max-width: 900px) {
+  .roi-arrow {
+    transform: rotate(90deg);
+    margin: 5px 0;
+  }
+}
+/* 6-PILLAR FORMATTING */
+.pillar-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 14px;
+}
+
+.pillar-list li {
+  font-size: 13.5px;
+  color: var(--text-muted, #475569);
+  line-height: 1.55;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 18px;
+}
+
+.pillar-list li::before {
+  content: "•";
+  color: var(--primary, #1b5e20);
+  font-weight: bold;
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+
+.roi-formula-tagline {
+  font-size: 13.5px;
+  color: var(--text-muted, #64748b);
+  margin-top: 14px;
+  font-weight: 500;
+}

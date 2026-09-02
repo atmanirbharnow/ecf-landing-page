@@ -249,49 +249,102 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECTION: 1-GLANCE ROI & BUSINESS CASE */}
+      {/* SECTION: 6-PILLAR OPERATIONAL TRANSFORMATION & FORMULA */}
       <section id="roi-case" className="b2b-section bg-light">
         <div className="b2b-container text-center">
-          <div className="b2b-pill">Year 1 Financial Math</div>
-          <h2 className="b2b-section-title">The Business Case: Positive ROI from Day 1</h2>
-          <p className="b2b-section-desc">How compliance and energy savings turn sustainability into a net profit center.</p>
+          <div className="b2b-pill">Operational Transformation</div>
+          <h2 className="b2b-section-title">What Changes When You Adopt the ECF Engine</h2>
+          <p className="b2b-section-desc">
+            One clean integration. Six permanent shifts from compliance friction to commercial advantage.
+          </p>
 
-          {/* 3-STEP VISUAL EQUATION */}
-          <div className="roi-flow-grid">
-            {/* Step 1: Input */}
-            <div className="roi-flow-card">
-              <span className="roi-card-tag">1. You Invest</span>
-              <div className="roi-card-amount">₹44,999</div>
-              <h4>Year 1 Foundation</h4>
-              <p>Platform vault (₹19,999) + Scope 1 & 2 audit report (₹25,000).</p>
-              <div className="roi-footnote">Less than 1 month of junior engineer salary</div>
+          {/* THE STAR HERO FORMULA BANNER */}
+          <div className="roi-hero-banner">
+            <div className="roi-formula-box">
+              <span className="roi-formula-term text-profit">Net Profit</span>
+              <span className="roi-formula-op">=</span>
+              <span className="roi-formula-group">
+                [ <strong className="text-gain">Power Savings</strong> + <strong className="text-gain">Carbon Revenue</strong> ]
+              </span>
+              <span className="roi-formula-op">−</span>
+              <span className="roi-formula-term text-cost">₹45,000 Outflow</span>
             </div>
-
-            <div className="roi-arrow">→</div>
-
-            {/* Step 2: Output */}
-            <div className="roi-flow-card">
-              <span className="roi-card-tag tag-green">2. You Recover</span>
-              <div className="roi-card-amount text-primary">₹2,00,000+</div>
-              <h4>Direct Returns</h4>
-              <p>⚡ Energy savings: ₹50k–₹1L<br />🌱 Carbon credit revenue: ₹1.5L+</p>
-              <div className="roi-footnote">From optimizing just 1 thermal/power hotspot</div>
-            </div>
-
-            <div className="roi-arrow">═</div>
-
-            {/* Step 3: Net Profit */}
-            <div className="roi-flow-card roi-card-profit">
-              <span className="roi-card-tag tag-mint">3. Net Impact</span>
-              <div className="roi-card-amount text-mint">₹1,55,001</div>
-              <h4 className="text-white">Net Cash Profit</h4>
-              <div className="roi-badge-roi">~344% Year 1 ROI</div>
-              <div className="roi-footnote text-white-80">Sustainability pays for itself</div>
+            <div className="roi-formula-tagline">
+              Adopt the formula. Plug your plant into the template. Let operational savings and carbon upside self-finance your compliance.
             </div>
           </div>
 
-          {/* CLEAN COMPARISON TABLE */}
-          <div className="roi-table-wrap">
+          {/* 6-PILLAR SHIFT GRID */}
+          <div className="b2b-grid-3 text-left" style={{ marginTop: '40px' }}>
+            {/* Pillar 1 */}
+            <div className="b2b-card b2b-card-solution">
+              <div className="b2b-card-icon">📈</div>
+              <h3>1. Market Value & Trust</h3>
+              <ul className="pillar-list">
+                <li><strong>Brand Leadership:</strong> Pre-qualify effortlessly for global OEM supply chains.</li>
+                <li><strong>Public Benchmarking:</strong> Quantified contributions toward national INDC and Net Zero targets.</li>
+                <li><strong>Consumer Trust:</strong> Credible, auditable sustainability metrics ready for public showcase.</li>
+              </ul>
+            </div>
+
+            {/* Pillar 2 */}
+            <div className="b2b-card b2b-card-solution">
+              <div className="b2b-card-icon">📋</div>
+              <h3>2. Compliance & Disclosure</h3>
+              <ul className="pillar-list">
+                <li><strong>Continuous Monitoring:</strong> Real-time Scope 1 & 2 tracking without year-end panic.</li>
+                <li><strong>Global Standard Aligned:</strong> 1-click reporting for BRSR Core, GHG Protocol, and CDP.</li>
+                <li><strong>Export Defense:</strong> Pre-calculated emissions portfolios ready for EU CBAM audits.</li>
+              </ul>
+            </div>
+
+            {/* Pillar 3 */}
+            <div className="b2b-card b2b-card-solution">
+              <div className="b2b-card-icon">🌱</div>
+              <h3>3. Revenue Generation</h3>
+              <ul className="pillar-list">
+                <li><strong>PoA Bundling:</strong> Aggregate sub-15 MW solar and energy assets at zero upfront cost.</li>
+                <li><strong>75% Net Revenue:</strong> Direct cash payouts to your facility from verified credit sales.</li>
+                <li><strong>Dead Asset Unlock:</strong> Monetize existing clean tech investments into recurring inflows.</li>
+              </ul>
+            </div>
+
+            {/* Pillar 4 */}
+            <div className="b2b-card b2b-card-solution">
+              <div className="b2b-card-icon">⚡</div>
+              <h3>4. Resource Optimization</h3>
+              <ul className="pillar-list">
+                <li><strong>Cut Input Costs:</strong> Lower baseline utility and raw material burn across operations.</li>
+                <li><strong>Plug Leakages:</strong> Identify thermal and power losses through shop-floor audits.</li>
+                <li><strong>Reduce Wastage:</strong> Continuous sub-meter calibration ensures optimal asset run-time.</li>
+              </ul>
+            </div>
+
+            {/* Pillar 5 */}
+            <div className="b2b-card b2b-card-solution">
+              <div className="b2b-card-icon">📊</div>
+              <h3>5. Board-Ready Decisions</h3>
+              <ul className="pillar-list">
+                <li><strong>Live ROI Modeling:</strong> Compare clean capex (solar, waste heat) against actual utility tariffs.</li>
+                <li><strong>Faster Approvals:</strong> Defensible engineering data for confident management buy-in.</li>
+                <li><strong>Budget Efficiency:</strong> Allocate capital strictly where operational paybacks are fastest.</li>
+              </ul>
+            </div>
+
+            {/* Pillar 6 */}
+            <div className="b2b-card b2b-card-solution">
+              <div className="b2b-card-icon">🛡️</div>
+              <h3>6. Reduced 3rd-Party Reliance</h3>
+              <ul className="pillar-list">
+                <li><strong>Cut Payroll Overhead:</strong> No full-time ESG hires (₹6L–₹9L/yr) or rigid retainers.</li>
+                <li><strong>Data Ownership:</strong> Operational records remain private in your in-house vault.</li>
+                <li><strong>Internal Independence:</strong> System runs autonomously without constant agency hand-holding.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* WHY HYBRID MODEL WINS COMPARISON TABLE */}
+          <div className="roi-table-wrap" style={{ marginTop: '55px' }}>
             <h3 className="roi-table-title">Why the Hybrid Model Wins</h3>
             <div className="roi-table-scroll">
               <table className="roi-table-v2">
@@ -300,7 +353,7 @@ export default function App() {
                     <th>Approach</th>
                     <th>Annual Cost</th>
                     <th>Expertise</th>
-                    <th>Platform</th>
+                    <th>Tech Platform</th>
                     <th>Carbon Share</th>
                   </tr>
                 </thead>
@@ -320,7 +373,7 @@ export default function App() {
                     <td>0% (Static PDF only)</td>
                   </tr>
                   <tr className="roi-winner-row">
-                    <td><strong>ECF Hybrid Model</strong></td>
+                    <td><strong>Earth Carbon Hybrid</strong></td>
                     <td><strong className="text-primary">₹44,999 base</strong></td>
                     <td><strong>Senior + On-Site</strong></td>
                     <td>✅ Included Vault</td>
