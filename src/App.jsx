@@ -33,7 +33,7 @@ export default function App() {
 
   return (
     <div className="b2b-page">
-      {/* 1. COMPACT NAVIGATION */}
+      {/* 1. NAVIGATION */}
       <nav className="b2b-nav">
         <div className="b2b-container b2b-nav-inner">
           <div className="b2b-logo">
@@ -41,10 +41,9 @@ export default function App() {
             <span className="b2b-logo-sub">Environmental Self-Reliance</span>
           </div>
           <div className="b2b-nav-links">
-            <a href="#formula">The Math</a>
-            <a href="#pillars">What Changes</a>
-            <a href="#comparison">Compare Models</a>
-            <a href="#pricing">Investment</a>
+            <a href="#the-math">The Math</a>
+            <a href="#outcomes">Outcomes</a>
+            <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
           </div>
           <div className="b2b-nav-actions">
@@ -55,60 +54,60 @@ export default function App() {
         </div>
       </nav>
 
-      {/* 2. HERO: FOCUSED VALUE PROPOSITION */}
+      {/* 2. HERO SECTION */}
       <section className="b2b-hero">
         <div className="b2b-container text-center">
           <div className="b2b-pill">⚡ Fractional Environmental Architecture for Industry</div>
           <h1 className="b2b-hero-title">Turn Sustainability Compliance into Net Profit.</h1>
           <p className="b2b-hero-subtitle">
-            Senior GHG expertise, automated audit vaults, and zero-upfront carbon aggregation—engineered to eliminate permanent manpower liabilities and make compliance self-funding.
+            Senior GHG expertise, automated audit vaults, and zero-upfront carbon aggregation. We eliminate permanent manpower liabilities to make your compliance entirely self-funding.
           </p>
           <div className="b2b-hero-cta">
             <button className="b2b-btn-primary b2b-btn-lg" onClick={() => openExternal(LINKS.cal)}>
               Book a Free Half-Day Gap Analysis ↗
             </button>
-            <a href="#formula" className="b2b-btn-outline b2b-btn-lg">
+            <a href="#the-math" className="b2b-btn-outline b2b-btn-lg">
               See the Financial Logic
             </a>
           </div>
           <div className="b2b-trust-row">
-            <span className="b2b-trust-item">✓ Aligned with GHG Protocol</span>
+            <span className="b2b-trust-item">✓ GHG Protocol Aligned</span>
             <span>•</span>
-            <span className="b2b-trust-item">✓ MoEF&CC Methodology Aligned</span>
+            <span className="b2b-trust-item">✓ MoEF&CC Methodology</span>
             <span>•</span>
             <span className="b2b-trust-item">✓ Verra & Gold Standard PoA</span>
           </div>
         </div>
       </section>
 
-      {/* 3. THE 3 FRICTION POINTS (TIGHT, NO FLUFF) */}
+      {/* 3. THE PROBLEM */}
       <section className="b2b-section bg-light">
         <div className="b2b-container text-center">
           <h2 className="b2b-section-title">Why Traditional Sustainability Bleeds Cash</h2>
-          <p className="b2b-section-desc">Factory owners usually get trapped in one of three broken models:</p>
-          
+          <p className="b2b-section-desc">Factory owners typically get trapped in one of three broken models:</p>
+
           <div className="b2b-grid-3">
             <div className="b2b-card b2b-card-alert">
               <div className="b2b-card-icon">💼</div>
               <h3>The Payroll Trap</h3>
-              <p>Full-time ESG hires cost ₹6L–₹9L/year but sit idle between audits. Tasks need high-level direction, not daily desk salaries.</p>
+              <p>Full-time ESG hires cost ₹6L–₹9L/year but sit idle between audits. You need high-level strategic direction, not a daily desk salary.</p>
             </div>
             <div className="b2b-card b2b-card-alert">
               <div className="b2b-card-icon">📑</div>
               <h3>The Static PDF Trap</h3>
-              <p>Agencies charge ₹2L+ for remote reports that leave your team with messy Excel sheets and zero on-site calibration.</p>
+              <p>Agencies charge ₹2L+ for remote reports, leaving your team with messy Excel sheets and zero on-site shop-floor calibration.</p>
             </div>
             <div className="b2b-card b2b-card-alert">
               <div className="b2b-card-icon">🔒</div>
               <h3>The Dead Asset Trap</h3>
-              <p>Sub-15 MW solar and energy upgrades sit without carbon income because solo registry audits cost more than the returns.</p>
+              <p>Sub-15 MW solar and energy upgrades generate no carbon income because solo registry validation costs more than the returns.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. THE STAR FORMULA & 6 PILLARS */}
-      <section id="formula" className="b2b-section bg-white">
+      {/* 4. THE MATH & VALUE ARCHITECTURE FLOW */}
+      <section id="the-math" className="b2b-section bg-white">
         <div className="b2b-container text-center">
           <div className="b2b-pill">The Financial Law</div>
           <h2 className="b2b-section-title">The Math: Sustainability That Pays for Itself</h2>
@@ -116,7 +115,7 @@ export default function App() {
             No consulting jargon. Power reductions and carbon revenue offset your baseline compliance fee.
           </p>
 
-          {/* THE STAR BANNER */}
+          {/* STAR FORMULA BANNER */}
           <div className="roi-hero-banner">
             <div className="roi-formula-box">
               <span className="roi-formula-term text-profit">Net Profit</span>
@@ -125,80 +124,94 @@ export default function App() {
                 [ <strong className="text-gain">Power Savings</strong> + <strong className="text-gain">Carbon Revenue</strong> ]
               </span>
               <span className="roi-formula-op">−</span>
-              <span className="roi-formula-term text-cost">₹45,000 Outflow</span>
+              <span className="roi-formula-term text-cost">₹45,000 Annual Outflow</span>
             </div>
             <div className="roi-formula-tagline">
-              Single-window integration: one flat setup fee unlocks recurring utility savings and 75% net carbon credit sales.
+              A single-window integration: one flat setup fee unlocks recurring utility savings and 75% net carbon credit sales.
             </div>
           </div>
 
-          {/* 6 OPERATIONAL PILLARS */}
-          <div id="pillars" className="b2b-grid-3 text-left" style={{ marginTop: '45px' }}>
+          {/* ASCII ARCHITECTURE VISUAL CARD */}
+          <div className="arch-diagram-wrapper">
+            <span className="arch-diagram-title">System Execution Hierarchy</span>
+            <pre className="arch-diagram-pre">
+{`                  ENVIRONMENTAL SELF-RELIANCE
+                               │
+                               ↓
+              SUSTAINABILITY THAT PAYS FOR ITSELF
+                               │
+                   ┌───────────┴───────────┐
+                   ↓                       ↓
+              RESOURCE SAVINGS        CARBON REVENUE
+                   │                       │
+                   └───────────┬───────────┘
+                               ↓
+                          NET PROFIT
+                               │
+                               ↓
+                 ONLINE ECF VALUE ARCHITECTURE
+                               │
+        ┌──────────┬───────────┼──────────┬──────────┬───────────┐
+        ↓          ↓           ↓          ↓          ↓           ↓
+    COMPLIANCE  RESOURCE    CARBON     BOARD-     REDUCED     MARKET
+    & DISCLOSE  OPTIMISE    MONETISE   READY      3RD-PARTY   VALUE
+                                    DECISIONS   DEPENDENCY`}
+            </pre>
+          </div>
+
+          {/* 6 OPERATIONAL OUTCOMES */}
+          <div id="outcomes" className="b2b-grid-3 text-left" style={{ marginTop: '45px' }}>
             <div className="b2b-card b2b-card-solution">
               <div className="b2b-card-icon">⚡</div>
-              <h3>1. Resource Optimization</h3>
-              <ul className="pillar-list">
-                <li><strong>Plug Leakages:</strong> On-site walkthroughs identify electrical and thermal waste.</li>
-                <li><strong>Cut Input Costs:</strong> Slash monthly power and fuel bills against grid tariffs.</li>
-              </ul>
+              <h3>Resource Optimization</h3>
+              <p>On-site walkthroughs identify electrical/thermal waste, slashing monthly power and fuel bills against grid tariffs.</p>
             </div>
 
             <div className="b2b-card b2b-card-solution">
               <div className="b2b-card-icon">🌱</div>
-              <h3>2. Revenue Generation</h3>
-              <ul className="pillar-list">
-                <li><strong>PoA Bundling:</strong> Aggregate sub-15 MW assets at ₹0 upfront registry fees.</li>
-                <li><strong>75% Net Payout:</strong> Direct proceeds to your plant on verified credit sales.</li>
-              </ul>
+              <h3>Revenue Generation</h3>
+              <p>Aggregate sub-15 MW assets at ₹0 upfront registry fees. Receive 75% net payouts directly to your plant on verified credit sales.</p>
             </div>
 
             <div className="b2b-card b2b-card-solution">
               <div className="b2b-card-icon">📋</div>
-              <h3>3. Compliance & Disclosure</h3>
-              <ul className="pillar-list">
-                <li><strong>Continuous Vault:</strong> Live Scope 1 & 2 tracking without spreadsheet chaos.</li>
-                <li><strong>Export-Ready:</strong> 1-click documentation for EU CBAM, BRSR Core, and CDP.</li>
-              </ul>
+              <h3>Flawless Compliance</h3>
+              <p>Live Scope 1 & 2 tracking in a continuous digital vault. 1-click documentation for EU CBAM, BRSR Core, and CDP.</p>
             </div>
 
             <div className="b2b-card b2b-card-solution">
               <div className="b2b-card-icon">🛡️</div>
-              <h3>4. Reduced Dependency</h3>
-              <ul className="pillar-list">
-                <li><strong>No Payroll Liability:</strong> Fractional senior practitioners replace full-time hires.</li>
-                <li><strong>Data Privacy:</strong> All calculations stay secure in your plant's private vault.</li>
-              </ul>
+              <h3>Reduced Dependency</h3>
+              <p>Fractional senior practitioners replace full-time hires. All calculations remain secure in your plant’s private, owned vault.</p>
             </div>
 
             <div className="b2b-card b2b-card-solution">
               <div className="b2b-card-icon">📊</div>
-              <h3>5. Board-Ready Decisions</h3>
-              <ul className="pillar-list">
-                <li><strong>Live ROI Modeling:</strong> Compare solar and boiler upgrade paybacks in real time.</li>
-                <li><strong>Faster Approvals:</strong> Defensible engineering data for confident CFO buy-in.</li>
-              </ul>
+              <h3>Board-Ready Decisions</h3>
+              <p>Live ROI modeling compares solar and boiler upgrade paybacks in real time, providing defensible engineering data for fast CFO buy-in.</p>
             </div>
 
             <div className="b2b-card b2b-card-solution">
               <div className="b2b-card-icon">📈</div>
-              <h3>6. Market Value & Trust</h3>
-              <ul className="pillar-list">
-                <li><strong>OEM Qualification:</strong> Meet global tier-1 supply chain procurement hurdles.</li>
-                <li><strong>Public Leadership:</strong> Verified contributions to national INDC and Net Zero targets.</li>
-              </ul>
+              <h3>Market Value & Trust</h3>
+              <p>Effortlessly meet global Tier-1 OEM supply chain procurement hurdles and showcase verified contributions to national Net Zero targets.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. SIDE-BY-SIDE MODEL COMPARISON */}
-      <section id="comparison" className="b2b-section bg-light">
+      {/* 5. PRICING & DIRECT CONTRAST */}
+      <section id="pricing" className="b2b-section bg-light">
         <div className="b2b-container text-center">
-          <div className="b2b-pill">Direct Contrast</div>
-          <h2 className="b2b-section-title">Why the Hybrid Model Wins</h2>
-          <p className="b2b-section-desc">Comparing your three options for handling industrial sustainability.</p>
+          <div className="b2b-pill">Direct Contrast & Investment</div>
+          <h2 className="b2b-section-title">Transparent, Unbundled Pricing</h2>
+          <p className="b2b-section-desc">
+            Simple structure. Your ₹45,000 base engagement unlocks compliance, the data vault, and carbon pooling.
+          </p>
 
+          {/* MODEL COMPARISON TABLE */}
           <div className="roi-table-wrap">
+            <h3 className="roi-table-title">Why the Hybrid Model Wins</h3>
             <div className="roi-table-scroll">
               <table className="roi-table-v2">
                 <thead>
@@ -213,14 +226,14 @@ export default function App() {
                 <tbody>
                   <tr>
                     <td><strong>Full-Time Manager</strong></td>
-                    <td>₹6–9 Lakhs/yr</td>
+                    <td>₹6L – ₹9L / yr</td>
                     <td>Junior / Mid</td>
                     <td>❌ None (Excel)</td>
                     <td>0% (In-house burden)</td>
                   </tr>
                   <tr>
                     <td><strong>Traditional Agency</strong></td>
-                    <td>₹1.5–3 Lakhs</td>
+                    <td>₹1.5L – ₹3L</td>
                     <td>Senior (Remote)</td>
                     <td>❌ None (Static PDF)</td>
                     <td>0% (Locked out)</td>
@@ -236,29 +249,20 @@ export default function App() {
               </table>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* 6. MODULAR PRICING (ALIGNED WITH THE FORMULA) */}
-      <section id="pricing" className="b2b-section bg-white">
-        <div className="b2b-container text-center">
-          <div className="b2b-pill">Transparent Industrial Pricing</div>
-          <h2 className="b2b-section-title">Simple, Unbundled Structure</h2>
-          <p className="b2b-section-desc">Your ₹45,000 base engagement unlocks compliance, the data vault, and carbon pooling.</p>
-
-          <div className="b2b-grid-3 text-left">
-            {/* The Foundation Bundle */}
+          {/* 3 PRICING TIERS */}
+          <div className="b2b-grid-3 text-left" style={{ marginTop: '50px' }}>
             <div className="b2b-price-card b2b-price-featured">
               <div>
                 <div className="b2b-price-header">
-                  <h3>Turnkey Setup (The Formula Base)</h3>
+                  <h3>1. Turnkey Setup (The Formula Base)</h3>
                   <div className="b2b-price-val">₹44,999 <small>one-time</small></div>
                   <div className="b2b-price-sub">₹19,999 Platform Vault + ₹25,000 Scope 1 & 2 Audit</div>
                 </div>
                 <ul className="b2b-price-list">
                   <li>✓ Digital facility vault setup</li>
-                  <li>✓ Verified Scope 1 & 2 baseline</li>
-                  <li>✓ On-site walkthrough & boundary calibration</li>
+                  <li>✓ Verified Scope 1 & 2 baseline calculation</li>
+                  <li>✓ On-site walkthrough & plant boundary calibration</li>
                   <li>✓ Senior GHG practitioner review</li>
                 </ul>
               </div>
@@ -267,11 +271,10 @@ export default function App() {
               </button>
             </div>
 
-            {/* Optional Reporting Add-Ons */}
             <div className="b2b-price-card">
               <div>
                 <div className="b2b-price-header">
-                  <h3>Reporting Add-Ons</h3>
+                  <h3>2. Reporting Add-Ons</h3>
                   <div className="b2b-price-sub">Add only when OEM or export buyers require</div>
                 </div>
                 <div className="b2b-addon-list">
@@ -288,18 +291,17 @@ export default function App() {
                     <strong>₹10,000/yr</strong>
                   </div>
                 </div>
-                <small className="b2b-note">*100% advance per selected reporting module.</small>
+                <small className="b2b-note">*100% advance payment per selected reporting module.</small>
               </div>
-              <button className="b2b-btn-outline w-full" onClick={() => openExternal(LINKS.cal)}>
-                Discuss Scope ↗
-              </button>
+              <a href="#contact" className="b2b-btn-outline w-full text-center" style={{ display: 'block', textDecoration: 'none' }}>
+                Select in Form Below ↓
+              </a>
             </div>
 
-            {/* Monetization */}
             <div className="b2b-price-card b2b-price-monetize">
               <div>
                 <div className="b2b-price-header">
-                  <h3 className="text-white">PoA Carbon Pooling</h3>
+                  <h3 className="text-white">3. PoA Carbon Pooling (The Unlock)</h3>
                   <div className="b2b-price-val text-mint">₹0 <small className="text-white">Upfront</small></div>
                   <div className="b2b-price-sub text-white-80">Sub-15 MW Aggregation</div>
                 </div>
@@ -320,7 +322,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 7. VERIFIABLE EXPERT QUOTE */}
+      {/* 6. FOUNDER QUOTE */}
       <section className="b2b-roi-section">
         <div className="b2b-container-sm text-center">
           <blockquote className="b2b-quote">
@@ -333,7 +335,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 8. FAQ */}
+      {/* 7. FAQ */}
       <section id="faq" className="b2b-section bg-light">
         <div className="b2b-container-sm text-center">
           <div className="b2b-pill">Have Questions?</div>
@@ -347,28 +349,28 @@ export default function App() {
             </details>
             <details className="b2b-faq-item">
               <summary>How does the ₹0 Upfront Carbon Monetization work?</summary>
-              <p>Small-to-mid clean energy installations (&lt;15 MW) cannot justify standalone registry audit fees. ECF aggregates your eligible assets under a Program of Activities (PoA). We manage the registry audits and retain a 25% success fee upon credit sale.</p>
+              <p>We aggregate your verified, sub-15 MW clean energy assets into our Programme of Activities (PoA) pool. We cover all registry validation costs, and upon successful sale to institutional buyers, your plant receives 75% of the net revenue.</p>
             </details>
             <details className="b2b-faq-item">
               <summary>What happens during the Free Half-Day Gap Analysis?</summary>
-              <p>Our practitioners review your utility bills, fuel consumption records, and clean energy assets to benchmark your Scope 1 & 2 baseline and quantify potential energy leaks and carbon revenue.</p>
+              <p>A senior practitioner reviews your recent utility bills, walks your shop floor to identify obvious thermal/power leakages, and maps out exactly which compliance modules and carbon pooling options apply to your facility.</p>
             </details>
             <details className="b2b-faq-item">
-              <summary>Are these audit vaults accepted for EU CBAM and SEBI BRSR?</summary>
-              <p>Yes. Calculations adhere strictly to GHG Protocol standards and MoEF&CC methodologies, formatted for immediate inclusion into SEBI BRSR Core filings and CBAM export declarations.</p>
+              <summary>Are these reports accepted for EU CBAM and SEBI BRSR compliance?</summary>
+              <p>Yes. Our methodologies are explicitly aligned with the GHG Protocol, MoEF&CC guidelines, and Verra/Gold Standard, ensuring your data is audit-ready for both domestic and international regulatory bodies.</p>
             </details>
           </div>
         </div>
       </section>
 
-      {/* 9. FOCUSED SINGLE CONVERSION / CONTACT */}
+      {/* 8. CONTACT & LEAD CAPTURE */}
       <section id="contact" className="b2b-section bg-white">
         <div className="b2b-container">
           <div className="b2b-contact-grid">
             <div className="b2b-contact-info">
               <h2>Schedule Your Free Half-Day Gap Analysis</h2>
               <p>Let's map your facility's exact energy baseline, identify utility leakages, and check carbon credit eligibility.</p>
-              
+
               <div className="b2b-contact-details">
                 <div>📧 <a href="mailto:info@earthcarbonfoundation.org">info@earthcarbonfoundation.org</a></div>
                 <div>📱 <a href="https://wa.me/919824025431" target="_blank" rel="noreferrer">+91-9824025431</a></div>
@@ -415,9 +417,9 @@ export default function App() {
                     <label>Primary Focus</label>
                     <select name="interest" onChange={handleInputChange}>
                       <option value="Turnkey Baseline + Audit (₹44,999)">Turnkey Baseline + Audit (₹44,999)</option>
-                      <option value="BRSR / CDP Support">BRSR Core / CDP Support</option>
+                      <option value="BRSR Core / CDP Support">BRSR Core / CDP Support</option>
                       <option value="CBAM Export Readiness">CBAM Export Readiness</option>
-                      <option value="Carbon Monetization (PoA)">Carbon Monetization (PoA Aggregation)</option>
+                      <option value="PoA Carbon Pooling">PoA Carbon Pooling (₹0 Upfront)</option>
                     </select>
                   </div>
                   <button type="submit" className="b2b-btn-primary w-full" style={{ marginTop: '10px' }}>
@@ -430,7 +432,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 10. FOOTER */}
+      {/* 9. FOOTER */}
       <footer className="b2b-footer">
         <div className="b2b-container b2b-footer-inner">
           <div>
