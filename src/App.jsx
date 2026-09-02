@@ -249,99 +249,82 @@ export default function App() {
         </div>
       </section>
 
-      {/* SECTION: THE BUSINESS CASE & ROI */}
+      {/* SECTION: 1-GLANCE ROI & BUSINESS CASE */}
       <section id="roi-case" className="b2b-section bg-light">
         <div className="b2b-container text-center">
-          <div className="b2b-pill">Financial Model</div>
-          <h2 className="b2b-section-title">The Business Case: Your ROI in Year 1</h2>
-          <p className="b2b-section-desc">What you get for your investment vs. traditional alternatives.</p>
+          <div className="b2b-pill">Year 1 Financial Math</div>
+          <h2 className="b2b-section-title">The Business Case: Positive ROI from Day 1</h2>
+          <p className="b2b-section-desc">How compliance and energy savings turn sustainability into a net profit center.</p>
 
-          {/* Investment Highlight Box */}
-          <div className="roi-investment-box">
-            <h3>Your Total Year 1 Investment</h3>
-            <div className="roi-big-number">₹44,999</div>
-            <p className="roi-small-text">(Layer 1: ₹19,999 + Carbon Footprint Report: ₹25,000)</p>
-            <span className="roi-context-badge">Less than the monthly salary of a junior engineer</span>
-          </div>
-
-          {/* Tangible Returns Grid */}
-          <div className="b2b-grid-3 text-left" style={{ marginBottom: '35px' }}>
-            <div className="roi-return-card">
-              <div className="roi-card-icon">📋</div>
-              <h4>Audit-Ready Compliance Report</h4>
-              <div className="roi-return-value">₹75,000+</div>
-              <p className="roi-return-desc">Market value of a verified, professional GHG compliance portfolio</p>
+          {/* 3-STEP VISUAL EQUATION */}
+          <div className="roi-flow-grid">
+            {/* Step 1: Input */}
+            <div className="roi-flow-card">
+              <span className="roi-card-tag">1. You Invest</span>
+              <div className="roi-card-amount">₹44,999</div>
+              <h4>Year 1 Foundation</h4>
+              <p>Platform vault (₹19,999) + Scope 1 & 2 audit report (₹25,000).</p>
+              <div className="roi-footnote">Less than 1 month of junior engineer salary</div>
             </div>
 
-            <div className="roi-return-card">
-              <div className="roi-card-icon">⚡</div>
-              <h4>Energy Savings</h4>
-              <div className="roi-return-value">₹50,000 – ₹1,00,000</div>
-              <p className="roi-return-desc">From identifying and optimizing just ONE shop-floor inefficiency</p>
+            <div className="roi-arrow">→</div>
+
+            {/* Step 2: Output */}
+            <div className="roi-flow-card">
+              <span className="roi-card-tag tag-green">2. You Recover</span>
+              <div className="roi-card-amount text-primary">₹2,00,000+</div>
+              <h4>Direct Returns</h4>
+              <p>⚡ Energy savings: ₹50k–₹1L<br />🌱 Carbon credit revenue: ₹1.5L+</p>
+              <div className="roi-footnote">From optimizing just 1 thermal/power hotspot</div>
             </div>
 
-            <div className="roi-return-card roi-return-highlight">
-              <div className="roi-card-icon">🌱</div>
-              <h4 className="text-white">Carbon Credit Revenue</h4>
-              <div className="roi-return-value text-mint">₹1,50,000+</div>
-              <p className="text-white-80">Net new revenue from verified aggregation (after 25% success fee)</p>
-            </div>
-          </div>
+            <div className="roi-arrow">═</div>
 
-          {/* Net Result Calculation Card */}
-          <div className="roi-calc-container">
-            <div className="roi-calc-row">
-              <span>Total Gained:</span>
-              <span className="roi-positive">₹2,00,000+</span>
-            </div>
-            <div className="roi-calc-row">
-              <span>Minus Investment:</span>
-              <span className="roi-negative">- ₹44,999</span>
-            </div>
-            <div className="roi-calc-row roi-calc-total">
-              <span>Net Profit from Sustainability:</span>
-              <span className="roi-net-highlight">₹1,55,001</span>
-            </div>
-            <div className="roi-percentage-banner">
-              🎯 <strong>ROI: ~344% in Year 1</strong>
+            {/* Step 3: Net Profit */}
+            <div className="roi-flow-card roi-card-profit">
+              <span className="roi-card-tag tag-mint">3. Net Impact</span>
+              <div className="roi-card-amount text-mint">₹1,55,001</div>
+              <h4 className="text-white">Net Cash Profit</h4>
+              <div className="roi-badge-roi">~344% Year 1 ROI</div>
+              <div className="roi-footnote text-white-80">Sustainability pays for itself</div>
             </div>
           </div>
 
-          {/* Alternative Comparison Table */}
-          <div className="roi-comparison-container">
-            <h3 className="roi-comp-title">Why the Hybrid Model Wins</h3>
-            <div className="roi-table-responsive">
-              <table className="roi-table">
+          {/* CLEAN COMPARISON TABLE */}
+          <div className="roi-table-wrap">
+            <h3 className="roi-table-title">Why the Hybrid Model Wins</h3>
+            <div className="roi-table-scroll">
+              <table className="roi-table-v2">
                 <thead>
                   <tr>
-                    <th>Option</th>
+                    <th>Approach</th>
                     <th>Annual Cost</th>
                     <th>Expertise</th>
-                    <th>Tech Platform</th>
-                    <th>Carbon Revenue</th>
+                    <th>Platform</th>
+                    <th>Carbon Share</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><strong>Hire Full-Time Manager</strong></td>
-                    <td>₹6-9 Lakhs</td>
-                    <td>Junior-Mid Level</td>
-                    <td>❌ Excel</td>
-                    <td>0% (Keep all)</td>
+                    <td><strong>Full-Time Manager</strong></td>
+                    <td>₹6–9 Lakhs/yr</td>
+                    <td>Junior / Mid</td>
+                    <td>❌ None (Excel)</td>
+                    <td>0% (In-house burden)</td>
                   </tr>
                   <tr>
                     <td><strong>Traditional Consultant</strong></td>
-                    <td>₹1.5-3 Lakhs</td>
+                    <td>₹1.5–3 Lakhs</td>
                     <td>Senior (Remote)</td>
                     <td>❌ None</td>
-                    <td>0% (PDF only)</td>
+                    <td>0% (Static PDF only)</td>
                   </tr>
-                  <tr className="roi-row-highlight">
-                    <td><strong>Earth Carbon Hybrid</strong></td>
-                    <td><strong>₹44,999 base</strong></td>
-                    <td><strong>Senior + On-site</strong></td>
-                    <td>✅ Included</td>
-                    <td><strong>75% to you</strong></td>
+                  <tr className="roi-winner-row">
+                    <td><strong>ECF Hybrid Model</strong></td>
+                    <td><strong className="text-primary">₹44,999 base</strong></td>
+                    <td><strong>Senior + On-Site</strong></td>
+                    <td>✅ Included Vault</td>
+                    <td><strong className="text-primary">75% Net to You</strong></td>
                   </tr>
                 </tbody>
               </table>
