@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const CAL_LINK = 'https://cal.com/amit-sinh-earth-carbon-wbfdu4';
-
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalTrack, setModalTrack] = useState('MSME Journey'); // or 'Direct PoA'
+  const [modalTrack, setModalTrack] = useState('MSME Journey');
   const [formData, setFormData] = useState({
     fullName: '',
     companyName: '',
@@ -44,10 +42,10 @@ export default function App() {
           </a>
           <div className="ecf-nav-links">
             <a href="#problem">The Problem</a>
+            <a href="#effects">The Effects</a>
             <a href="#solution">ECF Solution</a>
-            <a href="#how-it-works">How We Do It</a>
+            <a href="#journey">Your Journey</a>
             <a href="#participation">Participation</a>
-            <a href="#proof">Proof</a>
           </div>
           <div>
             <button className="btn-secondary btn-sm" onClick={() => openModal('MSME Guided Journey')}>
@@ -97,233 +95,407 @@ export default function App() {
         </div>
       </section>
 
-      {/* 02 — THE PROBLEM */}
-      <section id="problem" className="ecf-section">
-        <div className="ecf-container text-center">
-          <span className="section-tag">02 • Industry Reality</span>
+      {/* ========================================================
+          02 — THE PROBLEM (PROS VS CONS INFOGRAPHIC)
+          ======================================================== */}
+      <section id="problem" className="ecf-section text-center">
+        <div className="ecf-container">
+          <span className="section-tag">02 • The Problem</span>
           <h2 className="section-heading">You want to do the right thing. But where do you start?</h2>
-          <p className="section-desc">MSMEs face mounting compliance questions without clear operational guidance:</p>
+          <p className="section-desc">MSMEs want the benefits of environmental compliance, but lack the team to navigate the burden:</p>
 
-          <div className="problem-grid">
-            <div className="problem-chip">📋 Environmental compliance</div>
-            <div className="problem-chip">⚡ Energy consumption</div>
-            <div className="problem-chip">🏭 Carbon emissions</div>
-            <div className="problem-chip">🤝 Customer requirements</div>
-            <div className="problem-chip">📦 Export requirements</div>
-            <div className="problem-chip">♻️ Waste and resources</div>
-            <div className="problem-chip">📑 Environmental documentation</div>
-            <div className="problem-chip">📈 Future regulatory expectations</div>
-            <div className="problem-chip">🚫 No full-time ESG team</div>
+          <div className="glass-pearl pros-cons-card">
+            <h3 className="pros-cons-title">MSME Environmental Responsibility</h3>
+            
+            <div className="pros-cons-board">
+              {/* PROS COLUMN */}
+              <div className="pros-column">
+                <div className="column-header pros-header">
+                  <span>✔</span>
+                  <span>Pros</span>
+                </div>
+                <div className="pros-list">
+                  <div className="infographic-item">
+                    <div className="infographic-icon icon-pro">🌱</div>
+                    <span>Customer demand</span>
+                  </div>
+                  <div className="infographic-item">
+                    <div className="infographic-icon icon-pro">🛡️</div>
+                    <span>Brand enhancement</span>
+                  </div>
+                  <div className="infographic-item">
+                    <div className="infographic-icon icon-pro">🌐</div>
+                    <span>Export compliance</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* VS DIVIDER */}
+              <div className="vs-divider">
+                <div className="vs-line"></div>
+                <div className="vs-badge">VS</div>
+              </div>
+
+              {/* CONS COLUMN */}
+              <div className="cons-column">
+                <div className="column-header cons-header">
+                  <span>✖</span>
+                  <span>Cons</span>
+                </div>
+                <div className="cons-list">
+                  <div className="infographic-item">
+                    <div className="infographic-icon icon-con">👨‍💼</div>
+                    <span>Lack of expertise</span>
+                  </div>
+                  <div className="infographic-item">
+                    <div className="infographic-icon icon-con">🤝</div>
+                    <span>No hand-holding</span>
+                  </div>
+                  <div className="infographic-item">
+                    <div className="infographic-icon icon-con">🪙</div>
+                    <span>Funding limitations</span>
+                  </div>
+                  <div className="infographic-item">
+                    <div className="infographic-icon icon-con">📑</div>
+                    <span>Compliance burden</span>
+                  </div>
+                  <div className="infographic-item">
+                    <div className="infographic-icon icon-con">🏢</div>
+                    <span>No dedicated team</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="core-problem-card">
+          <div className="core-punchline-card">
             "You shouldn't need an environmental department to become environmentally ready."
           </div>
         </div>
       </section>
 
-      {/* 03 — THE EFFECTS */}
-      <section className="ecf-section">
-        <div className="ecf-container text-center">
-          <span className="section-tag">03 • Pressure & Impact</span>
-          <h2 className="section-heading">The Pressure Keeps Growing</h2>
-          <p className="section-desc">How external mandates cascade directly down onto the factory floor:</p>
+      {/* ========================================================
+          03 — THE EFFECTS (4 QUADRANTS "THE REAL RISK")
+          ======================================================== */}
+      <section id="effects" className="ecf-section text-center">
+        <div className="ecf-container">
+          <span className="section-tag">03 — THE EFFECTS</span>
+          <h2 className="section-heading">THE PRESSURE KEEPS GROWING</h2>
+          <p className="section-desc">For an MSME, environmental inaction can lead to:</p>
 
-          <div className="glass-pearl cascade-wrapper">
-            <div style={{ fontSize: '13px', fontWeight: 800, textAlign: 'left', color: 'var(--secondary)' }}>
-              THE EXTERNAL PRESSURE CASCADE
+          <div className="effects-quadrant-wrapper">
+            <div className="quadrant-grid">
+              {/* REGULATORY */}
+              <div className="quadrant-card regulatory">
+                <div className="quadrant-icon-box bg-reg">⚖️</div>
+                <div className="quadrant-content">
+                  <h4>REGULATORY</h4>
+                  <ul>
+                    <li>Government</li>
+                    <li>Pollution Control Board</li>
+                    <li>Legal consequences</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* MARKET */}
+              <div className="quadrant-card market">
+                <div className="quadrant-icon-box bg-mkt">🌍</div>
+                <div className="quadrant-content">
+                  <h4>MARKET</h4>
+                  <ul>
+                    <li>Customers</li>
+                    <li>Exports</li>
+                    <li>Supply chains</li>
+                    <li>Brand</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* BUSINESS */}
+              <div className="quadrant-card business">
+                <div className="quadrant-icon-box bg-biz">💼</div>
+                <div className="quadrant-content">
+                  <h4>BUSINESS</h4>
+                  <ul>
+                    <li>Financial losses</li>
+                    <li>Business risk</li>
+                    <li>Global pressure</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* PEOPLE & PLANET */}
+              <div className="quadrant-card planet">
+                <div className="quadrant-icon-box bg-plt">🍃</div>
+                <div className="quadrant-content">
+                  <h4>PEOPLE and PLANET</h4>
+                  <ul>
+                    <li>Public health</li>
+                    <li>Environmental damage</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div className="cascade-flow">
-              <span className="cascade-node">GPCB / Authorities</span>
-              <span>→</span>
-              <span className="cascade-node">Environmental Rules</span>
-              <span>→</span>
-              <span className="cascade-node">Customer Expectations</span>
-              <span>→</span>
-              <span className="cascade-node">Export & Supply Chain</span>
-              <span>→</span>
-              <span className="cascade-node">Market Perception</span>
-              <span>→</span>
-              <span className="cascade-node cascade-danger">Business Risk</span>
+
+            {/* CENTER ORB */}
+            <div className="center-risk-orb">
+              <span className="risk-orb-text">THE<br />REAL<br />RISK</span>
             </div>
           </div>
 
-          <div className="effects-grid">
-            <div className="effect-item">
-              <div className="effect-title">⚠️ Compliance Pressure</div>
-              <div className="effect-desc">Anxiety over regulatory notices and audit timelines.</div>
+          <div className="core-punchline-card" style={{ marginTop: '28px', textAlign: 'center' }}>
+            “Environmental responsibility is no longer only about protecting the environment. It is increasingly part of protecting the business.”
+            <div style={{ marginTop: '8px', color: 'var(--primary)', fontWeight: 800 }}>
+              The pressure is real. The question is how to respond.
             </div>
-            <div className="effect-item">
-              <div className="effect-title">❓ Operational Uncertainty</div>
-              <div className="effect-desc">Unclear how changing rules impact procurement and upgrades.</div>
-            </div>
-            <div className="effect-item">
-              <div className="effect-title">📉 Loss of Customer Confidence</div>
-              <div className="effect-desc">Tier-1 OEM buyers demanding Scope 1 & 2 documentation.</div>
-            </div>
-            <div className="effect-item">
-              <div className="effect-title">🏷️ Brand Devaluation</div>
-              <div className="effect-desc">Risk of being perceived as an environmentally lagging unit.</div>
-            </div>
-            <div className="effect-item">
-              <div className="effect-title">🚫 Reduced Market Acceptance</div>
-              <div className="effect-desc">Filtered out of institutional and green tenders.</div>
-            </div>
-            <div className="effect-item">
-              <div className="effect-title">💸 Potential Financial Losses</div>
-              <div className="effect-desc">Tariffs, non-compliance fines, and expensive third-party consultancies.</div>
-            </div>
-          </div>
-
-          <div className="core-problem-card" style={{ marginTop: '30px' }}>
-            The problem isn't willingness. The problem is knowing what to do, what applies, and where to begin.
           </div>
         </div>
       </section>
 
-      {/* 04 — ECF SOLUTION */}
-      <section id="solution" className="ecf-section">
-        <div className="ecf-container text-center">
-          <span className="section-tag">04 • ECF Solution</span>
-          <h2 className="section-heading">One guided journey. From baseline to business value.</h2>
-          <p className="section-desc">ECF becomes your ongoing hand-holding layer:</p>
+      {/* ========================================================
+          04 — ECF SOLUTION (HAND-HOLDING 6-STEP PIPELINE)
+          ======================================================== */}
+      <section id="solution" className="ecf-section text-center">
+        <div className="ecf-container">
+          <span className="section-tag">04 — ECF SOLUTION</span>
+          <h2 className="section-heading">Hand-holding from start to finish.</h2>
+          <p className="section-desc">
+            You don't have to figure it all out yourself. ECF guides you step by step — from understanding your impact to creating environmental and business value.
+          </p>
 
-          <div className="cycle-matrix">
-            <div className="cycle-step cycle-step-active">1. UNDERSTAND</div>
-            <div className="cycle-step">2. MEASURE</div>
-            <div className="cycle-step">3. COMPLY</div>
-            <div className="cycle-step">4. IMPROVE</div>
-            <div className="cycle-step">5. DOCUMENT</div>
-            <div className="cycle-step cycle-step-active">6. CREATE VALUE</div>
+          {/* 6 PIPELINE CARDS */}
+          <div className="solution-pipeline-container">
+            <div className="pipeline-card step-1">
+              <div className="pipeline-header">
+                <div>
+                  <div className="pipeline-num">STEP 1</div>
+                  <div className="pipeline-title">UNDERSTAND</div>
+                </div>
+                <div className="pipeline-icon">🔍</div>
+              </div>
+              <p className="pipeline-desc">Know where your business stands and what responsibilities apply.</p>
+              <div className="pipeline-arrow">↓</div>
+            </div>
+
+            <div className="pipeline-card step-2">
+              <div className="pipeline-header">
+                <div>
+                  <div className="pipeline-num">STEP 2</div>
+                  <div className="pipeline-title">MEASURE</div>
+                </div>
+                <div className="pipeline-icon">⚖️</div>
+              </div>
+              <p className="pipeline-desc">Measure your energy use, emissions, water, waste, and relevant impacts.</p>
+              <div className="pipeline-arrow">↓</div>
+            </div>
+
+            <div className="pipeline-card step-3">
+              <div className="pipeline-header">
+                <div>
+                  <div className="pipeline-num">STEP 3</div>
+                  <div className="pipeline-title">COMPLY</div>
+                </div>
+                <div className="pipeline-icon">📋</div>
+              </div>
+              <p className="pipeline-desc">Understand requirements, close gaps, and reduce regulatory compliance risks.</p>
+              <div className="pipeline-arrow">↓</div>
+            </div>
+
+            <div className="pipeline-card step-4">
+              <div className="pipeline-header">
+                <div>
+                  <div className="pipeline-num">STEP 4</div>
+                  <div className="pipeline-title">IMPROVE</div>
+                </div>
+                <div className="pipeline-icon">📈</div>
+              </div>
+              <p className="pipeline-desc">Identify practical low-carbon, resource-efficient, and cost-effective fixes.</p>
+              <div className="pipeline-arrow">↓</div>
+            </div>
+
+            <div className="pipeline-card step-5">
+              <div className="pipeline-header">
+                <div>
+                  <div className="pipeline-num">STEP 5</div>
+                  <div className="pipeline-title">DOCUMENT</div>
+                </div>
+                <div className="pipeline-icon">📑</div>
+              </div>
+              <p className="pipeline-desc">Build the evidence, records, reports, and compliance documentation needed.</p>
+              <div className="pipeline-arrow">↓</div>
+            </div>
+
+            <div className="pipeline-card step-6">
+              <div className="pipeline-header">
+                <div>
+                  <div className="pipeline-num">STEP 6</div>
+                  <div className="pipeline-title">CREATE VALUE</div>
+                </div>
+                <div className="pipeline-icon">🏆</div>
+              </div>
+              <p className="pipeline-desc">Where eligible, turn verified action into market recognition & financial value.</p>
+            </div>
           </div>
 
-          <div className="promises-grid">
-            <div className="promise-card">
-              <h4>1. Know where you stand</h4>
-              <p>Clear visibility into your current footprint and consumption with zero guesswork.</p>
+          {/* 3 CORE PROMISES */}
+          <div className="solution-triplet-grid">
+            <div className="triplet-box">
+              <h4>KNOW WHERE YOU STAND</h4>
+              <p>A clear environmental baseline and readiness position.</p>
             </div>
-            <div className="promise-card">
-              <h4>2. Know what you need to do</h4>
-              <p>Prioritized, step-by-step action items customized directly to your sector.</p>
+            <div className="triplet-box">
+              <h4>KNOW WHAT TO DO</h4>
+              <p>A practical, step-by-step pathway for compliance and improvement.</p>
             </div>
-            <div className="promise-card">
-              <h4>3. Know what value it creates</h4>
-              <p>Turn verified environmental actions into export access and aggregated monetization.</p>
+            <div className="triplet-box">
+              <h4>KNOW WHAT VALUE YOUR ACTIONS CAN CREATE</h4>
+              <p>Environmental progress that strengthens your business and creates additional value.</p>
             </div>
           </div>
 
-          <button className="btn-primary" onClick={() => openModal('MSME Guided Journey')}>
-            START MY JOURNEY →
-          </button>
+          <div style={{ marginTop: '30px' }}>
+            <button className="btn-primary" onClick={() => openModal('MSME Guided Journey')}>
+              [ START MY JOURNEY ]
+            </button>
+          </div>
+
+          <div className="clarification-note">
+            One small but important distinction: Compliance and impact reduction are related but different.<br />
+            <strong>COMPLY</strong> = meet applicable requirements & reduce compliance risk. <strong>IMPROVE</strong> = reduce actual environmental impact.
+          </div>
         </div>
       </section>
 
-      {/* 05 — HOW WE DO IT */}
-      <section id="how-it-works" className="ecf-section">
-        <div className="ecf-container text-center">
+      {/* ========================================================
+          05 — HOW WE DO IT (YOUR ECF JOURNEY TIMELINE)
+          ======================================================== */}
+      <section id="journey" className="ecf-section text-center">
+        <div className="ecf-container">
           <span className="section-tag">05 • How We Do It</span>
           <h2 className="section-heading">Your ECF Journey</h2>
           <p className="section-desc">A 7-stage verifiable operational path for manufacturing and trading enterprises:</p>
 
-          <div className="steps-container">
-            <div className="glass-pearl step-card">
-              <div className="step-header">
-                <span className="step-tag">STEP 1</span>
-                <span style={{ fontSize: '12px', color: 'var(--text-light)' }}>5 mins</span>
-              </div>
-              <h3>REGISTER & VERIFY</h3>
-              <p>Business identity and operational structure. With <strong>ECF Connect</strong>, we automatically fetch and verify official corporate filings.</p>
-              <div className="step-highlight">⚡ Auto-verification of GSTIN, Udyam, and official registrations.</div>
-            </div>
-
-            <div className="glass-pearl step-card">
-              <div className="step-header">
-                <span className="step-tag">STEP 2</span>
-                <span style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: 700 }}>Zero-Jargon Entry</span>
-              </div>
-              <h3>CONNECT YOUR DATA</h3>
-              <p style={{ fontWeight: 700, color: 'var(--primary)', marginBottom: '6px' }}>
-                "Don't enter what ECF can retrieve or extract."
-              </p>
-              <p>Connect utility inputs: DISCOM power bills, gas logs, water meters, fuel ledgers, waste logs, and existing consent permits.</p>
-              <div className="step-highlight">API Connection → Automated Ingestion → Document Extraction → Confirmation</div>
-            </div>
-
-            <div className="glass-pearl step-card">
-              <div className="step-header">
-                <span className="step-tag">STEP 3</span>
-                <span style={{ fontSize: '12px', color: 'var(--text-light)' }}>Audit Vault</span>
-              </div>
-              <h3>BUILD YOUR BASELINE</h3>
-              <p>ECF organizes the evidence and prepares your verified Scope 1 & 2 baseline according to standard GHG protocols.</p>
-              <div className="step-pills">
-                <span className="step-pill">Total Energy</span>
-                <span className="step-pill">Scope 1 Direct</span>
-                <span className="step-pill">Scope 2 Grid</span>
-                <span className="step-pill">Water Consumption</span>
-                <span className="step-pill">Waste Profiles</span>
+          <div className="timeline-stepper">
+            {/* STEP 1 */}
+            <div className="timeline-step">
+              <div className="timeline-badge">01<small>STEP</small></div>
+              <div className="timeline-content">
+                <div className="timeline-header">
+                  <h3>REGISTER & VERIFY</h3>
+                  <span className="timeline-tag">5 mins</span>
+                </div>
+                <p>Business identity and operational structure. With <strong>ECF Connect</strong>, we automatically fetch and verify official corporate filings.</p>
+                <div className="timeline-highlight-box">⚡ Auto-verification of GSTIN, Udyam, and official registrations.</div>
               </div>
             </div>
 
-            <div className="glass-pearl step-card">
-              <div className="step-header">
-                <span className="step-tag">STEP 4</span>
-                <span style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: 700 }}>Pathway Engine</span>
-              </div>
-              <h3>COMPLIANCE & READINESS</h3>
-              <p style={{ fontWeight: 700, color: 'var(--secondary)', marginBottom: '6px' }}>
-                "You don't have to know which one applies. ECF helps identify the pathway."
-              </p>
-              <p>We match your facility attributes against regulatory mandates and buyer questionnaires.</p>
-              <div className="step-pills">
-                <span className="step-pill">BRSR Core</span>
-                <span className="step-pill">CBAM (EU Export)</span>
-                <span className="step-pill">ISO 14064</span>
-                <span className="step-pill">SBTi Guidelines</span>
-                <span className="step-pill">OEM ESG Forms</span>
+            {/* STEP 2 */}
+            <div className="timeline-step">
+              <div className="timeline-badge">02<small>STEP</small></div>
+              <div className="timeline-content">
+                <div className="timeline-header">
+                  <h3>CONNECT YOUR DATA</h3>
+                  <span className="timeline-tag" style={{ color: 'var(--primary)' }}>Zero-Jargon Entry</span>
+                </div>
+                <p style={{ fontWeight: 700, color: 'var(--primary)', marginBottom: '4px' }}>
+                  "Don't enter what ECF can retrieve or extract."
+                </p>
+                <p>Connect utility inputs: DISCOM power bills, gas logs, water meters, fuel ledgers, waste logs, and existing consent permits.</p>
+                <div className="timeline-highlight-box">API Connection → Automated Ingestion → Document Extraction → Confirmation</div>
               </div>
             </div>
 
-            <div className="glass-pearl step-card">
-              <div className="step-header">
-                <span className="step-tag">STEP 5</span>
-                <span style={{ fontSize: '12px', color: 'var(--text-light)' }}>Operational ROI</span>
-              </div>
-              <h3>IMPROVE & REDUCE</h3>
-              <p>ECF turns audit findings into tangible cost-saving and reduction projects:</p>
-              <div className="step-highlight">FIND → PRIORITISE → ACT → MEASURE → REDUCE</div>
-              <div className="step-pills" style={{ marginTop: '10px' }}>
-                <span className="step-pill">Energy Efficiency</span>
-                <span className="step-pill">Rooftop Renewables</span>
-                <span className="step-pill">Water Recirculation</span>
-                <span className="step-pill">Process Upgrades</span>
+            {/* STEP 3 */}
+            <div className="timeline-step">
+              <div className="timeline-badge">03<small>STEP</small></div>
+              <div className="timeline-content">
+                <div className="timeline-header">
+                  <h3>BUILD YOUR BASELINE</h3>
+                  <span className="timeline-tag">Audit Vault</span>
+                </div>
+                <p>ECF organizes the evidence and prepares your verified Scope 1 & 2 baseline according to standard GHG protocols.</p>
+                <div className="step-pills">
+                  <span className="step-pill">Total Energy</span>
+                  <span className="step-pill">Scope 1 Direct</span>
+                  <span className="step-pill">Scope 2 Grid</span>
+                  <span className="step-pill">Water Consumption</span>
+                  <span className="step-pill">Waste Profiles</span>
+                </div>
               </div>
             </div>
 
-            <div className="glass-pearl step-card">
-              <div className="step-header">
-                <span className="step-tag">STEP 6</span>
-                <span style={{ fontSize: '12px', color: 'var(--text-light)' }}>Audit-Proof</span>
+            {/* STEP 4 */}
+            <div className="timeline-step">
+              <div className="timeline-badge">04<small>STEP</small></div>
+              <div className="timeline-content">
+                <div className="timeline-header">
+                  <h3>COMPLIANCE & READINESS</h3>
+                  <span className="timeline-tag" style={{ color: 'var(--secondary)' }}>Pathway Engine</span>
+                </div>
+                <p style={{ fontWeight: 700, color: 'var(--secondary)', marginBottom: '4px' }}>
+                  "You don't have to know which one applies. ECF helps identify the pathway."
+                </p>
+                <p>We match your facility attributes against regulatory mandates and buyer questionnaires.</p>
+                <div className="step-pills">
+                  <span className="step-pill">BRSR Core</span>
+                  <span className="step-pill">CBAM (EU Export)</span>
+                  <span className="step-pill">ISO 14064</span>
+                  <span className="step-pill">SBTi Guidelines</span>
+                  <span className="step-pill">OEM ESG Forms</span>
+                </div>
               </div>
-              <h3>DOCUMENT & REPORT</h3>
-              <p>Professional, tamper-evident outputs generated directly from verified records for clients, banks, and authorities.</p>
-              <div className="step-highlight">📄 Client-Ready PDF Reports & Verified Registry Vault Links</div>
             </div>
 
-            <div className="glass-pearl step-card" style={{ border: '2px solid var(--primary)' }}>
-              <div className="step-header">
-                <span className="step-tag" style={{ background: 'var(--primary)', color: '#fff' }}>STEP 7</span>
-                <span style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: 800 }}>Monetization</span>
+            {/* STEP 5 */}
+            <div className="timeline-step">
+              <div className="timeline-badge">05<small>STEP</small></div>
+              <div className="timeline-content">
+                <div className="timeline-header">
+                  <h3>IMPROVE & REDUCE</h3>
+                  <span className="timeline-tag">Operational ROI</span>
+                </div>
+                <p>ECF turns audit findings into tangible cost-saving and reduction projects:</p>
+                <div className="timeline-highlight-box">FIND → PRIORITISE → ACT → MEASURE → REDUCE</div>
+                <div className="step-pills">
+                  <span className="step-pill">Energy Efficiency</span>
+                  <span className="step-pill">Rooftop Renewables</span>
+                  <span className="step-pill">Water Recirculation</span>
+                  <span className="step-pill">Process Upgrades</span>
+                </div>
               </div>
-              <h3>VALUE / POA</h3>
-              <p>Where eligible, verified carbon reductions are pooled into ECF's aggregated Programme of Activities under agreed revenue-sharing terms.</p>
-              <div className="step-highlight">Aggregation → Documentation → Registry Market Access → Settlement</div>
+            </div>
+
+            {/* STEP 6 */}
+            <div className="timeline-step">
+              <div className="timeline-badge">06<small>STEP</small></div>
+              <div className="timeline-content">
+                <div className="timeline-header">
+                  <h3>DOCUMENT & REPORT</h3>
+                  <span className="timeline-tag">Audit-Proof</span>
+                </div>
+                <p>Professional, tamper-evident outputs generated directly from verified records for clients, banks, and authorities.</p>
+                <div className="timeline-highlight-box">📄 Client-Ready PDF Reports & Verified Registry Vault Links</div>
+              </div>
+            </div>
+
+            {/* STEP 7 */}
+            <div className="timeline-step">
+              <div className="timeline-badge" style={{ borderColor: 'var(--primary)', background: 'var(--primary)', color: '#fff' }}>07<small>STEP</small></div>
+              <div className="timeline-content" style={{ border: '2px solid var(--primary)' }}>
+                <div className="timeline-header">
+                  <h3>VALUE / POA</h3>
+                  <span className="timeline-tag" style={{ background: 'var(--primary)', color: '#fff' }}>Monetization</span>
+                </div>
+                <p>Where eligible, verified carbon reductions are pooled into ECF's aggregated Programme of Activities under agreed revenue-sharing terms.</p>
+                <div className="timeline-highlight-box">Aggregation → Documentation → Registry Market Access → Settlement</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 06 — PAYMENT / PARTICIPATION */}
+      {/* 06 — PARTICIPATION */}
       <section id="participation" className="ecf-section">
         <div className="ecf-container text-center">
           <span className="section-tag">06 • Participation Models</span>
@@ -406,7 +578,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 08 — COHORT COMMUNITY PROGRESS */}
+      {/* 08 — COHORT PROGRESS */}
       <section className="ecf-section">
         <div className="ecf-container text-center">
           <span className="section-tag">08 • Cohort Transparency</span>
@@ -462,7 +634,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 10 — COMPREHENSIVE FOOTER */}
+      {/* 10 — FOOTER */}
       <footer className="ecf-footer">
         <div className="ecf-container">
           <div className="footer-grid">
@@ -528,12 +700,12 @@ export default function App() {
         </div>
       </footer>
 
-      {/* BOTTOM MOBILE APP BAR */}
+      {/* MOBILE BOTTOM APP BAR */}
       <nav className="mobile-app-bar">
         <a href="#problem" className="active"><span>⚠️</span><span>Problem</span></a>
+        <a href="#effects"><span>⚡</span><span>Effects</span></a>
         <a href="#solution"><span>✨</span><span>Solution</span></a>
-        <a href="#how-it-works"><span>🧭</span><span>Journey</span></a>
-        <a href="#participation"><span>🏷️</span><span>Models</span></a>
+        <a href="#journey"><span>🧭</span><span>Journey</span></a>
         <a href="#" onClick={(e) => { e.preventDefault(); openModal('Mobile Quick Intake'); }}><span>🚀</span><span>Intake</span></a>
       </nav>
 
@@ -560,7 +732,7 @@ export default function App() {
                 </div>
                 <div className="form-group">
                   <label>Company / Plant Name</label>
-                  <input type="text" name="companyName" required placeholder="e.g. Gujarat Auto Ancillary Ltd." onChange={handleInputChange} />
+                  <input type="text" name="companyName" required placeholder="e.g. Apex Engineering Works" onChange={handleInputChange} />
                 </div>
                 <div className="form-group">
                   <label>Work Email</label>
