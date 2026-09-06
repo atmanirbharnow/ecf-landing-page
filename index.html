@@ -70,82 +70,81 @@
     .btn-lg { padding: 13px 26px; font-size: 14.5px; }
     .w-full { width: 100%; text-align: center; }
 
-    /* 1. HERO */
-.hero {
-  position: relative;
-  min-height: 82vh;
-  display: flex;
-  align-items: center;
-  background: 
-    linear-gradient(135deg, rgba(10, 30, 80, 0.92) 0%, rgba(15, 23, 42, 0.88) 100%),
-    url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
-  color: #ffffff;
-  padding: 80px 0;
-  overflow: hidden;
-}
+    /* 1. HERO (CARBON TRUST STYLE) */
+    .hero {
+      position: relative;
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      background: 
+        linear-gradient(135deg, rgba(8, 28, 77, 0.94) 0%, rgba(15, 23, 42, 0.88) 100%),
+        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+      color: #ffffff;
+      padding: 70px 0;
+      overflow: hidden;
+    }
 
-.hero .container {
-  width: 100%;
-}
+    .hero .container {
+      width: 100%;
+    }
 
-.hero-content-left {
-  max-width: 680px;
-  text-align: left;
-}
+    .hero-content-left {
+      max-width: 720px;
+      text-align: left;
+    }
 
-.hero-title {
-  font-size: 56px;
-  font-weight: 850;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 22px;
-  color: #ffffff;
-}
+    .hero-title {
+      font-size: 52px;
+      font-weight: 850;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
 
-.hero-subtitle {
-  font-size: 18px;
-  color: #e2e8f0;
-  line-height: 1.6;
-  margin-bottom: 34px;
-  font-weight: 400;
-}
+    .hero-subtitle {
+      font-size: 17.5px;
+      color: #e2e8f0;
+      line-height: 1.6;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
 
-/* Carbon Trust signature high-visibility button */
-.btn-carbon-cta {
-  background: #00e676;
-  color: #052e16;
-  padding: 14px 30px;
-  border-radius: 6px;
-  font-weight: 800;
-  font-size: 15px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: 0 4px 14px rgba(0, 230, 118, 0.35);
-}
+    .btn-carbon-cta {
+      background: #00e676;
+      color: #052e16;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 14.5px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 4px 14px rgba(0, 230, 118, 0.35);
+    }
 
-.btn-carbon-cta:hover {
-  background: #00c853;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 230, 118, 0.45);
-}
+    .btn-carbon-cta:hover {
+      background: #00c853;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 230, 118, 0.45);
+    }
 
-@media (max-width: 860px) {
-  .hero {
-    min-height: auto;
-    padding: 60px 0;
-  }
-  .hero-title {
-    font-size: 36px;
-  }
-  .hero-subtitle {
-    font-size: 16px;
-  }
-}
+    @media (max-width: 860px) {
+      .hero {
+        min-height: auto;
+        padding: 50px 0;
+      }
+      .hero-title {
+        font-size: 34px;
+      }
+      .hero-subtitle {
+        font-size: 15.5px;
+      }
+    }
 
-    /* 2. COMPACT PROOF CARDS (SS1 FIX) */
+    /* 2. COMPACT PROOF CARDS */
     .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 15px; }
     .proof-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
     .proof-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; margin-bottom: 12px; }
@@ -157,7 +156,7 @@
     .proof-rev-num { font-size: 15px; font-weight: 800; color: var(--gold); }
     .disclaimer { font-size: 11.5px; color: var(--muted); margin-top: 14px; font-style: italic; }
 
-    /* 3. COMPACT RECOVERY PIPELINE (SS2 FIX) */
+    /* 3. COMPACT RECOVERY PIPELINE */
     .recovery-box { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-top: 15px; }
     .recovery-pipeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-items: center; margin-bottom: 20px; text-align: center; }
     .rec-step { background: var(--light); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
@@ -165,7 +164,6 @@
     .rec-step-val { font-size: 15px; font-weight: 800; color: var(--dark); margin-top: 2px; }
     .rec-highlight { background: var(--primary-soft); border-color: var(--primary-border); }
     .rec-highlight .rec-step-val { color: var(--primary); }
-    .rec-arrow { color: #94a3b8; font-weight: 900; font-size: 14px; }
     
     .recovery-split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; text-align: left; }
     .balance-sheet-card { background: var(--light); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
@@ -173,7 +171,7 @@
     .res-row-total { border-top: 2px solid var(--primary); border-bottom: none; font-size: 13.5px; font-weight: 800; color: var(--primary); padding-top: 6px; }
     .bonus-card { background: #0f172a; color: #fff; border-radius: 8px; padding: 16px; }
 
-    /* 4. INTEGRATED MASTER VAULT + DASHBOARD (SS3 & SS4 COMBINED) */
+    /* 4. INTEGRATED MASTER VAULT + DASHBOARD */
     .vault-console { background: #0f172a; color: #f8fafc; border-radius: 14px; padding: 24px; margin-top: 20px; border: 1px solid #1e293b; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
     .console-split { display: grid; grid-template-columns: 320px 1fr; gap: 24px; }
     
@@ -197,7 +195,7 @@
 
     .vault-commit-banner { background: #111827; border: 1px solid #374151; border-radius: 8px; padding: 16px; margin-top: 16px; display: flex; align-items: center; justify-content: space-between; }
 
-    /* 5. PROCESS STEPS & CIRCULAR SERVICES (SS5) */
+    /* 5. PROCESS STEPS & CIRCULAR SERVICES */
     .circular-process { display: flex; justify-content: center; gap: 8px; margin: 24px 0 35px; flex-wrap: wrap; }
     .process-badge { background: #fff; border: 1px solid var(--border); border-radius: 30px; padding: 6px 14px; font-size: 12px; font-weight: 700; color: var(--dark); display: flex; align-items: center; gap: 6px; }
     .process-badge span { background: var(--primary); color: #fff; border-radius: 50%; width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; }
@@ -247,7 +245,6 @@
 </head>
 <body>
 
-  <!-- NAVIGATION -->
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#top" class="nav-logo">
@@ -265,21 +262,22 @@
     </div>
   </nav>
 
-  <!-- 1. HERO -->
-  <section class="hero bg-white text-center" id="top">
+  <section class="hero" id="top">
     <div class="container">
-      <div class="pill">Industrial Environmental Value Engine</div>
-      <h1 class="hero-title">MAKE MONEY FROM EMISSION REDUCTION.</h1>
-      <p class="hero-subtitle">
-        Your business is already using energy, water, materials and technology. Some actions can reduce emissions, save costs and, where eligible, create additional environmental-market revenue. ECF helps you find out what is possible.
-      </p>
-      <div class="hero-cta">
-        <a href="#proof-section" class="btn-primary btn-lg">FIND OUT WHAT YOUR BUSINESS CAN EARN →</a>
+      <div class="hero-content-left">
+        <h1 class="hero-title">Make money from emission reduction.</h1>
+        <p class="hero-subtitle">
+          Your business is already using energy, water, materials and technology. Some actions can reduce emissions, save costs and, where eligible, create additional environmental-market revenue. ECF helps you find out what is possible.
+        </p>
+        <div>
+          <a href="#proof-section" class="btn-carbon-cta">
+            Find out what your business can earn →
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. SCREENSHOT 1 FIX: COMPACT FINANCIAL PROOF -->
   <section id="proof-section" class="section bg-light text-center">
     <div class="container">
       <div class="pill">Illustrative Model</div>
@@ -287,7 +285,6 @@
       <p class="section-desc">Empirical benchmarks illustrating conventional cost savings, verified tCO₂e reduction, and market upside.</p>
 
       <div class="proof-grid">
-        <!-- SOLAR -->
         <div class="proof-card">
           <div class="proof-header">
             <span class="proof-title">☀️ 1 MW Solar</span>
@@ -311,7 +308,6 @@
           </div>
         </div>
 
-        <!-- WATER -->
         <div class="proof-card">
           <div class="proof-header">
             <span class="proof-title">💧 10 ML Water Saved</span>
@@ -335,7 +331,6 @@
           </div>
         </div>
 
-        <!-- WASTE -->
         <div class="proof-card">
           <div class="proof-header">
             <span class="proof-title">♻️ 1,000 T Waste Recovered</span>
@@ -366,7 +361,6 @@
     </div>
   </section>
 
-  <!-- 3. SCREENSHOT 2 FIX: STREAMLINED CAPITAL RECOVERY -->
   <section id="recovery-section" class="section bg-white text-center">
     <div class="container">
       <div class="pill">Capital Recovery Logic</div>
@@ -374,7 +368,6 @@
       <p class="section-desc">Structured as a commercial asset where power savings and carbon upsides directly service the debt.</p>
 
       <div class="recovery-box">
-        <!-- Compact 4-Stage Horizontal Pipeline -->
         <div class="recovery-pipeline">
           <div class="rec-step">
             <div class="rec-step-label">1. Capital Outlay</div>
@@ -418,7 +411,6 @@
     </div>
   </section>
 
-  <!-- 4. SCREENSHOTS 3 & 4 COMBINED: INTEGRATED MASTER PROFILE + LIVE DASHBOARD -->
   <section id="vault-section" class="section bg-light text-center">
     <div class="container">
       <div class="pill">Integrated Client Console</div>
@@ -429,7 +421,6 @@
 
       <div class="vault-console">
         <div class="console-split">
-          <!-- Left: Profile Input -->
           <div class="vault-form-col">
             <div class="form-title">Master Facility Intake</div>
             <div class="v-group">
@@ -453,7 +444,6 @@
             </div>
           </div>
 
-          <!-- Right: Live Dashboard KPIs + Commitment Card -->
           <div class="vault-display-col">
             <div>
               <div class="vault-topbar">
@@ -464,7 +454,6 @@
                 <span class="kpi-badge badge-teal">ACTIVE PROFILE</span>
               </div>
 
-              <!-- Top KPI Strip -->
               <div class="kpi-row">
                 <div class="kpi-tile">
                   <div class="kpi-metric" id="dash-savings">₹14.2 L</div>
@@ -484,7 +473,6 @@
               </div>
             </div>
 
-            <!-- Social Share Loop & Immediate Commit Action -->
             <div class="vault-commit-banner">
               <div style="text-align:left;">
                 <div style="font-size:13px; font-weight:700; color:#fff;">Commit Your ECF Master Profile</div>
@@ -501,14 +489,12 @@
     </div>
   </section>
 
-  <!-- 5. SCREENSHOT 5 FIX: CIRCULAR PROCESS FLOW & SERVICE HUB -->
   <section id="services-section" class="section bg-white text-center">
     <div class="container">
       <div class="pill">Circular Execution Hub</div>
       <h2 class="section-title">WHAT DO YOU NEED TO GET DONE?</h2>
       <p class="section-desc">Select an operational requirement. Your Master Profile data connects instantly with zero duplicate entry.</p>
 
-      <!-- Circular Interaction Flow Steps -->
       <div class="circular-process">
         <div class="process-badge"><span>1</span> Master Profile</div>
         <div style="color:#94a3b8;">→</div>
@@ -521,7 +507,6 @@
         <div class="process-badge" style="background:var(--primary-soft); border-color:var(--primary-border); color:var(--primary-dark);">Continuous Loop</div>
       </div>
 
-      <!-- 6 Service Tiles Grid -->
       <div class="service-wheel-grid">
         <div class="service-tile active" id="tile-01" onclick="pickService('01')">
           <span class="s-num">[01] GHG / CARBON</span>
@@ -560,7 +545,6 @@
         </div>
       </div>
 
-      <!-- Service Detail Pane -->
       <div class="service-detail-pane" id="service-detail-box">
         <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px;">
           <h3 style="font-size:18px; color:var(--dark);" id="serv-title">[01] GHG / Carbon Accounting</h3>
@@ -570,7 +554,6 @@
           Audit-ready corporate boundary accounting aligned with GHG Protocol and ISO 14064.
         </p>
 
-        <!-- Route Tiers -->
         <div class="tier-selector">
           <button class="tier-btn active" id="btn-t-std" onclick="setTier('standard')">STANDARD (Comply) · ₹24,999</button>
           <button class="tier-btn" id="btn-t-tailor" onclick="setTier('tailor')">TAILOR-MADE (Communicate) · Custom</button>
@@ -605,7 +588,6 @@
     </div>
   </section>
 
-  <!-- FAQ SECTION -->
   <section id="faq" class="section bg-light">
     <div class="container-sm">
       <div class="text-center" style="margin-bottom: 25px;">
@@ -634,7 +616,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -688,7 +669,6 @@
     </div>
   </footer>
 
-  <!-- DYNAMIC CLIENT LOGIC -->
   <script>
     const SERVICES = {
       '01': {
