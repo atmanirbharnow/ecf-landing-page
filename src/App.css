@@ -918,3 +918,23 @@ body {
   .ecf-nav-links { display: none; }
   .mobile-app-bar { display: flex; }
 }
+/* ECF V1 UTILITY STYLES */
+.nav-link-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.nav-link-btn:hover {
+  color: var(--primary, #1b5e20);
+}
+
+input[type="range"] {
+  accent-color: var(--primary, #1b5e20);
+  margin-top: 6px;
+}
