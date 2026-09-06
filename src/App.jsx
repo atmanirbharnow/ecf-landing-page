@@ -6,7 +6,6 @@ const LINKS = {
   whatsapp: 'https://wa.me/919824025431'
 };
 
-// FROZEN V1 SERVICES DATA MODEL
 const SERVICES_DATA = {
   '01': {
     code: '01',
@@ -27,7 +26,7 @@ const SERVICES_DATA = {
     },
     practitioner: {
       action: 'Help Me Decide',
-      desc: 'Connect with a certified GHG Practitioner to establish organizational boundaries.'
+      desc: 'Connect with a certified GHG Practitioner to establish organizational boundaries and emission calculation factors.'
     }
   },
   '02': {
@@ -49,7 +48,7 @@ const SERVICES_DATA = {
     },
     practitioner: {
       action: 'Consult Practitioner',
-      desc: 'Review domestic supply chain compliance requirements with our sector lead.'
+      desc: 'Review domestic supply chain compliance requirements and disclosure formats with our sector lead.'
     }
   },
   '03': {
@@ -71,7 +70,7 @@ const SERVICES_DATA = {
     },
     practitioner: {
       action: 'Speak to Trade Lead',
-      desc: 'Verify applicable customs rules and avoid export clearance bottlenecks.'
+      desc: 'Verify applicable EU/US customs border rules to prevent port clearances and export disqualifications.'
     }
   },
   '04': {
@@ -93,7 +92,7 @@ const SERVICES_DATA = {
     },
     practitioner: {
       action: 'Book Engineering Review',
-      desc: 'Walk through utility data with an industrial energy specialist.'
+      desc: 'Walk through plant billing data and sub-meter setups with an industrial energy specialist.'
     }
   },
   '05': {
@@ -115,7 +114,7 @@ const SERVICES_DATA = {
     },
     practitioner: {
       action: 'Assess Monetization',
-      desc: 'Determine if your clean tech assets qualify for carbon credit registration.'
+      desc: 'Determine if your rooftop solar, bio-fuel, or waste-heat setups meet international registry benchmarks.'
     }
   },
   '06': {
@@ -137,7 +136,7 @@ const SERVICES_DATA = {
     },
     practitioner: {
       action: 'Learn About Index',
-      desc: 'Understand how the Atmanirbhar score unlocks supply chain preferences.'
+      desc: 'Understand how self-reliance scoring helps win OEM supply contracts and tenders.'
     }
   }
 };
@@ -176,7 +175,8 @@ export default function App() {
   };
 
   const shareOnSocial = (platform) => {
-    const text = `Our facility ${atmanirbharInputs.plantName || 'Plant'} achieved an Atmanirbhar Self-Reliance Score of ${calculatedScore}/100 with Earth Carbon Foundation! What is your score?`;
+    const plant = atmanirbharInputs.plantName.trim() || 'Our Plant';
+    const text = `${plant} achieved an Atmanirbhar Self-Reliance Score of ${calculatedScore}/100 with Earth Carbon Foundation! What is your score?`;
     if (platform === 'linkedin') {
       window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://earthcarbonfoundation.org')}&summary=${encodeURIComponent(text)}`, '_blank');
     } else {
@@ -186,12 +186,12 @@ export default function App() {
 
   return (
     <div className="b2b-page">
-      {/* 1. NAVIGATION */}
+      {/* NAVIGATION */}
       <nav className="b2b-nav">
         <div className="b2b-container b2b-nav-inner">
           <div className="b2b-logo">
             <span className="b2b-logo-bold">ECF</span>
-            <span className="b2b-logo-sub">Earth Carbon Foundation</span>
+            <span className="b2b-logo-sub" style={{ marginLeft: '8px' }}>Earth Carbon Foundation</span>
           </div>
           <div className="b2b-nav-links">
             <a href="#requirements">What You Need</a>
@@ -208,7 +208,7 @@ export default function App() {
         </div>
       </nav>
 
-      {/* 2. HERO */}
+      {/* HERO SECTION */}
       <section className="b2b-hero" id="top">
         <div className="b2b-container text-center">
           <div className="b2b-pill">One Earth. Shared Resources. Measurable Action.</div>
@@ -226,15 +226,15 @@ export default function App() {
           </div>
           <div className="b2b-trust-row">
             <span className="b2b-trust-item">✓ GHG Protocol Corporate Standard</span>
-            <span>•</span>
+            <span style={{ margin: '0 8px' }}>•</span>
             <span className="b2b-trust-item">✓ SEBI BRSR Core Aligned</span>
-            <span>•</span>
+            <span style={{ margin: '0 8px' }}>•</span>
             <span className="b2b-trust-item">✓ EU CBAM Audit Ready</span>
           </div>
         </div>
       </section>
 
-      {/* 3. WHAT DO YOU NEED TO DO? (THE 6 REQUIREMENTS) */}
+      {/* 6 REQUIREMENT TILES */}
       <section id="requirements" className="b2b-section bg-light">
         <div className="b2b-container text-center">
           <div className="b2b-pill">Service Catalog</div>
@@ -257,12 +257,12 @@ export default function App() {
                   style={{ cursor: 'pointer', transition: 'all 0.2s ease', position: 'relative' }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '12px', fontWeight: 800, color: '#16a34a', letterSpacing: '0.05em' }}>[{item.code}]</span>
+                    <span style={{ fontSize: '13px', fontWeight: 800, color: '#16a34a', letterSpacing: '0.05em' }}>[{item.code}]</span>
                     {isSelected && <span style={{ fontSize: '11px', background: '#16a34a', color: '#fff', padding: '2px 8px', borderRadius: '4px', fontWeight: 700 }}>ACTIVE</span>}
                   </div>
-                  <h3 style={{ marginTop: '10px', fontSize: '18px' }}>{item.title}</h3>
+                  <h3 style={{ marginTop: '12px', fontSize: '18px' }}>{item.title}</h3>
                   <p style={{ fontSize: '13px', color: '#64748b', lineHeight: 1.5 }}>{item.subtitle}</p>
-                  <div style={{ marginTop: '12px', fontSize: '12px', fontWeight: 700, color: '#0f172a' }}>
+                  <div style={{ marginTop: '14px', fontSize: '13px', fontWeight: 700, color: '#0f172a' }}>
                     Select Route →
                   </div>
                 </div>
@@ -272,7 +272,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. REUSABLE SERVICE ROUTER & SPECIMEN DISPLAY */}
+      {/* SERVICE DELIVERY ROUTER */}
       <section id="service-delivery-engine" className="b2b-section bg-white">
         <div className="b2b-container">
           <div className="text-center" style={{ marginBottom: '35px' }}>
@@ -281,8 +281,7 @@ export default function App() {
             <p className="b2b-section-desc">{activeServiceData.subtitle}</p>
           </div>
 
-          {/* SPECIMEN PREVIEW BOX */}
-          <div className="arch-diagram-wrapper" style={{ margin: '0 auto 35px' }}>
+          <div className="arch-diagram-wrapper" style={{ margin: '0 auto 35px', maxWidth: '780px' }}>
             <span className="arch-diagram-title">Specimen Output / What You Receive</span>
             <div style={{ padding: '16px 0', color: '#e2e8f0', fontSize: '14px', lineHeight: 1.6 }}>
               <strong>Verified Deliverable:</strong> {activeServiceData.specimen}
@@ -292,8 +291,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* 3-TIER ROUTE SELECTOR */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '30px' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '30px', flexWrap: 'wrap' }}>
             <button
               onClick={() => setActiveTier('standard')}
               className={activeTier === 'standard' ? 'b2b-btn-primary' : 'b2b-btn-outline'}
@@ -314,7 +312,6 @@ export default function App() {
             </button>
           </div>
 
-          {/* DYNAMIC TIER CARD */}
           <div className="b2b-card" style={{ maxWidth: '750px', margin: '0 auto', padding: '32px', border: '1px solid #cbd5e1' }}>
             {activeTier === 'standard' && (
               <div>
@@ -381,7 +378,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. ATMANIRBHAR ONBOARDING & MEMBERSHIP ASSESSMENT */}
+      {/* ATMANIRBHAR ASSESSMENT */}
       <section id="atmanirbhar" className="b2b-section bg-light">
         <div className="b2b-container">
           <div className="text-center" style={{ maxWidth: '780px', margin: '0 auto 40px' }}>
@@ -480,7 +477,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 6. HOW ECF WORKS (7-STEP LIFECYCLE) */}
+      {/* HOW ECF WORKS */}
       <section id="how-it-works" className="b2b-section bg-white">
         <div className="b2b-container text-center">
           <div className="b2b-pill">Operational Cycle</div>
@@ -565,7 +562,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 7. ABOUT & CREDENTIALS */}
+      {/* ABOUT */}
       <section id="about" className="b2b-section bg-light">
         <div className="b2b-container-sm text-center">
           <div className="b2b-pill">Institutional Rigor</div>
@@ -583,7 +580,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 8. RESOURCES SECTION */}
+      {/* RESOURCES */}
       <section id="resources" className="b2b-section bg-white">
         <div className="b2b-container text-center">
           <div className="b2b-pill">Technical Resources</div>
@@ -616,7 +613,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 9. FAQ SECTION */}
+      {/* FAQ */}
       <section id="faq" className="b2b-section bg-light">
         <div className="b2b-container-sm text-center">
           <div className="b2b-pill">Have Questions?</div>
@@ -644,7 +641,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 10. CLIENT DASHBOARD PLACEHOLDER MODAL */}
+      {/* DASHBOARD MODAL */}
       {dashboardOpen && (
         <div style={{
           position: 'fixed',
@@ -695,7 +692,7 @@ export default function App() {
         </div>
       )}
 
-      {/* 11. FOOTER */}
+      {/* FOOTER */}
       <footer className="b2b-footer">
         <div className="b2b-container b2b-footer-inner">
           <div>
