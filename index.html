@@ -71,10 +71,79 @@
     .w-full { width: 100%; text-align: center; }
 
     /* 1. HERO */
-    .hero { padding: 65px 0 45px; }
-    .hero-title { font-size: 38px; font-weight: 850; letter-spacing: -0.025em; line-height: 1.2; margin-bottom: 14px; color: var(--dark); }
-    .hero-subtitle { font-size: 16px; color: var(--slate); max-width: 680px; margin: 0 auto 26px; line-height: 1.6; }
-    .hero-cta { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
+.hero {
+  position: relative;
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  background: 
+    linear-gradient(135deg, rgba(10, 30, 80, 0.92) 0%, rgba(15, 23, 42, 0.88) 100%),
+    url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+  color: #ffffff;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.hero .container {
+  width: 100%;
+}
+
+.hero-content-left {
+  max-width: 680px;
+  text-align: left;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 22px;
+  color: #ffffff;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: #e2e8f0;
+  line-height: 1.6;
+  margin-bottom: 34px;
+  font-weight: 400;
+}
+
+/* Carbon Trust signature high-visibility button */
+.btn-carbon-cta {
+  background: #00e676;
+  color: #052e16;
+  padding: 14px 30px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 4px 14px rgba(0, 230, 118, 0.35);
+}
+
+.btn-carbon-cta:hover {
+  background: #00c853;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 230, 118, 0.45);
+}
+
+@media (max-width: 860px) {
+  .hero {
+    min-height: auto;
+    padding: 60px 0;
+  }
+  .hero-title {
+    font-size: 36px;
+  }
+  .hero-subtitle {
+    font-size: 16px;
+  }
+}
 
     /* 2. COMPACT PROOF CARDS (SS1 FIX) */
     .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 15px; }
