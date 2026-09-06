@@ -938,3 +938,98 @@ input[type="range"] {
   accent-color: var(--primary, #1b5e20);
   margin-top: 6px;
 }
+/* --- FIX HEADER & NAV MERGING --- */
+.b2b-nav-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+}
+
+.b2b-logo {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 10px !important;
+}
+
+.b2b-nav-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 24px !important;
+}
+
+.b2b-nav-links a,
+.b2b-nav-links .nav-link-btn {
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+/* --- FIX HERO BUTTONS & TRUST BAR --- */
+.b2b-hero-cta {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  margin-bottom: 24px !important;
+  flex-wrap: wrap !important;
+}
+
+.b2b-trust-row {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+}
+
+/* --- FIX FAQ ACCORDION OPENING & TEXT --- */
+.b2b-faq-item {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  margin-bottom: 12px !important;
+  background: #ffffff !important;
+  overflow: hidden !important;
+  text-align: left !important;
+}
+
+.b2b-faq-item summary {
+  padding: 16px 20px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  outline: none !important;
+  list-style: none !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  user-select: none !important;
+}
+
+.b2b-faq-item summary::-webkit-details-marker {
+  display: none !important;
+}
+
+.b2b-faq-item summary::after {
+  content: "＋" !important;
+  font-size: 16px !important;
+  color: #16a34a !important;
+  font-weight: bold !important;
+}
+
+.b2b-faq-item[open] summary::after {
+  content: "—" !important;
+}
+
+.b2b-faq-item p {
+  padding: 0 20px 16px 20px !important;
+  margin: 0 !important;
+  color: #475569 !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  display: block !important;
+}
+
+/* --- FIX FOOTER LINKS --- */
+.b2b-footer-links {
+  display: flex !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+}

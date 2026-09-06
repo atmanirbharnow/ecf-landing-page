@@ -186,12 +186,12 @@ export default function App() {
 
   return (
     <div className="b2b-page">
-      {/* NAVIGATION */}
+      {/* 1. NAVIGATION */}
       <nav className="b2b-nav">
         <div className="b2b-container b2b-nav-inner">
           <div className="b2b-logo">
             <span className="b2b-logo-bold">ECF</span>
-            <span className="b2b-logo-sub" style={{ marginLeft: '8px' }}>Earth Carbon Foundation</span>
+            <span className="b2b-logo-sub">Earth Carbon Foundation</span>
           </div>
           <div className="b2b-nav-links">
             <a href="#requirements">What You Need</a>
@@ -208,7 +208,7 @@ export default function App() {
         </div>
       </nav>
 
-      {/* HERO SECTION */}
+      {/* 2. HERO */}
       <section className="b2b-hero" id="top">
         <div className="b2b-container text-center">
           <div className="b2b-pill">One Earth. Shared Resources. Measurable Action.</div>
@@ -225,16 +225,16 @@ export default function App() {
             </a>
           </div>
           <div className="b2b-trust-row">
-            <span className="b2b-trust-item">✓ GHG Protocol Corporate Standard</span>
-            <span style={{ margin: '0 8px' }}>•</span>
+            <span className="b2b-trust-item">✓ GHG Protocol Standard</span>
+            <span>•</span>
             <span className="b2b-trust-item">✓ SEBI BRSR Core Aligned</span>
-            <span style={{ margin: '0 8px' }}>•</span>
+            <span>•</span>
             <span className="b2b-trust-item">✓ EU CBAM Audit Ready</span>
           </div>
         </div>
       </section>
 
-      {/* 6 REQUIREMENT TILES */}
+      {/* 3. THE 6 SERVICE REQUIREMENTS */}
       <section id="requirements" className="b2b-section bg-light">
         <div className="b2b-container text-center">
           <div className="b2b-pill">Service Catalog</div>
@@ -254,16 +254,16 @@ export default function App() {
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
                   }}
                   className={`b2b-card ${isSelected ? 'b2b-price-featured' : 'b2b-card-solution'}`}
-                  style={{ cursor: 'pointer', transition: 'all 0.2s ease', position: 'relative' }}
+                  style={{ cursor: 'pointer', transition: 'all 0.2s ease' }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '13px', fontWeight: 800, color: '#16a34a', letterSpacing: '0.05em' }}>[{item.code}]</span>
-                    {isSelected && <span style={{ fontSize: '11px', background: '#16a34a', color: '#fff', padding: '2px 8px', borderRadius: '4px', fontWeight: 700 }}>ACTIVE</span>}
+                    <span style={{ fontSize: '13px', fontWeight: 800, color: '#16a34a' }}>[{item.code}]</span>
+                    {isSelected && <span style={{ fontSize: '11px', background: '#16a34a', color: '#fff', padding: '2px 8px', borderRadius: '4px', fontWeight: 700 }}>SELECTED</span>}
                   </div>
                   <h3 style={{ marginTop: '12px', fontSize: '18px' }}>{item.title}</h3>
                   <p style={{ fontSize: '13px', color: '#64748b', lineHeight: 1.5 }}>{item.subtitle}</p>
                   <div style={{ marginTop: '14px', fontSize: '13px', fontWeight: 700, color: '#0f172a' }}>
-                    Select Route →
+                    Configure Scope →
                   </div>
                 </div>
               );
@@ -272,11 +272,11 @@ export default function App() {
         </div>
       </section>
 
-      {/* SERVICE DELIVERY ROUTER */}
+      {/* 4. SERVICE DELIVERY ROUTER */}
       <section id="service-delivery-engine" className="b2b-section bg-white">
         <div className="b2b-container">
           <div className="text-center" style={{ marginBottom: '35px' }}>
-            <div className="b2b-pill">Service Delivery Engine</div>
+            <div className="b2b-pill">Delivery Engine</div>
             <h2 className="b2b-section-title">[{activeServiceData.code}] {activeServiceData.title}</h2>
             <p className="b2b-section-desc">{activeServiceData.subtitle}</p>
           </div>
@@ -315,7 +315,7 @@ export default function App() {
           <div className="b2b-card" style={{ maxWidth: '750px', margin: '0 auto', padding: '32px', border: '1px solid #cbd5e1' }}>
             {activeTier === 'standard' && (
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid #e2e8f0', paddingBottom: '16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid #e2e8f0', paddingBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
                   <div>
                     <h3 style={{ margin: 0, fontSize: '20px' }}>Standard Prescribed Route</h3>
                     <p style={{ margin: '4px 0 0', fontSize: '13px', color: '#64748b' }}>Defined scope, recognized format, online fixed price.</p>
@@ -330,17 +330,17 @@ export default function App() {
                   className="b2b-btn-primary w-full"
                   onClick={() => handleWhatsAppAction(`Hi ECF! I want to proceed with the Standard [${activeServiceData.code}] ${activeServiceData.title} package at ${activeServiceData.standard.price}.`)}
                 >
-                  {activeServiceData.standard.cta} (Proceed to Intake) →
+                  {activeServiceData.standard.cta} →
                 </button>
               </div>
             )}
 
             {activeTier === 'tailorMade' && (
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid #e2e8f0', paddingBottom: '16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', borderBottom: '1px solid #e2e8f0', paddingBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
                   <div>
                     <h3 style={{ margin: 0, fontSize: '20px' }}>Tailor-Made Corporate Route</h3>
-                    <p style={{ margin: '4px 0 0', fontSize: '13px', color: '#64748b' }}>Multi-plant analysis, management presentation, and custom roadmap.</p>
+                    <p style={{ margin: '4px 0 0', fontSize: '13px', color: '#64748b' }}>Multi-plant analysis, stakeholder communication, and custom roadmap.</p>
                   </div>
                   <div style={{ fontSize: '24px', fontWeight: 700, color: '#0f172a' }}>{activeServiceData.tailorMade.price}</div>
                 </div>
@@ -350,7 +350,7 @@ export default function App() {
                 </div>
                 <button
                   className="b2b-btn-outline w-full"
-                  onClick={() => handleWhatsAppAction(`Hi ECF! I require a Tailor-Made proposal for [${activeServiceData.code}] ${activeServiceData.title}. Here are our plant details:`)}
+                  onClick={() => handleWhatsAppAction(`Hi ECF! I require a Tailor-Made proposal for [${activeServiceData.code}] ${activeServiceData.title}. Here are our facility requirements:`)}
                 >
                   {activeServiceData.tailorMade.cta} →
                 </button>
@@ -361,16 +361,16 @@ export default function App() {
               <div>
                 <div style={{ borderBottom: '1px solid #e2e8f0', paddingBottom: '16px' }}>
                   <h3 style={{ margin: 0, fontSize: '20px' }}>Practitioner-Led Route</h3>
-                  <p style={{ margin: '4px 0 0', fontSize: '13px', color: '#64748b' }}>Uncertain about boundary lines or applicability? Let an expert prescribe the route.</p>
+                  <p style={{ margin: '4px 0 0', fontSize: '13px', color: '#64748b' }}>Uncertain about applicability or data collection? Let an expert prescribe your scope.</p>
                 </div>
                 <div style={{ margin: '20px 0' }}>
-                  <p style={{ fontSize: '14px', color: '#334155' }}>{activeServiceData.practitioner.desc}</p>
+                  <p style={{ fontSize: '14px', color: '#334155', lineHeight: 1.6 }}>{activeServiceData.practitioner.desc}</p>
                 </div>
                 <button
                   className="b2b-btn-primary w-full"
                   onClick={() => openExternal(LINKS.cal)}
                 >
-                  Schedule 30-Min Intake Call ↗
+                  Schedule 30-Min Technical Intake ↗
                 </button>
               </div>
             )}
@@ -378,14 +378,14 @@ export default function App() {
         </div>
       </section>
 
-      {/* ATMANIRBHAR ASSESSMENT */}
+      {/* 5. ATMANIRBHAR ASSESSMENT */}
       <section id="atmanirbhar" className="b2b-section bg-light">
         <div className="b2b-container">
           <div className="text-center" style={{ maxWidth: '780px', margin: '0 auto 40px' }}>
             <div className="b2b-pill">Foundation Membership</div>
             <h2 className="b2b-section-title">Join ECF: The Atmanirbhar Assessment</h2>
             <p className="b2b-section-desc">
-              Calculate your facility's Resource Self-Reliance Score. Onboard as a recognized member and generate an auditable, shareable certificate for LinkedIn and Tier-1 buyers.
+              Calculate your facility's Resource Self-Reliance Score. Onboard as an authorized member and generate an auditable, shareable certificate for LinkedIn and Tier-1 buyers.
             </p>
           </div>
 
@@ -445,7 +445,7 @@ export default function App() {
 
             {calculatedScore !== null && (
               <div style={{ marginTop: '30px', padding: '24px', background: '#f0fdf4', borderRadius: '12px', border: '2px solid #16a34a', textAlign: 'center' }}>
-                <span style={{ fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', color: '#166534', letterSpacing: '0.05em' }}>
+                <span style={{ fontSize: '12px', fontWeight: 800, textTransform: 'uppercase', color: '#166534' }}>
                   Verified Assessment Result
                 </span>
                 <div style={{ fontSize: '56px', fontWeight: 900, color: '#15803d', margin: '10px 0' }}>
@@ -459,14 +459,14 @@ export default function App() {
                 </p>
                 <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
                   <button className="b2b-btn-primary" onClick={() => shareOnSocial('linkedin')}>
-                    Share Score on LinkedIn ↗
+                    Share on LinkedIn ↗
                   </button>
                   <button className="b2b-btn-outline" onClick={() => shareOnSocial('whatsapp')}>
                     Share on WhatsApp ↗
                   </button>
                   <button
                     className="b2b-btn-outline"
-                    onClick={() => handleWhatsAppAction(`Hi ECF! We calculated our Atmanirbhar Score as ${calculatedScore}/100 for ${atmanirbharInputs.plantName}. We want to claim the official certificate and unlock relevant service routes.`)}
+                    onClick={() => handleWhatsAppAction(`Hi ECF! We scored ${calculatedScore}/100 on our Atmanirbhar Assessment for ${atmanirbharInputs.plantName}. We want to claim our official certificate and plan our next steps.`)}
                   >
                     Claim Official Certificate (₹9,999) ↗
                   </button>
@@ -477,7 +477,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* HOW ECF WORKS */}
+      {/* 6. HOW ECF WORKS */}
       <section id="how-it-works" className="b2b-section bg-white">
         <div className="b2b-container text-center">
           <div className="b2b-pill">Operational Cycle</div>
@@ -562,7 +562,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ABOUT */}
+      {/* 7. ABOUT */}
       <section id="about" className="b2b-section bg-light">
         <div className="b2b-container-sm text-center">
           <div className="b2b-pill">Institutional Rigor</div>
@@ -580,7 +580,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* RESOURCES */}
+      {/* 8. RESOURCES */}
       <section id="resources" className="b2b-section bg-white">
         <div className="b2b-container text-center">
           <div className="b2b-pill">Technical Resources</div>
@@ -613,35 +613,35 @@ export default function App() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* 9. FAQ (UNBREAKABLE ACCORDION) */}
       <section id="faq" className="b2b-section bg-light">
         <div className="b2b-container-sm text-center">
           <div className="b2b-pill">Have Questions?</div>
           <h2 className="b2b-section-title">Frequently Asked Questions</h2>
           <p className="b2b-section-desc">Direct answers on fractional architecture, registry pooling, and onboarding.</p>
 
-          <div className="b2b-faq-list text-left">
-            <details className="b2b-faq-item" open>
+          <div className="b2b-faq-list text-left" style={{ marginTop: '30px' }}>
+            <div className="b2b-faq-item">
               <summary>What is a "Fractional Sustainability Service"?</summary>
               <p>Instead of carrying a full-time ESG manager (₹6L–₹9L/year), you get senior certified GHG practitioners and digital vaults on-demand at a fraction of the cost, eliminating permanent payroll overhead.</p>
-            </details>
-            <details className="b2b-faq-item">
+            </div>
+            <div className="b2b-faq-item">
               <summary>What is the difference between Standard, Tailor-Made, and Practitioner?</summary>
               <p><strong>Standard:</strong> Fixed-price, prescribed regulatory format for immediate compliance.<br /><strong>Tailor-Made:</strong> Custom multi-plant corporate analysis designed for stakeholder communication and value generation.<br /><strong>Practitioner:</strong> Direct consultation to diagnose your exact regulatory exposure.</p>
-            </details>
-            <details className="b2b-faq-item">
+            </div>
+            <div className="b2b-faq-item">
               <summary>How does the Atmanirbhar Score work?</summary>
               <p>The Atmanirbhar Index measures your facility's degree of independence from external fossil grids, municipal freshwater networks, and landfill dependencies. It generates a verified certificate for public and buyer recognition.</p>
-            </details>
-            <details className="b2b-faq-item">
+            </div>
+            <div className="b2b-faq-item">
               <summary>How does the ₹0 Upfront Carbon Monetization work?</summary>
               <p>Small-to-mid clean energy installations (&lt;15 MW) cannot justify standalone registry audit fees. ECF aggregates your eligible assets under a Program of Activities (PoA). We manage the registry audits and retain a 25% success fee upon credit sale.</p>
-            </details>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* DASHBOARD MODAL */}
+      {/* 10. CLIENT DASHBOARD PLACEHOLDER MODAL */}
       {dashboardOpen && (
         <div style={{
           position: 'fixed',
@@ -692,7 +692,7 @@ export default function App() {
         </div>
       )}
 
-      {/* FOOTER */}
+      {/* 11. FOOTER */}
       <footer className="b2b-footer">
         <div className="b2b-container b2b-footer-inner">
           <div>
