@@ -17,22 +17,23 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body { font-family: var(--font); color: var(--dark); background: #ffffff; line-height: 1.6; }
 
     /* LAYOUT & CONTAINERS */
     .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
-    .container-sm { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+    .container-sm { max-width: 820px; margin: 0 auto; padding: 0 20px; }
     .text-center { text-align: center; }
     .text-left { text-align: left; }
-    .section { padding: 70px 0; }
+    .section { padding: 75px 0; }
     .bg-light { background: var(--light); }
     .bg-white { background: #ffffff; }
 
-    /* TYPOGRAPHY & PILLS */
+    /* PILLS & TITLES */
     .pill {
       display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 11px;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--primary);
@@ -41,80 +42,118 @@
       border-radius: 999px;
       margin-bottom: 16px;
     }
-    .section-title { font-size: 32px; font-weight: 800; color: var(--dark); margin-bottom: 12px; }
-    .section-desc { font-size: 16px; color: var(--slate); max-width: 680px; margin: 0 auto 40px; }
+    .section-title { font-size: 34px; font-weight: 900; color: var(--dark); margin-bottom: 12px; letter-spacing: -0.01em; }
+    .section-desc { font-size: 16px; color: var(--slate); max-width: 700px; margin: 0 auto 40px; }
 
     /* NAVIGATION */
-    .nav { position: sticky; top: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 16px 0; }
+    .nav { position: sticky; top: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 14px 0; }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .nav-logo { display: flex; align-items: baseline; gap: 8px; text-decoration: none; }
     .logo-bold { font-size: 22px; font-weight: 900; color: var(--dark); }
-    .logo-sub { font-size: 12px; font-weight: 600; color: var(--primary); }
-    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .logo-sub { font-size: 12px; font-weight: 700; color: var(--primary); }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
     .nav-links a, .nav-links button { text-decoration: none; font-size: 14px; font-weight: 600; color: var(--slate); background: none; border: none; cursor: pointer; transition: color 0.2s; }
     .nav-links a:hover, .nav-links button:hover { color: var(--primary); }
 
     /* BUTTONS */
-    .btn-primary { background: var(--primary); color: #fff; padding: 10px 22px; border-radius: 8px; font-weight: 700; font-size: 14px; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; }
-    .btn-primary:hover { background: var(--primary-dark); }
-    .btn-outline { background: transparent; color: var(--dark); padding: 10px 22px; border-radius: 8px; font-weight: 700; font-size: 14px; border: 1px solid var(--border); cursor: pointer; text-decoration: none; display: inline-block; }
+    .btn-primary { background: var(--primary); color: #fff; padding: 12px 24px; border-radius: 8px; font-weight: 700; font-size: 14px; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--dark); padding: 12px 24px; border-radius: 8px; font-weight: 700; font-size: 14px; border: 1px solid var(--border); cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
     .btn-outline:hover { background: #f1f5f9; }
-    .btn-lg { padding: 14px 28px; font-size: 15px; }
+    .btn-lg { padding: 14px 30px; font-size: 15px; }
     .w-full { width: 100%; text-align: center; }
 
     /* HERO */
-    .hero { padding: 90px 0 60px; }
-    .hero-title { font-size: 46px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; color: var(--dark); }
-    .hero-subtitle { font-size: 18px; color: var(--slate); max-width: 760px; margin: 0 auto 30px; }
-    .hero-cta { display: flex; justify-content: center; gap: 14px; margin-bottom: 30px; flex-wrap: wrap; }
-    .trust-row { display: flex; justify-content: center; align-items: center; gap: 12px; font-size: 13px; font-weight: 600; color: var(--slate); flex-wrap: wrap; }
+    .hero { padding: 85px 0 65px; }
+    .hero-title { font-size: 46px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; color: var(--dark); max-width: 900px; margin-left: auto; margin-right: auto; }
+    .hero-subtitle { font-size: 17px; color: var(--slate); max-width: 780px; margin: 0 auto 32px; line-height: 1.6; }
+    .hero-cta { display: flex; justify-content: center; gap: 14px; margin-bottom: 28px; flex-wrap: wrap; }
+    .trust-row { display: flex; justify-content: center; align-items: center; gap: 14px; font-size: 13px; font-weight: 600; color: var(--slate); flex-wrap: wrap; }
 
-    /* GRIDS & CARDS */
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-    .card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: transform 0.2s, box-shadow 0.2s; }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-    .card-active { border: 2px solid var(--primary); background: #fafdfb; }
+    /* REQUIREMENT SELECTOR CARDS */
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+    .req-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 24px; cursor: pointer; transition: all 0.2s; text-align: left; position: relative; }
+    .req-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.06); border-color: #cbd5e1; }
+    .req-card.active { border: 2px solid var(--primary); background: #f8fdf9; }
+    .req-card .badge { font-size: 12px; font-weight: 800; color: var(--primary); letter-spacing: 0.05em; }
+    .req-card h3 { font-size: 18px; margin: 10px 0 6px; color: var(--dark); }
+    .req-card p { font-size: 13px; color: var(--slate); line-height: 1.5; }
+    .req-card .action-tag { font-size: 13px; font-weight: 700; color: var(--primary); margin-top: 14px; display: inline-block; }
 
-    /* SPECIMEN & FORMULA BOX */
-    .specimen-box { background: #0f172a; border-radius: 12px; padding: 24px; color: #e2e8f0; margin-bottom: 30px; text-align: left; }
-    .specimen-title { font-size: 11px; font-weight: 800; text-transform: uppercase; color: #38bdf8; background: rgba(56,189,248,0.12); padding: 4px 10px; border-radius: 6px; display: inline-block; margin-bottom: 12px; }
+    /* PROGRESSIVE SERVICE MODULE CONTAINER */
+    .module-wrapper { margin-top: 50px; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.04); text-align: left; scroll-margin-top: 90px; }
+    .module-step-title { font-size: 13px; font-weight: 800; text-transform: uppercase; color: var(--primary); letter-spacing: 0.05em; margin-bottom: 8px; }
+    
+    /* INTERACTIVE PILL SELECTORS */
+    .selector-grid { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0 24px; }
+    .selector-btn { padding: 9px 16px; border-radius: 8px; border: 1px solid var(--border); background: #fff; font-size: 13.5px; font-weight: 600; cursor: pointer; color: var(--dark); transition: all 0.2s; }
+    .selector-btn:hover { border-color: var(--primary); }
+    .selector-btn.active { background: var(--dark); color: #fff; border-color: var(--dark); }
 
-    /* ACCORDIONS / FAQ */
-    .faq-item { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 12px; background: #fff; }
-    .faq-summary { padding: 18px 20px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    .faq-content { padding: 0 20px 18px; font-size: 14px; color: var(--slate); }
+    /* SPECIMEN DISPLAY */
+    .specimen-card { background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 24px; margin: 24px 0; border: 1px solid #1e293b; }
+    .specimen-badge { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(56,189,248,0.15); color: #38bdf8; padding: 4px 10px; border-radius: 6px; display: inline-block; margin-bottom: 10px; }
 
-    /* TABLE */
-    .table-wrap { overflow-x: auto; margin-top: 30px; border-radius: 8px; border: 1px solid var(--border); }
-    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
-    th { background: #f1f5f9; padding: 12px 16px; font-weight: 700; }
-    td { padding: 12px 16px; border-top: 1px solid var(--border); }
+    /* 3 TIER INTERACTIVE CARDS */
+    .tier-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 20px 0; }
+    .tier-card { border: 1px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s; background: #fff; }
+    .tier-card:hover { border-color: var(--primary); }
+    .tier-card.selected { border: 2px solid var(--primary); background: #f0fdf4; }
+    .tier-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .tier-price { font-size: 22px; font-weight: 900; color: var(--dark); }
+
+    /* WHAT YOU RECEIVE / PROVIDE */
+    .scope-box { background: var(--light); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin: 20px 0; }
+    .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 13.5px; }
+
+    /* INTERACTIVE MINI CALCULATORS */
+    .calc-box { background: #fdfefe; border: 1px dashed var(--primary); border-radius: 10px; padding: 20px; margin: 20px 0; }
+
+    /* PROGRESSIVE JOURNEY (7 STEPS) */
+    .journey-nav { display: flex; justify-content: space-between; gap: 8px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 24px; }
+    .journey-node { flex: 1; min-width: 100px; padding: 12px 10px; background: #fff; border: 1px solid var(--border); border-radius: 8px; font-size: 12px; font-weight: 800; cursor: pointer; text-align: center; color: var(--dark); transition: all 0.2s; }
+    .journey-node.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .journey-detail-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px; text-align: left; }
+
+    /* FAQ ACCORDION */
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; background: #fff; overflow: hidden; }
+    .faq-question { padding: 18px 20px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+    .faq-question::after { content: "+"; font-size: 18px; color: var(--primary); font-weight: 800; }
+    .faq-item.open .faq-question::after { content: "−"; }
+    .faq-answer { display: none; padding: 0 20px 20px; font-size: 14px; color: var(--slate); line-height: 1.6; }
+    .faq-item.open .faq-answer { display: block; }
 
     /* MODAL */
-    .modal { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.7); z-index: 2000; align-items: center; justify-content: center; padding: 20px; }
-    .modal-box { background: #fff; border-radius: 14px; max-width: 440px; width: 100%; padding: 30px; position: relative; }
-    .modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 20px; cursor: pointer; }
+    .modal { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.75); z-index: 2000; align-items: center; justify-content: center; padding: 20px; }
+    .modal.open { display: flex; }
+    .modal-box { background: #fff; border-radius: 16px; max-width: 460px; width: 100%; padding: 32px; position: relative; }
+    .modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 20px; cursor: pointer; color: var(--slate); }
 
-    /* FORM STYLES */
+    /* FORMS */
     .form-group { margin-bottom: 16px; text-align: left; }
     .form-group label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
-    .form-group input, .form-group select { width: 100%; padding: 10px 14px; border-radius: 6px; border: 1px solid var(--border); font-family: inherit; font-size: 14px; }
+    .form-group input, .form-group select { width: 100%; padding: 11px 14px; border-radius: 8px; border: 1px solid var(--border); font-family: inherit; font-size: 14px; }
 
     /* FOOTER */
-    .footer { border-top: 1px solid var(--border); padding: 40px 0; font-size: 13px; color: var(--slate); background: #fff; }
-    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-    .footer-links { display: flex; gap: 18px; }
-    .footer-links a { color: var(--slate); text-decoration: none; font-weight: 600; }
+    .footer { background: #0f172a; color: #94a3b8; padding: 75px 0 35px; font-size: 13.5px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 50px; text-align: left; }
+    .footer-col h5 { color: #f8fafc; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { color: #94a3b8; text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: #38bdf8; }
+    .footer-bottom { border-top: 1px solid #1e293b; padding-top: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 12px; }
 
-    @media (max-width: 768px) {
+    @media (max-width: 840px) {
       .hero-title { font-size: 32px; }
       .nav-links { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .scope-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#top" class="nav-logo">
@@ -126,333 +165,556 @@
         <a href="#how-it-works">How ECF Works</a>
         <button onclick="toggleModal(true)">Your Dashboard</button>
         <a href="#about">About</a>
-        <a href="#resources">Resources</a>
+        <a href="#faq">FAQ</a>
       </div>
-      <a href="#atmanirbhar" class="btn-primary">Join ECF ↗</a>
+      <a href="#requirements" class="btn-primary" onclick="selectService('06')">Join ECF ↗</a>
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="hero bg-white text-center" id="top">
     <div class="container">
       <div class="pill">One Earth. Shared Resources. Measurable Action.</div>
-      <h1 class="hero-title">Requirement-Led Commercial Sustainability.</h1>
+      <h1 class="hero-title">Get Your Environmental Requirements Done — and Turn the Data into Action.</h1>
       <p class="hero-subtitle">
-        Turn statutory compliance, carbon disclosure, and operational efficiency into balance-sheet value. Select your requirement below to access standard deliverables, fixed pricing, or practitioner guidance.
+        From carbon accounting and ESG reporting to environmental compliance and decarbonisation, ECF gives your business a clear route from requirement to measurable action.
       </p>
       <div class="hero-cta">
-        <a href="#requirements" class="btn-primary btn-lg">Select Your Requirement ↓</a>
-        <a href="#atmanirbhar" class="btn-outline btn-lg">Get Atmanirbhar Score</a>
+        <a href="#requirements" class="btn-primary btn-lg">Tell Us What You Need ↓</a>
+        <a href="#requirements" class="btn-outline btn-lg" onclick="selectService('06')">Get Your Atmanirbhar Score →</a>
       </div>
       <div class="trust-row">
-        <span>✓ GHG Protocol Aligned</span>
+        <span>✓ GHG Protocol Corporate Standards</span>
         <span>•</span>
         <span>✓ SEBI BRSR Core Aligned</span>
         <span>•</span>
-        <span>✓ EU CBAM Ready</span>
+        <span>✓ EU CBAM Audit Ready</span>
       </div>
     </div>
   </section>
 
-  <!-- THE 6 REQUIREMENTS -->
   <section id="requirements" class="section bg-light text-center">
     <div class="container">
-      <div class="pill">Service Catalog</div>
-      <h2 class="section-title">What Do You Need to Do?</h2>
-      <p class="section-desc">Select an operational requirement below to configure delivery scope, preview specimen outputs, and view pricing.</p>
+      <div class="pill">Action Selector</div>
+      <h2 class="section-title">WHAT DO YOU NEED TO GET DONE?</h2>
+      <p class="section-desc">Choose your requirement. We'll show you the right route, what you receive, how it works, and what it costs.</p>
 
       <div class="grid-3 text-left">
-        <div class="card card-active" onclick="selectService('01')">
-          <span style="font-size: 13px; font-weight: 800; color: var(--primary);">[01] GHG / Carbon Accounting</span>
-          <h3 style="margin: 8px 0;">Corporate Boundary Carbon</h3>
-          <p style="font-size: 13px; color: var(--slate);">Scope 1 & 2 corporate inventories, fuel logs, and third-party assurance readiness.</p>
-          <div style="margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--dark);">Configure Route →</div>
+        <div class="req-card active" id="card-01" onclick="selectService('01')">
+          <span class="badge">[01] GHG / CARBON</span>
+          <h3>Measure & Document Carbon Footprint</h3>
+          <p>Scope 1 & 2 boundary calculations, utility fuel conversion, and third-party verification readiness.</p>
+          <span class="action-tag">Open Route →</span>
         </div>
-
-        <div class="card" onclick="selectService('02')">
-          <span style="font-size: 13px; font-weight: 800; color: var(--primary);">[02] ESG / BRSR / SDG</span>
-          <h3 style="margin: 8px 0;">Regulatory ESG Disclosures</h3>
-          <p style="font-size: 13px; color: var(--slate);">SEBI BRSR Core compliance, supply-chain questionnaires, and SDG mapping.</p>
-          <div style="margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--dark);">Configure Route →</div>
+        <div class="req-card" id="card-02" onclick="selectService('02')">
+          <span class="badge">[02] ESG / BRSR / SDG</span>
+          <h3>Reporting & Disclosures Stakeholders Require</h3>
+          <p>SEBI BRSR Core compliance, OEM vendor sustainability audits, and global SDG impact mapping.</p>
+          <span class="action-tag">Open Route →</span>
         </div>
-
-        <div class="card" onclick="selectService('03')">
-          <span style="font-size: 13px; font-weight: 800; color: var(--primary);">[03] Export / CBAM Compliance</span>
-          <h3 style="margin: 8px 0;">Border Carbon Defense</h3>
-          <p style="font-size: 13px; color: var(--slate);">EU CBAM declarations, embedded carbon sheets, and Product Carbon Footprints (PCF).</p>
-          <div style="margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--dark);">Configure Route →</div>
+        <div class="req-card" id="card-03" onclick="selectService('03')">
+          <span class="badge">[03] EXPORT / COMPLIANCE</span>
+          <h3>Meet Market & Customer Requirements</h3>
+          <p>EU CBAM embedded carbon declarations, Product Carbon Footprints (PCF), and port clearance readiness.</p>
+          <span class="action-tag">Open Route →</span>
         </div>
-
-        <div class="card" onclick="selectService('04')">
-          <span style="font-size: 13px; font-weight: 800; color: var(--primary);">[04] Decarbonisation</span>
-          <h3 style="margin: 8px 0;">Shop-Floor Leak Plugging</h3>
-          <p style="font-size: 13px; color: var(--slate);">Thermal/electrical audit walkthroughs, power factor corrections, and tariff reduction.</p>
-          <div style="margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--dark);">Configure Route →</div>
+        <div class="req-card" id="card-04" onclick="selectService('04')">
+          <span class="badge">[04] DECARBONISATION</span>
+          <h3>Reduce Energy, Emissions & Costs</h3>
+          <p>Shop-floor leak checks, sub-meter calibration, and prioritized thermal/power capex paybacks.</p>
+          <span class="action-tag">Open Route →</span>
         </div>
-
-        <div class="card" onclick="selectService('05')">
-          <span style="font-size: 13px; font-weight: 800; color: var(--primary);">[05] Carbon Value Pathway</span>
-          <h3 style="margin: 8px 0;">Asset Monetization</h3>
-          <p style="font-size: 13px; color: var(--slate);">Sub-15 MW rooftop solar and clean tech aggregation into pooled international carbon credits.</p>
-          <div style="margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--dark);">Configure Route →</div>
+        <div class="req-card" id="card-05" onclick="selectService('05')">
+          <span class="badge">[05] CARBON VALUE PATHWAY</span>
+          <h3>Create Additional Value from Action</h3>
+          <p>Pre-qualification and aggregation of sub-15 MW clean tech into pooled international carbon credits.</p>
+          <span class="action-tag">Open Route →</span>
         </div>
-
-        <div class="card" onclick="selectService('06')">
-          <span style="font-size: 13px; font-weight: 800; color: var(--primary);">[06] Atmanirbhar Index</span>
-          <h3 style="margin: 8px 0;">Self-Reliance Rating</h3>
-          <p style="font-size: 13px; color: var(--slate);">Benchmark facility independence from external power, municipal water, and landfills.</p>
-          <div style="margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--dark);">Configure Route →</div>
+        <div class="req-card" id="card-06" onclick="selectService('06')">
+          <span class="badge">[06] ATMANIRBHAR</span>
+          <h3>Measure Resource Self-Reliance</h3>
+          <p>Benchmark facility resilience from external power grids, municipal water, and landfills.</p>
+          <span class="action-tag">Open Route →</span>
         </div>
       </div>
+
+      <div class="module-wrapper" id="module-container">
+        
+        <div class="module-step-title">Step 1: Your Focus Area</div>
+        <h3 style="font-size: 24px; margin-bottom: 6px;" id="m-title">GHG / Carbon Accounting</h3>
+        <p style="font-size: 14px; color: var(--slate); margin-bottom: 16px;" id="m-subtitle">What specific milestone are you trying to achieve?</p>
+        
+        <div class="selector-grid" id="m-intents">
+          </div>
+
+        <div class="calc-box" id="m-calc-area">
+          </div>
+
+        <div class="specimen-card">
+          <span class="specimen-badge">Specimen / What You Receive</span>
+          <div style="font-size: 14px; line-height: 1.6; margin-bottom: 12px;" id="m-specimen">
+            Audit-Ready GHG Inventory Dossier + Independent Verification Statement (ISO 14064 & GHG Protocol aligned).
+          </div>
+          <div style="font-size: 12px; color: #94a3b8;">
+            ✓ Recognized by Tier-1 OEM Auditors • ✓ Institutional Data Vault Retention • ✓ Certified Practitioner Review
+          </div>
+        </div>
+
+        <div class="module-step-title">Step 2: Choose Delivery Model</div>
+        <p style="font-size: 14px; color: var(--slate); margin-bottom: 12px;">Select how you want ECF to deliver this output:</p>
+        
+        <div class="tier-cards-grid">
+          <div class="tier-card selected" id="tier-card-std" onclick="chooseTier('standard')">
+            <div class="tier-header">
+              <strong style="font-size: 15px;">STANDARD</strong>
+              <span class="tier-price" id="tier-p-std">₹24,999</span>
+            </div>
+            <div style="font-size: 11px; font-weight: 800; color: var(--primary); text-transform: uppercase;">"COMPLY"</div>
+            <p style="font-size: 13px; color: var(--slate); margin-top: 6px;">Applicable recognized format. Defined scope, fixed output, fast turnaround.</p>
+          </div>
+
+          <div class="tier-card" id="tier-card-tailor" onclick="chooseTier('tailor')">
+            <div class="tier-header">
+              <strong style="font-size: 15px;">TAILOR-MADE</strong>
+              <span class="tier-price">Custom</span>
+            </div>
+            <div style="font-size: 11px; font-weight: 800; color: #0284c7; text-transform: uppercase;">"COMMUNICATE + VALUE"</div>
+            <p style="font-size: 13px; color: var(--slate); margin-top: 6px;">Company-specific analysis, stakeholder narratives, and multi-site strategy.</p>
+          </div>
+
+          <div class="tier-card" id="tier-card-pract" onclick="chooseTier('pract')">
+            <div class="tier-header">
+              <strong style="font-size: 15px;">PRACTITIONER</strong>
+              <span class="tier-price">Intake</span>
+            </div>
+            <div style="font-size: 11px; font-weight: 800; color: #d97706; text-transform: uppercase;">"HELP ME DECIDE"</div>
+            <p style="font-size: 13px; color: var(--slate); margin-top: 6px;">Uncertain of boundary requirements? Talk with a certified GHG practitioner.</p>
+          </div>
+        </div>
+
+        <div class="scope-box">
+          <div class="scope-grid">
+            <div>
+              <strong style="color: var(--dark); display: block; margin-bottom: 6px;">What You Receive:</strong>
+              <ul style="padding-left: 18px; color: var(--slate); line-height: 1.6;" id="m-receive-list">
+                <li>Automated Scope 1 & 2 baseline computation</li>
+                <li>Audit-ready export portfolio for buyers</li>
+                <li>Digital data vault initialization</li>
+              </ul>
+            </div>
+            <div>
+              <strong style="color: var(--dark); display: block; margin-bottom: 6px;">What You Provide:</strong>
+              <ul style="padding-left: 18px; color: var(--slate); line-height: 1.6;" id="m-provide-list">
+                <li>12 months of electricity bills (kWh)</li>
+                <li>Fuel purchase records (Diesel, Gas, Biomass)</li>
+                <li>Plant physical operational boundary details</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 30px; text-align: center;">
+          <div style="font-size: 13px; color: var(--slate); margin-bottom: 10px;" id="m-tier-note">
+            Fixed scope commitment • No recurring consultant retainer lock-in
+          </div>
+          <button class="btn-primary btn-lg" style="width: 100%; max-width: 480px;" id="m-commit-btn" onclick="executeCommitment()">
+            PROCEED TO INTAKE →
+          </button>
+        </div>
+
+      </div>
+
     </div>
   </section>
 
-  <!-- SERVICE DELIVERY ENGINE -->
-  <section id="service-engine" class="section bg-white text-center">
-    <div class="container-sm">
-      <div class="pill">Service Delivery Engine</div>
-      <h2 class="section-title" id="engine-title">[01] GHG / Carbon Accounting</h2>
-      <p class="section-desc" id="engine-desc">Scope 1 & 2 corporate boundary inventories and verification statements.</p>
-
-      <div class="specimen-box">
-        <span class="specimen-title">Specimen Deliverable / What You Receive</span>
-        <p id="engine-specimen" style="margin: 8px 0; font-size: 14px; line-height: 1.5;">
-          Audit-ready GHG Inventory Dossier + Independent Verification Statement (GHG Protocol & ISO 14064 aligned).
-        </p>
-      </div>
-
-      <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap;">
-        <button class="btn-primary" id="tab-std" onclick="setTier('standard')">Standard (Comply)</button>
-        <button class="btn-outline" id="tab-tailor" onclick="setTier('tailor')">Tailor-Made (Communicate)</button>
-        <button class="btn-outline" id="tab-pract" onclick="setTier('pract')">Practitioner (Help Me Decide)</button>
-      </div>
-
-      <div class="card text-left" id="tier-display" style="border: 1px solid var(--border); padding: 30px;">
-        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
-          <h3 id="tier-name">Standard Prescribed Route</h3>
-          <div style="font-size: 26px; font-weight: 900; color: var(--dark);" id="tier-price">₹24,999</div>
-        </div>
-        <p style="font-size: 14px; margin-bottom: 8px;"><strong>Scope:</strong> <span id="tier-scope">Standard Corporate Boundary (Scope 1 & 2)</span></p>
-        <p style="font-size: 14px; margin-bottom: 20px;"><strong>Delivery:</strong> <span id="tier-delivery">5 Business Days</span></p>
-        <button class="btn-primary w-full" id="tier-btn" onclick="sendWhatsAppOrder()">Proceed to Intake Form →</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ATMANIRBHAR ASSESSMENT -->
-  <section id="atmanirbhar" class="section bg-light text-center">
-    <div class="container-sm">
-      <div class="pill">Foundation Membership</div>
-      <h2 class="section-title">Join ECF: The Atmanirbhar Assessment</h2>
-      <p class="section-desc">Calculate your facility's Resource Self-Reliance Score and generate an auditable badge for buyers.</p>
-
-      <div class="card text-left">
-        <form id="atmanirbhar-form" onsubmit="calculateScore(event)">
-          <div class="form-group">
-            <label>Plant / Company Name</label>
-            <input type="text" id="plant-name" required placeholder="e.g. Apex Industrial Works" />
-          </div>
-          <div class="form-group">
-            <label>Clean Energy Share: <span id="val-solar">30</span>%</label>
-            <input type="range" min="0" max="100" value="30" oninput="document.getElementById('val-solar').innerText = this.value" id="range-solar" style="width: 100%;">
-          </div>
-          <div class="form-group">
-            <label>Water Recycled / Harvested: <span id="val-water">40</span>%</label>
-            <input type="range" min="0" max="100" value="40" oninput="document.getElementById('val-water').innerText = this.value" id="range-water" style="width: 100%;">
-          </div>
-          <div class="form-group">
-            <label>Waste Diverted from Landfills: <span id="val-waste">50</span>%</label>
-            <input type="range" min="0" max="100" value="50" oninput="document.getElementById('val-waste').innerText = this.value" id="range-waste" style="width: 100%;">
-          </div>
-          <button type="submit" class="btn-primary w-full" style="margin-top: 10px;">Calculate Score →</button>
-        </form>
-
-        <div id="score-result" style="display: none; margin-top: 24px; padding: 24px; background: #f0fdf4; border: 2px solid var(--primary); border-radius: 10px; text-align: center;">
-          <div style="font-size: 52px; font-weight: 900; color: var(--primary);" id="score-val">0</div>
-          <h4 id="score-plant" style="margin: 8px 0;">Facility Rating</h4>
-          <p style="font-size: 13px; color: var(--slate); margin-bottom: 16px;">This score indicates plant self-reliance. Higher ratings qualify for priority carbon off-take.</p>
-          <button class="btn-outline" onclick="shareScore()">Share on WhatsApp ↗</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW ECF WORKS -->
   <section id="how-it-works" class="section bg-white text-center">
     <div class="container">
-      <div class="pill">Lifecycle</div>
-      <h2 class="section-title">How ECF Works: 7-Step Cycle</h2>
-      <p class="section-desc">KNOW → MEASURE → ACT → DOCUMENT → REPORT → TRACK → VALUE</p>
+      <div class="pill">Execution Cycle</div>
+      <h2 class="section-title">How ECF Works</h2>
+      <p class="section-desc">A progressive lifecycle that converts raw facility logs into verified enterprise value.</p>
 
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Step</th><th>Milestone</th><th>Responsible</th><th>Deliverable</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>01. Know</strong></td><td>Boundary calibration</td><td>Plant + ECF</td><td>Scope Boundary Map</td></tr>
-            <tr><td><strong>02. Measure</strong></td><td>Scope 1 & 2 baseline computation</td><td>ECF Vault</td><td>Audit-Ready Ledger</td></tr>
-            <tr><td><strong>03. Act</strong></td><td>Sub-meter calibration & leak fixes</td><td>Plant Maintenance</td><td>Direct Bill Savings</td></tr>
-            <tr><td><strong>04. Document</strong></td><td>Evidence repository compilation</td><td>ECF Practitioner</td><td>Audit Defense Pack</td></tr>
-            <tr><td><strong>05. Report</strong></td><td>Statutory reporting (BRSR/CBAM)</td><td>ECF Lead</td><td>Certified Filings</td></tr>
-            <tr><td><strong>06. Track</strong></td><td>Quarterly telemetry review</td><td>Digital Vault</td><td>Variance Reports</td></tr>
-            <tr><td><strong>07. Value</strong></td><td>Sub-15 MW credit aggregation</td><td>ECF Desk</td><td>75% Net Carbon Payout</td></tr>
-          </tbody>
-        </table>
+      <div class="journey-nav">
+        <div class="journey-node active" onclick="showJourneyStep(0)">01. KNOW</div>
+        <div class="journey-node" onclick="showJourneyStep(1)">02. MEASURE</div>
+        <div class="journey-node" onclick="showJourneyStep(2)">03. ACT</div>
+        <div class="journey-node" onclick="showJourneyStep(3)">04. DOCUMENT</div>
+        <div class="journey-node" onclick="showJourneyStep(4)">05. REPORT</div>
+        <div class="journey-node" onclick="showJourneyStep(5)">06. TRACK</div>
+        <div class="journey-node" onclick="showJourneyStep(6)">07. VALUE</div>
+      </div>
+
+      <div class="journey-detail-card" id="journey-detail">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <h3 style="font-size: 20px; color: var(--dark);" id="j-step-title">01. KNOW: Boundary Calibration</h3>
+          <span class="pill" id="j-step-owner" style="margin-bottom: 0;">Plant Lead + ECF</span>
+        </div>
+        <p style="font-size: 14.5px; color: var(--slate); margin-bottom: 16px;" id="j-step-desc">
+          Identify all operational boundaries, fuel connections, sub-meters, and corporate structures to establish unambiguous accounting perimeters.
+        </p>
+        <div style="background: var(--light); padding: 14px 18px; border-radius: 8px; font-size: 13.5px;">
+          <strong>What You Receive:</strong> <span id="j-step-deliverable">Formal Facility Scope Sheet & Boundary Protocol</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="section bg-light text-center">
-    <div class="container-sm text-left">
-      <div class="pill" style="display: block; width: fit-content; margin: 0 auto 16px;">FAQ</div>
-      <h2 class="section-title text-center">Frequently Asked Questions</h2>
-      <p class="section-desc text-center">Clear answers on fractional sustainability, registry aggregation, and onboarding.</p>
+  <section id="faq" class="section bg-light">
+    <div class="container-sm">
+      <div class="text-center" style="margin-bottom: 35px;">
+        <div class="pill">FAQ</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Practical answers about timelines, data requirements, and execution.</p>
+      </div>
 
-      <div class="faq-item">
-        <div class="faq-summary">What is a Fractional Sustainability Service?</div>
-        <div class="faq-content">Instead of hiring an expensive full-time ESG manager (₹6L–₹9L/year), you get access to senior certified practitioners and data vaults on-demand at a flat fractional cost.</div>
+      <div class="faq-item open">
+        <div class="faq-question" onclick="toggleFaq(this)">What does ECF provide?</div>
+        <div class="faq-answer">ECF provides fractional environmental architecture: senior GHG practitioner leadership, automated audit vaults, and carbon monetization pathways without the overhead of full-time ESG payroll or expensive agency retainers.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-summary">How does ₹0 Upfront Carbon Monetization work?</div>
-        <div class="faq-content">Sub-15 MW clean tech assets normally cannot afford individual validation costs. ECF bundles installations into an existing Program of Activities (PoA), covering all audits and returning 75% net revenue to your facility.</div>
+        <div class="faq-question" onclick="toggleFaq(this)">Do I need to know my carbon data before starting?</div>
+        <div class="faq-answer">No. You only need your raw utility bills and fuel purchase logs. ECF’s engine and practitioners calibrate your boundary and calculate emissions accurately according to GHG Protocol standards.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-summary">Are reports accepted for EU CBAM and SEBI BRSR?</div>
-        <div class="faq-content">Yes. Methodologies adhere strictly to GHG Protocol standards and MoEF&CC guidelines, accepted across Tier-1 OEM audits and European customs portals.</div>
+        <div class="faq-question" onclick="toggleFaq(this)">What is the difference between Standard, Tailor-Made, and Practitioner?</div>
+        <div class="faq-answer"><strong>Standard:</strong> Fixed-price, prescribed template for immediate statutory compliance.<br><strong>Tailor-Made:</strong> Custom multi-plant analysis designed for stakeholder communication and customer presentations.<br><strong>Practitioner:</strong> Diagnostic session to establish boundaries when you are unsure of your requirements.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">What information do I need to provide?</div>
+        <div class="faq-answer">For standard corporate footprints, 12 months of electricity invoices, fuel consumption logs (diesel, natural gas, biomass), and plant capacity metrics are all that is required to begin.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">How long does it take?</div>
+        <div class="faq-answer">Standard corporate carbon footprints and Atmanirbhar scoring are delivered within 5 to 7 business days following data intake submission.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Can ECF help with BRSR / ESG / CBAM?</div>
+        <div class="faq-answer">Yes. We maintain dedicated modules for SEBI BRSR Core indicators, global ESG supply chain questionnaires, and European CBAM export declarations.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Can I start with only one requirement and add others later?</div>
+        <div class="faq-answer">Yes. The system is modular. Most manufacturers begin with Service 01 (GHG/Carbon) or Service 06 (Atmanirbhar), subsequently unlocking decarbonization audits or monetization pools as needed.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">What is the Atmanirbhar Score?</div>
+        <div class="faq-answer">It is a metric evaluating your facility's level of self-reliance from external fossil power, municipal freshwater networks, and municipal landfills. It generates a verified certificate for public and buyer recognition.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Can environmental actions create carbon value?</div>
+        <div class="faq-answer">Yes. Sub-15 MW rooftop solar, bio-fuel swaps, and heat recovery installations can be aggregated into pooled international carbon programmes (PoA) at zero upfront cost, unlocking 75% net carbon credit income.</div>
       </div>
     </div>
   </section>
 
-  <!-- DASHBOARD MODAL -->
   <div class="modal" id="dash-modal">
-    <div class="modal-box">
+    <div class="modal-box text-left">
       <button class="modal-close" onclick="toggleModal(false)">✕</button>
       <div class="pill">Client Portal</div>
-      <h3 style="margin-bottom: 8px;">Facility Vault Login</h3>
-      <p style="font-size: 13px; color: var(--slate); margin-bottom: 20px;">Access live Scope 1 & 2 logs, audit portfolios, and carbon issuance status.</p>
-      <form onsubmit="event.preventDefault(); alert('Demo Vault: Client access will be provisioned following your baseline intake.');">
+      <h3 style="margin-bottom: 6px;">Facility Vault Login</h3>
+      <p style="font-size: 13px; color: var(--slate); margin-bottom: 20px;">Access live Scope 1 & 2 logs, compliance dossiers, and carbon tracking.</p>
+      <form onsubmit="event.preventDefault(); alert('Demo Vault: Client access keys are issued following your initial intake.');">
         <div class="form-group">
-          <label>Facility Identifier / Email</label>
-          <input type="email" required placeholder="plant.manager@company.com" />
+          <label>Facility Identifier / Account Email</label>
+          <input type="email" required placeholder="plant.head@company.com" />
         </div>
         <div class="form-group">
-          <label>Vault Key</label>
+          <label>Vault Access Key</label>
           <input type="password" required placeholder="••••••••" />
         </div>
-        <button type="submit" class="btn-primary w-full">Enter Vault →</button>
+        <button type="submit" class="btn-primary w-full">Access Vault →</button>
       </form>
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>Earth Carbon Foundation</strong> © 2026. All rights reserved.
-        <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">CIN: U85300GJ2019NPL106818 · Gujarat, India</div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 style="color: #fff; font-size: 18px; margin-bottom: 8px;">Earth Carbon Foundation</h4>
+          <p style="font-size: 12.5px; line-height: 1.6; color: #94a3b8; max-width: 260px;">
+            One Earth. Shared Resources. Measurable Action.<br><br>
+            A non-profit environmental architecture platform helping industry achieve self-reliance and compliance.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#requirements" onclick="selectService('01')">GHG / Carbon</a></li>
+            <li><a href="#requirements" onclick="selectService('02')">ESG / BRSR / SDG</a></li>
+            <li><a href="#requirements" onclick="selectService('03')">Export / CBAM</a></li>
+            <li><a href="#requirements" onclick="selectService('04')">Decarbonisation</a></li>
+            <li><a href="#requirements" onclick="selectService('05')">Carbon Value</a></li>
+            <li><a href="#requirements" onclick="selectService('06')">Atmanirbhar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="#requirements" onclick="selectService('01')">Carbon Estimator</a></li>
+            <li><a href="#requirements" onclick="selectService('06')">Atmanirbhar Index</a></li>
+            <li><a href="#faq">Compliance FAQs</a></li>
+            <li><a href="#how-it-works">Lifecycle Method</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="#top">About ECF</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="javascript:void(0)" onclick="toggleModal(true)">Your Dashboard</a></li>
+            <li><a href="https://cal.com/amit-sinh-earth-carbon-wbfdu4" target="_blank">Book Practitioner</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Connect & Legal</h5>
+          <ul>
+            <li><a href="https://wa.me/919824025431" target="_blank">WhatsApp Helpdesk</a></li>
+            <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+            <li><a href="https://drive.google.com/file/d/1Kf7iX6x33_UceGFR4ZCLCP7TfDoYynZE/view?usp=sharing" target="_blank">Terms & Conditions</a></li>
+            <li><a href="mailto:info@earthcarbonfoundation.org">Email Desk</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="https://wa.me/919824025431" target="_blank">WhatsApp Helpdesk</a>
-        <a href="https://cal.com/amit-sinh-earth-carbon-wbfdu4" target="_blank">Book Discovery Call</a>
+
+      <div class="footer-bottom">
+        <div>CIN: U85300GJ2019NPL106818 · Registered Non-Profit Foundation · Gujarat, India</div>
+        <div>© 2026 Earth Carbon Foundation. All rights reserved.</div>
       </div>
     </div>
   </footer>
 
-  <!-- SCRIPT -->
   <script>
-    const SERVICES = {
-      '01': { title: '[01] GHG / Carbon Accounting', desc: 'Scope 1 & 2 corporate boundary inventories and verification statements.', specimen: 'Audit-ready GHG Inventory Dossier + Independent Verification Statement (GHG Protocol & ISO 14064 aligned).', stdPrice: '₹24,999', stdScope: 'Scope 1 & Scope 2 corporate boundary assessment', stdDelivery: '5 Business Days' },
-      '02': { title: '[02] ESG / BRSR / SDG', desc: 'SEBI BRSR Core indicators, investor disclosures, and SDG impact mapping.', specimen: 'BRSR Core KPI Reporting Package + SDG Alignment Matrix for Tier-1 supply chains.', stdPrice: '₹39,999', stdScope: 'SEBI BRSR Core Essential Indicators (Pillar 1 to 9)', stdDelivery: '7 Business Days' },
-      '03': { title: '[03] Export / CBAM Compliance', desc: 'EU CBAM embedded emissions calculations and product carbon footprints.', specimen: 'Customs-ready CBAM Communication Template + Embedded Emissions Calculation Sheet.', stdPrice: '₹64,999', stdScope: 'Single HS Code Product Carbon Footprint (PCF) for EU declarations', stdDelivery: '10 Business Days' },
-      '04': { title: '[04] Decarbonisation', desc: 'Physical shop-floor walkthroughs, thermal efficiency, and power tariff reduction.', specimen: 'Prioritized Decarbonization Action Plan with verified Capex ROI and payback intervals.', stdPrice: '₹29,999', stdScope: 'Virtual Utility Bill Analysis + Top 3 Thermal/Electrical Leak Hotspot Audit', stdDelivery: '5 Business Days' },
-      '05': { title: '[05] Carbon Value Pathway', desc: 'Monetization pathway for sub-15 MW clean tech and solar installations.', specimen: 'Carbon Asset Qualification Memo + Issuance Forecast (Verra / Gold Standard aligned).', stdPrice: '₹0 Upfront', stdScope: 'Eligibility screening and aggregation onboarding into pooled issuance', stdDelivery: 'Immediate' },
-      '06': { title: '[06] Atmanirbhar Index', desc: 'Measure resource self-reliance, local grid independence, and operational resilience.', specimen: 'Official Atmanirbhar Index Certificate + Digital Badge for verified public disclosure.', stdPrice: '₹9,999', stdScope: 'Self-reliance benchmark, verified index scoring, and official shareable certificate', stdDelivery: 'Instant upon intake' }
+    const SERVICE_MODULES = {
+      '01': {
+        title: 'GHG / Carbon Accounting',
+        subtitle: 'Measure & document your corporate carbon footprint accurately.',
+        intents: ['Scope 1 & 2 Baseline', 'Customer Supply Chain Request', 'Scope 3 Supply Footprint', 'Third-Party Verification'],
+        specimen: 'Audit-Ready GHG Inventory Dossier + Independent Verification Statement (ISO 14064 & GHG Protocol aligned).',
+        stdPrice: '₹24,999',
+        stdScope: 'Standard Corporate Boundary (Scope 1 & 2)',
+        receive: ['Automated Scope 1 & 2 emissions ledger', 'Audit-ready export portfolio for buyers', 'Digital facility data vault initialization'],
+        provide: ['12 months of electricity bills (kWh)', 'Fuel purchase logs (Diesel, Gas, Biomass)', 'Plant boundary perimeter confirmation'],
+        calcHtml: `
+          <strong style="font-size: 13px; color: var(--primary);">Quick Carbon Baseline Estimator:</strong>
+          <div style="display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap;">
+            <input type="number" id="quick-kwh" placeholder="Monthly Grid Units (kWh)" style="padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; width: 200px;">
+            <button class="btn-primary" onclick="calcQuickCarbon()" style="padding: 8px 16px;">Estimate Footprint</button>
+          </div>
+          <div id="quick-carbon-res" style="font-size: 13px; font-weight: 700; margin-top: 8px; color: var(--dark);"></div>
+        `
+      },
+      '02': {
+        title: 'ESG / BRSR / SDG Reporting',
+        subtitle: 'Prepare the reporting and disclosures your stakeholders and OEMs require.',
+        intents: ['SEBI BRSR Core Filing', 'Tier-1 OEM Supplier Assessment', 'CDP Questionnaire', 'SDG Impact Alignment'],
+        specimen: 'BRSR Core KPI Reporting Package + SDG Alignment Matrix for Tier-1 supply chains.',
+        stdPrice: '₹39,999',
+        stdScope: 'SEBI BRSR Core Essential Indicators (Pillars 1 to 9)',
+        receive: ['Standardized BRSR Core KPI disclosure sheet', 'SDG impact alignment score card', 'Executive summary presentation pack'],
+        provide: ['HR/Workforce basic headcount data', 'Safety incident logs & training hours', 'Energy & resource consumption totals'],
+        calcHtml: `<p style="font-size: 13px; color: var(--slate);">Pre-calibrated against SEBI mandate for top 1,000 listed entities and immediate Tier-1 suppliers.</p>`
+      },
+      '03': {
+        title: 'Export / Environmental Compliance',
+        subtitle: 'Meet strict environmental compliance mandates for overseas export markets.',
+        intents: ['EU CBAM Border Declaration', 'Product Carbon Footprint (PCF)', 'Customer LCA Questionnaire', 'Port Clearance Defense'],
+        specimen: 'Customs-ready CBAM Communication Template + Embedded Emissions Calculation Sheet.',
+        stdPrice: '₹64,999',
+        stdScope: 'Single HS Code Product Carbon Footprint (PCF) for EU border declarations',
+        receive: ['Customs-aligned embedded emissions file', 'Direct & indirect PCF calculation dossier', 'Auditor defense methodology note'],
+        provide: ['HS codes of exported product lines', 'Specific electricity/heat consumed per tonne of output', 'Precursor raw material supplier data'],
+        calcHtml: `<p style="font-size: 13px; color: var(--slate);">Prevents customs border penalties and shipment delays across European ports.</p>`
+      },
+      '04': {
+        title: 'Decarbonisation / Improvement',
+        subtitle: 'Find practical ways to reduce energy, emissions, and utility costs.',
+        intents: ['Thermal & Boiler Optimization', 'Electrical Sub-Meter Audit', 'Power Factor & Tariff Correction', 'Capex Payback Modeling'],
+        specimen: 'Prioritized Decarbonization Action Plan with verified Capex ROI and payback intervals.',
+        stdPrice: '₹29,999',
+        stdScope: 'Virtual Utility Bill Analysis + Top 3 Thermal/Electrical Leak Hotspot Audit',
+        receive: ['Hotspot leakage diagnostic sheet', 'Top 3 energy reduction action points', 'Capex vs. savings payback model'],
+        provide: ['Last 3 months of detailed utility tariff bills', 'Contract demand & power factor sheets', 'Basic single-line equipment layout'],
+        calcHtml: `<p style="font-size: 13px; color: var(--slate);">Identifies utility leaks where savings offset your baseline compliance fee.</p>`
+      },
+      '05': {
+        title: 'Carbon Value / Credit Pathway',
+        subtitle: 'Assess whether measurable environmental actions can create additional financial value.',
+        intents: ['Sub-15 MW Solar Rooftop Aggregation', 'Waste Heat Recovery Credits', 'Biomass Boiler Swap Monetization', 'Credit Off-Take Matching'],
+        specimen: 'Carbon Asset Qualification Memo + Issuance Forecast (Verra / Gold Standard aligned).',
+        stdPrice: '₹0 Upfront',
+        stdScope: 'Eligibility screening and aggregation onboarding into pooled issuance',
+        receive: ['Carbon credit eligibility score memo', 'Registry pool aggregation onboarding', '75% net credit revenue off-take terms'],
+        provide: ['Clean tech commissioning certificates', 'Sub-meter generation logs', 'Grid export/import sync reports'],
+        calcHtml: `<p style="font-size: 13px; color: var(--slate);">Success-fee model: We cover registration and audit costs; your plant receives 75% of sales.</p>`
+      },
+      '06': {
+        title: 'Atmanirbhar Resource Assessment',
+        subtitle: 'Measure your business’s resource self-reliance across energy, water, and waste.',
+        intents: ['Full Plant Self-Reliance Benchmark', 'Tier-1 Supplier Green Certification', 'Resource Independence Roadmap'],
+        specimen: 'Official Atmanirbhar Index Certificate + Digital Badge for verified public disclosure.',
+        stdPrice: '₹9,999',
+        stdScope: 'Self-reliance benchmark, verified index scoring, and official shareable certificate',
+        receive: ['Official Atmanirbhar Score Card (0-100)', 'Verified Shareable Digital Badge for LinkedIn/Buyers', 'Resource Independence Gap Analysis'],
+        provide: ['Clean energy percentage ratio', 'Water recycling/harvesting share', 'Waste diverted from landfill fraction'],
+        calcHtml: `
+          <strong style="font-size: 13px; color: var(--primary);">Live Resource Self-Reliance Index Calculator:</strong>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 10px;">
+            <div>
+              <label style="font-size: 12px; font-weight: 700;">Clean Energy: <span id="lbl-s">30</span>%</label>
+              <input type="range" min="0" max="100" value="30" oninput="document.getElementById('lbl-s').innerText=this.value; runAtmanirbharCalc();" id="in-s" style="width:100%;">
+            </div>
+            <div>
+              <label style="font-size: 12px; font-weight: 700;">Water Recycled: <span id="lbl-w">40</span>%</label>
+              <input type="range" min="0" max="100" value="40" oninput="document.getElementById('lbl-w').innerText=this.value; runAtmanirbharCalc();" id="in-w" style="width:100%;">
+            </div>
+            <div>
+              <label style="font-size: 12px; font-weight: 700;">Waste Diverted: <span id="lbl-wt">50</span>%</label>
+              <input type="range" min="0" max="100" value="50" oninput="document.getElementById('lbl-wt').innerText=this.value; runAtmanirbharCalc();" id="in-wt" style="width:100%;">
+            </div>
+          </div>
+          <div id="atmanirbhar-live-res" style="margin-top: 12px; font-weight: 800; font-size: 16px; color: var(--primary);">Calculated Score: 39/100</div>
+        `
+      }
     };
 
-    let activeService = '01';
+    let currentService = '01';
     let currentTier = 'standard';
+    let activeIntent = '';
 
     function selectService(code) {
-      activeService = code;
-      const s = SERVICES[code];
-      document.getElementById('engine-title').innerText = s.title;
-      document.getElementById('engine-desc').innerText = s.desc;
-      document.getElementById('engine-specimen').innerText = s.specimen;
-      setTier('standard');
-      document.getElementById('service-engine').scrollIntoView({ behavior: 'smooth' });
+      currentService = code;
+      const data = SERVICE_MODULES[code];
+
+      // Highlight active card
+      document.querySelectorAll('.req-card').forEach(c => c.classList.remove('active'));
+      const activeCard = document.getElementById('card-' + code);
+      if (activeCard) activeCard.classList.add('active');
+
+      // Populate text
+      document.getElementById('m-title').innerText = `[${code}] ` + data.title;
+      document.getElementById('m-subtitle').innerText = data.subtitle;
+      document.getElementById('m-specimen').innerText = data.specimen;
+      document.getElementById('tier-p-std').innerText = data.stdPrice;
+      document.getElementById('m-calc-area').innerHTML = data.calcHtml;
+
+      // Populate intents
+      const intentsContainer = document.getElementById('m-intents');
+      intentsContainer.innerHTML = '';
+      activeIntent = data.intents[0];
+      data.intents.forEach((intent, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'selector-btn' + (i === 0 ? ' active' : '');
+        btn.innerText = intent;
+        btn.onclick = function() {
+          document.querySelectorAll('.selector-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeIntent = intent;
+        };
+        intentsContainer.appendChild(btn);
+      });
+
+      // Populate lists
+      const recList = document.getElementById('m-receive-list');
+      recList.innerHTML = data.receive.map(item => `<li>${item}</li>`).join('');
+      const provList = document.getElementById('m-provide-list');
+      provList.innerHTML = data.provide.map(item => `<li>${item}</li>`).join('');
+
+      chooseTier('standard');
+      document.getElementById('module-container').scrollIntoView({ behavior: 'smooth' });
     }
 
-    function setTier(tier) {
+    function chooseTier(tier) {
       currentTier = tier;
-      const s = SERVICES[activeService];
-      const name = document.getElementById('tier-name');
-      const price = document.getElementById('tier-price');
-      const scope = document.getElementById('tier-scope');
-      const delivery = document.getElementById('tier-delivery');
-      const btn = document.getElementById('tier-btn');
+      document.getElementById('tier-card-std').classList.remove('selected');
+      document.getElementById('tier-card-tailor').classList.remove('selected');
+      document.getElementById('tier-card-pract').classList.remove('selected');
+      document.getElementById('tier-card-' + tier).classList.add('selected');
 
-      document.getElementById('tab-std').className = tier === 'standard' ? 'btn-primary' : 'btn-outline';
-      document.getElementById('tab-tailor').className = tier === 'tailor' ? 'btn-primary' : 'btn-outline';
-      document.getElementById('tab-pract').className = tier === 'pract' ? 'btn-primary' : 'btn-outline';
+      const btn = document.getElementById('m-commit-btn');
+      const note = document.getElementById('m-tier-note');
+      const s = SERVICE_MODULES[currentService];
 
       if (tier === 'standard') {
-        name.innerText = 'Standard Prescribed Route';
-        price.innerText = s.stdPrice;
-        scope.innerText = s.stdScope;
-        delivery.innerText = s.stdDelivery;
-        btn.innerText = 'Proceed to Intake Form →';
+        btn.innerText = `PROCEED WITH STANDARD (${s.stdPrice}) →`;
+        note.innerText = 'Fixed prescribed deliverable • Fast turnaround • No recurring lock-in';
       } else if (tier === 'tailor') {
-        name.innerText = 'Tailor-Made Route';
-        price.innerText = 'Custom Quote';
-        scope.innerText = 'Multi-plant facility scope, management presentation & roadmap';
-        delivery.innerText = 'Defined by scope';
-        btn.innerText = 'Request Custom Proposal →';
+        btn.innerText = 'REQUEST CUSTOM SCOPE & PROPOSAL →';
+        note.innerText = 'Multi-plant facility scope • Management presentations & stakeholder narrative';
       } else {
-        name.innerText = 'Practitioner-Led Route';
-        price.innerText = 'Technical Intake';
-        scope.innerText = '30-minute diagnostic session to determine boundaries';
-        delivery.innerText = 'Immediate Booking';
-        btn.innerText = 'Book Technical Intake (Cal.com) ↗';
+        btn.innerText = 'SCHEDULE INTAKE CALL WITH PRACTITIONER →';
+        note.innerText = '30-minute diagnostic session to determine boundaries';
       }
     }
 
-    function sendWhatsAppOrder() {
-      const s = SERVICES[activeService];
+    function executeCommitment() {
+      const s = SERVICE_MODULES[currentService];
       if (currentTier === 'pract') {
         window.open('https://cal.com/amit-sinh-earth-carbon-wbfdu4', '_blank');
         return;
       }
-      const msg = encodeURIComponent(`Hi ECF! I want to proceed with [${s.title}] under the ${currentTier.toUpperCase()} route.`);
-      window.open(`https://wa.me/919824025431?text=${msg}`, '_blank');
+      const message = encodeURIComponent(`Hi ECF! I am interested in proceeding with [${s.title}] under the ${currentTier.toUpperCase()} route. Specific focus: ${activeIntent}.`);
+      window.open(`https://wa.me/919824025431?text=${message}`, '_blank');
     }
 
-    function calculateScore(e) {
-      e.preventDefault();
-      const solar = Number(document.getElementById('range-solar').value);
-      const water = Number(document.getElementById('range-water').value);
-      const waste = Number(document.getElementById('range-waste').value);
-      const plant = document.getElementById('plant-name').value;
-      const score = Math.round((solar * 0.4) + (water * 0.3) + (waste * 0.3));
-
-      document.getElementById('score-val').innerText = score + '/100';
-      document.getElementById('score-plant').innerText = plant + ' — Atmanirbhar Index';
-      document.getElementById('score-result').style.display = 'block';
+    function calcQuickCarbon() {
+      const kwh = document.getElementById('quick-kwh').value;
+      if (!kwh || kwh <= 0) return;
+      const tco2 = (kwh * 0.82 / 1000).toFixed(2);
+      document.getElementById('quick-carbon-res').innerText = `Estimated Monthly Emissions: ~${tco2} tCO2e (Grid CEA Factor)`;
     }
 
-    function shareScore() {
-      const plant = document.getElementById('plant-name').value;
-      const score = document.getElementById('score-val').innerText;
-      const msg = encodeURIComponent(`${plant} scored ${score} on the ECF Atmanirbhar Self-Reliance Index! What is your score? https://earthcarbonfoundation.org`);
-      window.open(`https://wa.me/?text=${msg}`, '_blank');
+    function runAtmanirbharCalc() {
+      const s = Number(document.getElementById('in-s').value);
+      const w = Number(document.getElementById('in-w').value);
+      const wt = Number(document.getElementById('in-wt').value);
+      const score = Math.round((s * 0.4) + (w * 0.3) + (wt * 0.3));
+      document.getElementById('atmanirbhar-live-res').innerText = `Calculated Score: ${score}/100`;
     }
 
-    function toggleModal(show) {
-      document.getElementById('dash-modal').style.display = show ? 'flex' : 'none';
+    // 7-STEP PROGRESSIVE JOURNEY DATA
+    const JOURNEY_STEPS = [
+      { title: '01. KNOW: Boundary Calibration', owner: 'Plant Lead + ECF', desc: 'Identify all operational boundaries, fuel meters, sub-meters, and billing structures to establish clear corporate accounting perimeters.', deliverable: 'Facility Scope Sheet & Boundary Protocol' },
+      { title: '02. MEASURE: Baseline Computation', owner: 'ECF Digital Engine', desc: 'Process energy and resource receipts through verified IPCC and CEA emission factors to construct the initial baseline ledger.', deliverable: 'Verified Scope 1 & 2 Emissions Ledger' },
+      { title: '03. ACT: Shop-Floor Optimization', owner: 'Plant Maintenance + ECF', desc: 'Eliminate thermal leakages, tune power factors, and recalibrate sub-meters to decrease grid utility burn immediately.', deliverable: 'Direct Monthly Power & Fuel Tariff Savings' },
+      { title: '04. DOCUMENT: Evidence Compilation', owner: 'ECF Practitioner', desc: 'Consolidate calculation workbooks, raw bills, and calibration memos into an audit-defense repository.', deliverable: 'Independent Auditor-Ready Evidence Pack' },
+      { title: '05. REPORT: Statutory Disclosures', owner: 'ECF Lead Practitioner', desc: 'Generate 1-click disclosure portfolios matching regulatory templates like SEBI BRSR Core, CDP, and EU CBAM.', deliverable: 'Certified Statutory Disclosure Dossier' },
+      { title: '06. TRACK: Telemetry Monitoring', owner: 'Digital Facility Vault', desc: 'Continuous quarterly review tracking consumption drifts, preventing audit-day surprises.', deliverable: 'Quarterly Progress & Variance Reports' },
+      { title: '07. VALUE: Carbon Monetization', owner: 'ECF Carbon Desk', desc: 'Aggregate clean energy capex into pooled international carbon programmes, depositing 75% net sales proceeds.', deliverable: '75% Net Carbon Cash Payouts to Facility' }
+    ];
+
+    function showJourneyStep(idx) {
+      document.querySelectorAll('.journey-node').forEach((node, i) => {
+        node.classList.toggle('active', i === idx);
+      });
+      const s = JOURNEY_STEPS[idx];
+      document.getElementById('j-step-title').innerText = s.title;
+      document.getElementById('j-step-owner').innerText = s.owner;
+      document.getElementById('j-step-desc').innerText = s.desc;
+      document.getElementById('j-step-deliverable').innerText = s.deliverable;
     }
+
+    function toggleFaq(elem) {
+      elem.parentElement.classList.toggle('open');
+    }
+
+    function toggleModal(open) {
+      document.getElementById('dash-modal').classList.toggle('open', open);
+    }
+
+    // Initialize default service on load
+    window.addEventListener('DOMContentLoaded', () => {
+      selectService('01');
+    });
   </script>
 </body>
 </html>
