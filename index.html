@@ -84,31 +84,10 @@
       overflow: hidden;
     }
 
-    .hero .container {
-      width: 100%;
-    }
-
-    .hero-content-left {
-      max-width: 720px;
-      text-align: left;
-    }
-
-    .hero-title {
-      font-size: 52px;
-      font-weight: 850;
-      letter-spacing: -0.03em;
-      line-height: 1.12;
-      margin-bottom: 20px;
-      color: #ffffff;
-    }
-
-    .hero-subtitle {
-      font-size: 17.5px;
-      color: #e2e8f0;
-      line-height: 1.6;
-      margin-bottom: 32px;
-      font-weight: 400;
-    }
+    .hero .container { width: 100%; }
+    .hero-content-left { max-width: 720px; text-align: left; }
+    .hero-title { font-size: 52px; font-weight: 850; letter-spacing: -0.03em; line-height: 1.12; margin-bottom: 20px; color: #ffffff; }
+    .hero-subtitle { font-size: 17.5px; color: #e2e8f0; line-height: 1.6; margin-bottom: 32px; font-weight: 400; }
 
     .btn-carbon-cta {
       background: #00e676;
@@ -124,24 +103,12 @@
       transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
       box-shadow: 0 4px 14px rgba(0, 230, 118, 0.35);
     }
-
-    .btn-carbon-cta:hover {
-      background: #00c853;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 230, 118, 0.45);
-    }
+    .btn-carbon-cta:hover { background: #00c853; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 230, 118, 0.45); }
 
     @media (max-width: 860px) {
-      .hero {
-        min-height: auto;
-        padding: 50px 0;
-      }
-      .hero-title {
-        font-size: 34px;
-      }
-      .hero-subtitle {
-        font-size: 15.5px;
-      }
+      .hero { min-height: auto; padding: 50px 0; }
+      .hero-title { font-size: 34px; }
+      .hero-subtitle { font-size: 15.5px; }
     }
 
     /* 2. COMPACT PROOF CARDS */
@@ -171,29 +138,105 @@
     .res-row-total { border-top: 2px solid var(--primary); border-bottom: none; font-size: 13.5px; font-weight: 800; color: var(--primary); padding-top: 6px; }
     .bonus-card { background: #0f172a; color: #fff; border-radius: 8px; padding: 16px; }
 
-    /* 4. INTEGRATED MASTER VAULT + DASHBOARD */
-    .vault-console { background: #0f172a; color: #f8fafc; border-radius: 14px; padding: 24px; margin-top: 20px; border: 1px solid #1e293b; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-    .console-split { display: grid; grid-template-columns: 320px 1fr; gap: 24px; }
-    
-    /* Left Form */
-    .vault-form-col { background: #1e293b; border-radius: 10px; padding: 18px; border: 1px solid #334155; }
-    .form-title { font-size: 13px; font-weight: 700; color: #e2e8f0; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
-    .v-group { margin-bottom: 12px; text-align: left; }
-    .v-group label { display: block; font-size: 11.5px; font-weight: 600; color: #94a3b8; margin-bottom: 4px; }
-    .v-group input { width: 100%; padding: 8px 10px; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: #fff; font-size: 13px; }
+    /* 4. LOOKER STUDIO DASHBOARD CONSOLE */
+    .looker-console-wrap {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      margin-top: 25px;
+    }
 
-    /* Right KPIs */
-    .vault-display-col { display: flex; flex-direction: column; justify-content: space-between; }
-    .vault-topbar { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 16px; }
-    .kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .kpi-tile { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 14px; text-align: left; }
-    .kpi-metric { font-size: 20px; font-weight: 800; color: #38bdf8; }
-    .kpi-sub { font-size: 11px; color: #94a3b8; text-transform: uppercase; margin-top: 2px; }
-    .kpi-badge { font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 3px; display: inline-block; margin-top: 6px; }
-    .badge-teal { background: #042f2e; color: #2dd4bf; border: 1px solid #115e59; }
-    .badge-amber { background: #451a03; color: #fbbf24; border: 1px solid #78350f; }
+    .looker-header-bar {
+      background: #1e293b;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #334155;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-    .vault-commit-banner { background: #111827; border: 1px solid #374151; border-radius: 8px; padding: 16px; margin-top: 16px; display: flex; align-items: center; justify-content: space-between; }
+    .looker-browser-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .looker-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+
+    .looker-title-tag {
+      font-size: 12px;
+      font-weight: 700;
+      color: #cbd5e1;
+      margin-left: 10px;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .looker-badge-live {
+      background: #042f2e;
+      color: #2dd4bf;
+      border: 1px solid #115e59;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    /* 16:9 Responsive iFrame Container */
+    .looker-iframe-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 62.5%;
+      height: 0;
+      overflow: hidden;
+      background: #0b1120;
+    }
+
+    .looker-iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Bottom Action Strip */
+    .looker-action-bar {
+      background: #111827;
+      border-top: 1px solid #1e293b;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .looker-action-text {
+      font-size: 13px;
+      color: #94a3b8;
+      text-align: left;
+    }
+
+    .looker-action-text strong {
+      color: #f8fafc;
+    }
 
     /* 5. PROCESS STEPS & CIRCULAR SERVICES */
     .circular-process { display: flex; justify-content: center; gap: 8px; margin: 24px 0 35px; flex-wrap: wrap; }
@@ -238,13 +281,13 @@
     @media (max-width: 860px) {
       .proof-grid, .service-wheel-grid { grid-template-columns: 1fr; }
       .recovery-pipeline { grid-template-columns: 1fr; }
-      .recovery-split, .console-split, .footer-grid, .pane-split { grid-template-columns: 1fr; }
-      .kpi-row { grid-template-columns: 1fr 1fr; }
+      .recovery-split, .footer-grid, .pane-split { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAVIGATION -->
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#top" class="nav-logo">
@@ -262,6 +305,7 @@
     </div>
   </nav>
 
+  <!-- 1. HERO (CARBON TRUST STYLE) -->
   <section class="hero" id="top">
     <div class="container">
       <div class="hero-content-left">
@@ -278,6 +322,7 @@
     </div>
   </section>
 
+  <!-- 2. FINANCIAL PROOF -->
   <section id="proof-section" class="section bg-light text-center">
     <div class="container">
       <div class="pill">Illustrative Model</div>
@@ -285,6 +330,7 @@
       <p class="section-desc">Empirical benchmarks illustrating conventional cost savings, verified tCO₂e reduction, and market upside.</p>
 
       <div class="proof-grid">
+        <!-- SOLAR -->
         <div class="proof-card">
           <div class="proof-header">
             <span class="proof-title">☀️ 1 MW Solar</span>
@@ -308,6 +354,7 @@
           </div>
         </div>
 
+        <!-- WATER -->
         <div class="proof-card">
           <div class="proof-header">
             <span class="proof-title">💧 10 ML Water Saved</span>
@@ -331,6 +378,7 @@
           </div>
         </div>
 
+        <!-- WASTE -->
         <div class="proof-card">
           <div class="proof-header">
             <span class="proof-title">♻️ 1,000 T Waste Recovered</span>
@@ -361,6 +409,7 @@
     </div>
   </section>
 
+  <!-- 3. CAPITAL RECOVERY -->
   <section id="recovery-section" class="section bg-white text-center">
     <div class="container">
       <div class="pill">Capital Recovery Logic</div>
@@ -411,84 +460,64 @@
     </div>
   </section>
 
+  <!-- 4. GOOGLE LOOKER STUDIO DASHBOARD CONSOLE -->
   <section id="vault-section" class="section bg-light text-center">
     <div class="container">
-      <div class="pill">Integrated Client Console</div>
-      <h2 class="section-title">ECF Master Vault & Executive Dashboard</h2>
+      <div class="pill">Telemetry & Verification Console</div>
+      <h2 class="section-title">Plant Executive Carbon & Resource Dashboard</h2>
       <p class="section-desc">
-        Ask Once. Store Once. Reuse Everywhere. Update facility parameters on the left to see your real-time balance sheet returns.
+        Real-time industrial telemetry tracking Scope 1 & 2 emissions, captive solar displacement, Atmanirbhar self-reliance indexes, and verified carbon revenue potential.
       </p>
 
-      <div class="vault-console">
-        <div class="console-split">
-          <div class="vault-form-col">
-            <div class="form-title">Master Facility Intake</div>
-            <div class="v-group">
-              <label>Plant / Corporate Name</label>
-              <input type="text" id="v-name" value="Apex Industrial Works" oninput="updateDashboard()" />
-            </div>
-            <div class="v-group">
-              <label>Clean Energy Share (%)</label>
-              <input type="number" id="v-solar" value="35" min="0" max="100" oninput="updateDashboard()" />
-            </div>
-            <div class="v-group">
-              <label>Water Recycled / Harvested (%)</label>
-              <input type="number" id="v-water" value="45" min="0" max="100" oninput="updateDashboard()" />
-            </div>
-            <div class="v-group">
-              <label>Waste Diverted (%)</label>
-              <input type="number" id="v-waste" value="50" min="0" max="100" oninput="updateDashboard()" />
-            </div>
-            <div style="font-size:11px; color:#94a3b8; text-align:left; line-height:1.4; margin-top:8px;">
-              ✓ Data stored once and reused across all 6 compliance and monetization modules.
-            </div>
+      <div class="looker-console-wrap">
+        <!-- Top Window Frame -->
+        <div class="looker-header-bar">
+          <div class="looker-browser-controls">
+            <span class="looker-dot dot-red"></span>
+            <span class="looker-dot dot-yellow"></span>
+            <span class="looker-dot dot-green"></span>
+            <span class="looker-title-tag">
+              📊 ECF Sovereign Registry · Looker Studio Live Engine
+            </span>
           </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="looker-badge-live">● Live Telemetry</span>
+            <a href="https://datastudio.google.com/s/khX194j9BZ4" target="_blank" rel="noopener noreferrer" style="font-size: 12px; color: #38bdf8; text-decoration: none; font-weight: 600;">
+              Expand Full Screen ↗
+            </a>
+          </div>
+        </div>
 
-          <div class="vault-display-col">
-            <div>
-              <div class="vault-topbar">
-                <div style="text-align:left;">
-                  <h3 style="font-size:17px; color:#fff;" id="dash-plant-title">Apex Industrial Works</h3>
-                  <div style="font-size:11px; color:#94a3b8;">ECF Sovereign Vault: #ECF-IN-2026-8812</div>
-                </div>
-                <span class="kpi-badge badge-teal">ACTIVE PROFILE</span>
-              </div>
+        <!-- Embedded Google Looker Studio Frame -->
+        <div class="looker-iframe-container">
+          <iframe 
+            src="https://datastudio.google.com/embed/reporting/khX194j9BZ4/page/1M" 
+            title="ECF Plant Telemetry Dashboard"
+            allowfullscreen 
+            sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+          </iframe>
+        </div>
 
-              <div class="kpi-row">
-                <div class="kpi-tile">
-                  <div class="kpi-metric" id="dash-savings">₹14.2 L</div>
-                  <div class="kpi-sub">₹ Savings Generated</div>
-                  <span class="kpi-badge badge-teal">REALIZED</span>
-                </div>
-                <div class="kpi-tile">
-                  <div class="kpi-metric" id="dash-potential">₹3.8 L</div>
-                  <div class="kpi-sub">₹ Potential Revenue</div>
-                  <span class="kpi-badge badge-amber">POTENTIAL</span>
-                </div>
-                <div class="kpi-tile">
-                  <div class="kpi-metric" id="dash-score">72%</div>
-                  <div class="kpi-sub">Atmanirbhar Score</div>
-                  <span class="kpi-badge badge-teal">BENCHMARKED</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="vault-commit-banner">
-              <div style="text-align:left;">
-                <div style="font-size:13px; font-weight:700; color:#fff;">Commit Your ECF Master Profile</div>
-                <div style="font-size:11.5px; color:#94a3b8;">Ready to formalize your verified score and unlock service intake?</div>
-              </div>
-              <div style="display:flex; gap:8px;">
-                <button class="btn-outline" style="padding:8px 14px; font-size:12px;" onclick="shareLiveScore()">Share Score ↗</button>
-                <button class="btn-primary" style="padding:8px 16px; font-size:12px;" onclick="activateVault()">Activate Route →</button>
-              </div>
-            </div>
+        <!-- Conversion & Verification Action Strip -->
+        <div class="looker-action-bar">
+          <div class="looker-action-text">
+            <strong>Want this calibrated for your factory?</strong> 
+            Connect your sub-meters, utility bills, and clean energy assets into an auditable ECF Looker report.
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn-outline" style="padding: 8px 14px; font-size: 12px; background:#1e293b; color:#fff; border-color:#334155;" onclick="shareDashboardLink()">
+              Share Dashboard ↗
+            </button>
+            <button class="btn-primary" style="padding: 8px 18px; font-size: 12px;" onclick="bookDashboardCalibration()">
+              Connect Your Plant Facility →
+            </button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- 5. CIRCULAR PROCESS FLOW & SERVICES -->
   <section id="services-section" class="section bg-white text-center">
     <div class="container">
       <div class="pill">Circular Execution Hub</div>
@@ -588,6 +617,7 @@
     </div>
   </section>
 
+  <!-- FAQ SECTION -->
   <section id="faq" class="section bg-light">
     <div class="container-sm">
       <div class="text-center" style="margin-bottom: 25px;">
@@ -616,6 +646,7 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -649,15 +680,15 @@
         <div class="footer-col">
           <h5>Connect</h5>
           <ul>
-            <li><a href="https://wa.me/919824025431" target="_blank">WhatsApp Desk</a></li>
-            <li><a href="https://cal.com/amit-sinh-earth-carbon-wbfdu4" target="_blank">Book Practitioner</a></li>
+            <li><a href="https://wa.me/919824025431" target="_blank" rel="noopener noreferrer">WhatsApp Desk</a></li>
+            <li><a href="https://cal.com/amit-sinh-earth-carbon-wbfdu4" target="_blank" rel="noopener noreferrer">Book Practitioner</a></li>
             <li><a href="mailto:info@earthcarbonfoundation.org">Email Desk</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Legal</h5>
           <ul>
-            <li><a href="https://drive.google.com/file/d/1Kf7iX6x33_UceGFR4ZCLCP7TfDoYynZE/view?usp=sharing" target="_blank">Terms & Privacy</a></li>
+            <li><a href="https://drive.google.com/file/d/1Kf7iX6x33_UceGFR4ZCLCP7TfDoYynZE/view?usp=sharing" target="_blank" rel="noopener noreferrer">Terms & Privacy</a></li>
             <li><a href="#">Methodology</a></li>
           </ul>
         </div>
@@ -669,6 +700,7 @@
     </div>
   </footer>
 
+  <!-- DYNAMIC LOGIC -->
   <script>
     const SERVICES = {
       '01': {
@@ -706,32 +738,13 @@
     let activeCode = '01';
     let activeTier = 'standard';
 
-    function updateDashboard() {
-      const name = document.getElementById('v-name').value || 'Apex Industrial Works';
-      const solar = Number(document.getElementById('v-solar').value) || 0;
-      const water = Number(document.getElementById('v-water').value) || 0;
-      const waste = Number(document.getElementById('v-waste').value) || 0;
-
-      const score = Math.round((solar * 0.4) + (water * 0.3) + (waste * 0.3));
-      const savings = (solar * 0.35 + water * 0.08).toFixed(1);
-      const potential = (solar * 0.1).toFixed(1);
-
-      document.getElementById('dash-plant-title').innerText = name;
-      document.getElementById('dash-score').innerText = score + '%';
-      document.getElementById('dash-savings').innerText = '₹' + savings + ' L';
-      document.getElementById('dash-potential').innerText = '₹' + potential + ' L';
-    }
-
-    function shareLiveScore() {
-      const name = document.getElementById('dash-plant-title').innerText;
-      const score = document.getElementById('dash-score').innerText;
-      const msg = encodeURIComponent(`Our facility ${name} benchmarked an Atmanirbhar Self-Reliance Score of ${score} with Earth Carbon Foundation! Check your facility score: https://atmanirbharnow.github.io/ecf-landing-page`);
+    function shareDashboardLink() {
+      const msg = encodeURIComponent("Check out the live industrial environmental dashboard on Earth Carbon Foundation: https://atmanirbharnow.github.io/ecf-landing-page/#vault-section");
       window.open(`https://wa.me/?text=${msg}`, '_blank');
     }
 
-    function activateVault() {
-      const name = document.getElementById('dash-plant-title').innerText;
-      const msg = encodeURIComponent(`Hi ECF! ${name} is ready to formalize our Master Profile and activate our verified audit route.`);
+    function bookDashboardCalibration() {
+      const msg = encodeURIComponent("Hi ECF! We reviewed the live Looker Studio executive dashboard on your site and want to calibrate our plant's energy and carbon data into this reporting engine.");
       window.open(`https://wa.me/919824025431?text=${msg}`, '_blank');
     }
 
@@ -760,8 +773,7 @@
         window.open('https://cal.com/amit-sinh-earth-carbon-wbfdu4', '_blank');
         return;
       }
-      const name = document.getElementById('v-name').value || 'Our Facility';
-      const msg = encodeURIComponent(`Hi ECF! ${name} wants to proceed with ${s.title} under the ${activeTier.toUpperCase()} route. Master profile is populated.`);
+      const msg = encodeURIComponent(`Hi ECF! We want to proceed with ${s.title} under the ${activeTier.toUpperCase()} route.`);
       window.open(`https://wa.me/919824025431?text=${msg}`, '_blank');
     }
 
@@ -770,7 +782,6 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-      updateDashboard();
       pickService('01');
     });
   </script>
