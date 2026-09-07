@@ -137,63 +137,64 @@
     .res-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #e2e8f0; font-size: 12.5px; }
     .res-row-total { border-top: 2px solid var(--primary); border-bottom: none; font-size: 13.5px; font-weight: 800; color: var(--primary); padding-top: 6px; }
     .bonus-card { background: #0f172a; color: #fff; border-radius: 8px; padding: 16px; }
+    
 <!-- 4. GOOGLE LOOKER STUDIO DASHBOARD CONSOLE -->
-  <section id="vault-section" class="section bg-light text-center">
-    <div class="container">
-      <div class="pill">Telemetry & Verification Console</div>
-      <h2 class="section-title">Plant Executive Carbon & Resource Dashboard</h2>
-      <p class="section-desc">
-        Real-time industrial telemetry tracking Scope 1 & 2 emissions, captive solar displacement, Atmanirbhar self-reliance indexes, and verified carbon revenue potential.
-      </p>
+<section id="vault-section" class="section bg-light text-center">
+  <div class="container">
+    <div class="pill">Telemetry & Verification Console</div>
+    <h2 class="section-title">Plant Executive Carbon & Resource Dashboard</h2>
+    <p class="section-desc">
+      Real-time industrial telemetry tracking Scope 1 & 2 emissions, captive solar displacement, Atmanirbhar self-reliance indexes, and verified carbon revenue potential.
+    </p>
 
-      <div class="looker-console-wrap">
-        <!-- Top Window Frame -->
-        <div class="looker-header-bar">
-          <div class="looker-browser-controls">
-            <span class="looker-dot dot-red"></span>
-            <span class="looker-dot dot-yellow"></span>
-            <span class="looker-dot dot-green"></span>
-            <span class="looker-title-tag">
-              📊 ECF Sovereign Registry · Looker Studio Live Engine
-            </span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <span class="looker-badge-live">● Live Telemetry</span>
-            <a href="https://datastudio.google.com/reporting/29975442-865b-424a-8a63-2bfda637523d" target="_blank" rel="noopener noreferrer" style="font-size: 12px; color: #38bdf8; text-decoration: none; font-weight: 600;">
-              Expand Full Screen ↗
-            </a>
-          </div>
+    <div class="looker-console-wrap">
+      <!-- Top Window Frame -->
+      <div class="looker-header-bar">
+        <div class="looker-browser-controls">
+          <span class="looker-dot dot-red"></span>
+          <span class="looker-dot dot-yellow"></span>
+          <span class="looker-dot dot-green"></span>
+          <span class="looker-title-tag">
+            📊 ECF Sovereign Registry · Looker Studio Live Engine
+          </span>
         </div>
-
-        <!-- Embedded Google Looker Studio Frame -->
-        <div class="looker-iframe-container">
-          <iframe 
-            src="https://lookerstudio.google.com/embed/reporting/29975442-865b-424a-8a63-2bfda637523d/page/1M" 
-            title="ECF Plant Telemetry Dashboard"
-            allowfullscreen 
-            sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-          </iframe>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span class="looker-badge-live">● Live Telemetry</span>
+          <a href="https://lookerstudio.google.com/reporting/29975442-865b-424a-8a63-2bfda637523d" target="_blank" rel="noopener noreferrer" style="font-size: 12px; color: #38bdf8; text-decoration: none; font-weight: 600;">
+            Expand Full Screen ↗
+          </a>
         </div>
+      </div>
 
-        <!-- Conversion & Verification Action Strip -->
-        <div class="looker-action-bar">
-          <div class="looker-action-text">
-            <strong>Want this calibrated for your factory?</strong> 
-            Connect your sub-meters, utility bills, and clean energy assets into an auditable ECF Looker report.
-          </div>
-          <div style="display: flex; gap: 8px;">
-            <button class="btn-outline" style="padding: 8px 14px; font-size: 12px; background:#1e293b; color:#fff; border-color:#334155;" onclick="shareDashboardLink()">
-              Share Dashboard ↗
-            </button>
-            <button class="btn-primary" style="padding: 8px 18px; font-size: 12px;" onclick="bookDashboardCalibration()">
-              Connect Your Plant Facility →
-            </button>
-          </div>
+      <!-- Embedded Google Looker Studio Frame -->
+      <div class="looker-iframe-container">
+        <iframe 
+          src="https://lookerstudio.google.com/embed/reporting/29975442-865b-424a-8a63-2bfda637523d/page/1M" 
+          title="ECF Plant Telemetry Dashboard"
+          allowfullscreen 
+          sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+        </iframe>
+      </div>
+
+      <!-- Conversion & Verification Action Strip -->
+      <div class="looker-action-bar">
+        <div class="looker-action-text">
+          <strong>Want this calibrated for your factory?</strong> 
+          Connect your sub-meters, utility bills, and clean energy assets into an auditable ECF Looker report.
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn-outline" style="padding: 8px 14px; font-size: 12px; background:#1e293b; color:#fff; border-color:#334155;" onclick="shareDashboardLink()">
+            Share Dashboard ↗
+          </button>
+          <button class="btn-primary" style="padding: 8px 18px; font-size: 12px;" onclick="bookDashboardCalibration()">
+            Connect Your Plant Facility →
+          </button>
         </div>
       </div>
     </div>
-  </section>
-
+  </div>
+</section>
+    
     /* 5. PROCESS STEPS & CIRCULAR SERVICES */
     .circular-process { display: flex; justify-content: center; gap: 8px; margin: 24px 0 35px; flex-wrap: wrap; }
     .process-badge { background: #fff; border: 1px solid var(--border); border-radius: 30px; padding: 6px 14px; font-size: 12px; font-weight: 700; color: var(--dark); display: flex; align-items: center; gap: 6px; }
