@@ -137,106 +137,62 @@
     .res-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #e2e8f0; font-size: 12.5px; }
     .res-row-total { border-top: 2px solid var(--primary); border-bottom: none; font-size: 13.5px; font-weight: 800; color: var(--primary); padding-top: 6px; }
     .bonus-card { background: #0f172a; color: #fff; border-radius: 8px; padding: 16px; }
+<!-- 4. GOOGLE LOOKER STUDIO DASHBOARD CONSOLE -->
+  <section id="vault-section" class="section bg-light text-center">
+    <div class="container">
+      <div class="pill">Telemetry & Verification Console</div>
+      <h2 class="section-title">Plant Executive Carbon & Resource Dashboard</h2>
+      <p class="section-desc">
+        Real-time industrial telemetry tracking Scope 1 & 2 emissions, captive solar displacement, Atmanirbhar self-reliance indexes, and verified carbon revenue potential.
+      </p>
 
-    /* 4. LOOKER STUDIO DASHBOARD CONSOLE */
-    .looker-console-wrap {
-      background: #0f172a;
-      border: 1px solid #1e293b;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-      margin-top: 25px;
-    }
+      <div class="looker-console-wrap">
+        <!-- Top Window Frame -->
+        <div class="looker-header-bar">
+          <div class="looker-browser-controls">
+            <span class="looker-dot dot-red"></span>
+            <span class="looker-dot dot-yellow"></span>
+            <span class="looker-dot dot-green"></span>
+            <span class="looker-title-tag">
+              📊 ECF Sovereign Registry · Looker Studio Live Engine
+            </span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="looker-badge-live">● Live Telemetry</span>
+            <a href="https://datastudio.google.com/reporting/29975442-865b-424a-8a63-2bfda637523d" target="_blank" rel="noopener noreferrer" style="font-size: 12px; color: #38bdf8; text-decoration: none; font-weight: 600;">
+              Expand Full Screen ↗
+            </a>
+          </div>
+        </div>
 
-    .looker-header-bar {
-      background: #1e293b;
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #334155;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+        <!-- Embedded Google Looker Studio Frame -->
+        <div class="looker-iframe-container">
+          <iframe 
+            src="https://lookerstudio.google.com/embed/reporting/29975442-865b-424a-8a63-2bfda637523d/page/1M" 
+            title="ECF Plant Telemetry Dashboard"
+            allowfullscreen 
+            sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+          </iframe>
+        </div>
 
-    .looker-browser-controls {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .looker-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #f59e0b; }
-    .dot-green { background: #10b981; }
-
-    .looker-title-tag {
-      font-size: 12px;
-      font-weight: 700;
-      color: #cbd5e1;
-      margin-left: 10px;
-      letter-spacing: 0.04em;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .looker-badge-live {
-      background: #042f2e;
-      color: #2dd4bf;
-      border: 1px solid #115e59;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 2px 8px;
-      border-radius: 4px;
-      text-transform: uppercase;
-    }
-
-    /* 16:9 Responsive iFrame Container */
-    .looker-iframe-container {
-      position: relative;
-      width: 100%;
-      padding-bottom: 62.5%;
-      height: 0;
-      overflow: hidden;
-      background: #0b1120;
-    }
-
-    .looker-iframe-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Bottom Action Strip */
-    .looker-action-bar {
-      background: #111827;
-      border-top: 1px solid #1e293b;
-      padding: 14px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .looker-action-text {
-      font-size: 13px;
-      color: #94a3b8;
-      text-align: left;
-    }
-
-    .looker-action-text strong {
-      color: #f8fafc;
-    }
+        <!-- Conversion & Verification Action Strip -->
+        <div class="looker-action-bar">
+          <div class="looker-action-text">
+            <strong>Want this calibrated for your factory?</strong> 
+            Connect your sub-meters, utility bills, and clean energy assets into an auditable ECF Looker report.
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn-outline" style="padding: 8px 14px; font-size: 12px; background:#1e293b; color:#fff; border-color:#334155;" onclick="shareDashboardLink()">
+              Share Dashboard ↗
+            </button>
+            <button class="btn-primary" style="padding: 8px 18px; font-size: 12px;" onclick="bookDashboardCalibration()">
+              Connect Your Plant Facility →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
     /* 5. PROCESS STEPS & CIRCULAR SERVICES */
     .circular-process { display: flex; justify-content: center; gap: 8px; margin: 24px 0 35px; flex-wrap: wrap; }
