@@ -29,20 +29,22 @@
   <meta name="twitter:title" content="Earth Carbon Foundation — Sovereign Natural Capital Registry" />
   <meta name="twitter:description" content="Audit-ready Scope 1-2-3 emissions computation, Atmanirbhar self-reliance scoring, and PoA aggregation." />
   <meta name="twitter:image" content="https://raw.githubusercontent.com/atmanirbharnow/ecf-landing-page/main/docs/screenshots/01-soverign-vault-overview.png" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Earth Carbon Foundation | Make Money from Emission Reduction</title>
+
   <style>
     :root {
       --primary: #15803d;
       --primary-dark: #166534;
       --primary-soft: #f0fdf4;
       --primary-border: #bbf7d0;
+      --accent-purple: #6d28d9;
+      --accent-purple-hover: #5b21b6;
+      --purple-soft: #f3f0ff;
+      --purple-border: #ddd6fe;
       --gold: #b45309;
       --gold-soft: #fefce8;
       --gold-border: #fef08a;
-      --dark: #1e293b;
-      --slate: #475569;
+      --dark: #0f172a;
+      --slate: #334155;
       --muted: #64748b;
       --light: #f8fafc;
       --border: #e2e8f0;
@@ -54,22 +56,20 @@
     html { scroll-behavior: smooth; }
     body { font-family: var(--font); color: var(--dark); background: #ffffff; line-height: 1.55; -webkit-font-smoothing: antialiased; }
 
-    /* LAYOUT UTILITIES */
-    .container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
-    .container-sm { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+    /* UTILITIES */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
     .text-center { text-align: center; }
-    .text-left { text-align: left; }
-    .section { padding: 60px 0; }
+    .section { padding: 64px 0; }
     .bg-light { background: var(--light); }
     .bg-white { background: #ffffff; }
 
-    /* CALMED TYPOGRAPHY */
+    /* BADGES & TYPOGRAPHY */
     .pill {
       display: inline-block;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: var(--primary);
       background: var(--primary-soft);
       border: 1px solid var(--primary-border);
@@ -77,597 +77,674 @@
       border-radius: 999px;
       margin-bottom: 12px;
     }
-    .section-title { font-size: 28px; font-weight: 800; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.02em; }
-    .section-desc { font-size: 15px; color: var(--muted); max-width: 640px; margin: 0 auto 30px; }
+    .pill-purple {
+      color: var(--accent-purple);
+      background: var(--purple-soft);
+      border-color: var(--purple-border);
+    }
+    .section-title { font-size: 30px; font-weight: 850; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.02em; }
+    .section-desc { font-size: 15px; color: var(--muted); max-width: 680px; margin: 0 auto 32px; }
 
     /* NAVIGATION */
-    .nav { position: sticky; top: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 12px 0; }
+    .nav { position: sticky; top: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 12px 0; }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .nav-logo { display: flex; align-items: baseline; gap: 6px; text-decoration: none; }
-    .logo-bold { font-size: 20px; font-weight: 800; color: var(--dark); }
+    .nav-logo { display: flex; align-items: baseline; gap: 8px; text-decoration: none; }
+    .logo-bold { font-size: 20px; font-weight: 850; color: var(--dark); }
     .logo-sub { font-size: 12px; font-weight: 600; color: var(--primary); }
     .nav-links { display: flex; align-items: center; gap: 20px; }
-    .nav-links a, .nav-links button { text-decoration: none; font-size: 13.5px; font-weight: 600; color: var(--slate); background: none; border: none; cursor: pointer; transition: color 0.15s; }
-    .nav-links a:hover, .nav-links button:hover { color: var(--primary); }
+    .nav-links a { text-decoration: none; font-size: 13.5px; font-weight: 600; color: var(--slate); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--accent-purple); }
 
     /* BUTTONS */
-    .btn-primary { background: var(--primary); color: #fff; padding: 10px 20px; border-radius: 7px; font-weight: 700; font-size: 13.5px; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.15s ease; }
+    .btn-primary { background: var(--primary); color: #fff; padding: 10px 20px; border-radius: 7px; font-weight: 700; font-size: 13.5px; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.15s; }
     .btn-primary:hover { background: var(--primary-dark); }
-    .btn-outline { background: #fff; color: var(--dark); padding: 10px 20px; border-radius: 7px; font-weight: 600; font-size: 13.5px; border: 1px solid var(--border); cursor: pointer; text-decoration: none; display: inline-block; }
-    .btn-outline:hover { background: #f1f5f9; }
-    .btn-lg { padding: 13px 26px; font-size: 14.5px; }
-    .w-full { width: 100%; text-align: center; }
+    .btn-vault { background: var(--accent-purple); color: #fff; padding: 12px 24px; border-radius: 8px; font-weight: 800; font-size: 14px; border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(109,40,217,0.3); transition: all 0.15s; }
+    .btn-vault:hover { background: var(--accent-purple-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(109,40,217,0.4); }
 
-    /* 1. HERO (CARBON TRUST STYLE) */
+    /* 1. HERO GATEWAY (THE WORLD IS ONE FAMILY) */
     .hero {
       position: relative;
-      min-height: 75vh;
+      min-height: 80vh;
       display: flex;
       align-items: center;
       background: 
-        linear-gradient(135deg, rgba(8, 28, 77, 0.94) 0%, rgba(15, 23, 42, 0.88) 100%),
+        linear-gradient(135deg, rgba(8, 28, 77, 0.94) 0%, rgba(15, 23, 42, 0.90) 100%),
         url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
       color: #ffffff;
-      padding: 70px 0;
-      overflow: hidden;
+      padding: 80px 0;
     }
-
-    .hero .container { width: 100%; }
-    .hero-content-left { max-width: 720px; text-align: left; }
-    .hero-title { font-size: 52px; font-weight: 850; letter-spacing: -0.03em; line-height: 1.12; margin-bottom: 20px; color: #ffffff; }
-    .hero-subtitle { font-size: 17.5px; color: #e2e8f0; line-height: 1.6; margin-bottom: 32px; font-weight: 400; }
-
-    .btn-carbon-cta {
-      background: #00e676;
-      color: #052e16;
-      padding: 14px 28px;
-      border-radius: 6px;
+    .hero-tag {
+      font-size: 13px;
       font-weight: 800;
-      font-size: 14.5px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
+      color: #a7f3d0;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
       display: inline-block;
-      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
-      box-shadow: 0 4px 14px rgba(0, 230, 118, 0.35);
     }
-    .btn-carbon-cta:hover { background: #00c853; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 230, 118, 0.45); }
+    .hero-title { font-size: 54px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 20px; }
+    .hero-subtitle { font-size: 17.5px; color: #e2e8f0; line-height: 1.6; margin-bottom: 34px; max-width: 720px; }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 
-    @media (max-width: 860px) {
-      .hero { min-height: auto; padding: 50px 0; }
-      .hero-title { font-size: 34px; }
-      .hero-subtitle { font-size: 15.5px; }
+    /* 2. OPERATING VAULT & 4-DESK INTERFACE */
+    .vault-wrapper {
+      background: #faf8ff;
+      border: 1px solid #eae6f7;
+      border-radius: 16px;
+      padding: 30px;
+      margin-top: 20px;
+      box-shadow: 0 10px 30px rgba(109,40,217,0.04);
+      text-align: left;
+    }
+    .stepper-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .step-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .step-item.active {
+      border-color: var(--accent-purple);
+      background: var(--purple-soft);
+      color: var(--accent-purple);
+      font-weight: 700;
+    }
+    .step-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #475569;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+    }
+    .step-item.active .step-circle {
+      background: var(--accent-purple);
+      color: #ffffff;
     }
 
-    /* 2. COMPACT PROOF CARDS */
-    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 15px; }
-    .proof-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
-    .proof-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; margin-bottom: 12px; }
-    .proof-title { font-size: 16px; font-weight: 700; color: var(--dark); display: flex; align-items: center; gap: 6px; }
-    .proof-stat { margin-bottom: 10px; }
-    .proof-val { font-size: 18px; font-weight: 800; color: var(--primary); line-height: 1.2; }
-    .proof-label { font-size: 12px; color: var(--muted); }
-    .proof-rev { background: var(--gold-soft); border: 1px solid var(--gold-border); border-radius: 6px; padding: 10px 12px; margin-top: 12px; }
-    .proof-rev-num { font-size: 15px; font-weight: 800; color: var(--gold); }
-    .disclaimer { font-size: 11.5px; color: var(--muted); margin-top: 14px; font-style: italic; }
-
-    /* 3. COMPACT RECOVERY PIPELINE */
-    .recovery-box { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-top: 15px; }
-    .recovery-pipeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-items: center; margin-bottom: 20px; text-align: center; }
-    .rec-step { background: var(--light); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
-    .rec-step-label { font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--muted); }
-    .rec-step-val { font-size: 15px; font-weight: 800; color: var(--dark); margin-top: 2px; }
-    .rec-highlight { background: var(--primary-soft); border-color: var(--primary-border); }
-    .rec-highlight .rec-step-val { color: var(--primary); }
-    
-    .recovery-split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; text-align: left; }
-    .balance-sheet-card { background: var(--light); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
-    .res-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #e2e8f0; font-size: 12.5px; }
-    .res-row-total { border-top: 2px solid var(--primary); border-bottom: none; font-size: 13.5px; font-weight: 800; color: var(--primary); padding-top: 6px; }
-    .bonus-card { background: #0f172a; color: #fff; border-radius: 8px; padding: 16px; }
-
-    /* 4. LOOKER STUDIO DASHBOARD CONSOLE STYLES */
-    .looker-console-wrap {
-      background: #0f172a;
-      border: 1px solid #1e293b;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-      margin: 25px auto 0;
-      max-width: 960px;
-      width: 100%;
+    /* DESK TABS */
+    .desk-tabs {
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 24px;
+      overflow-x: auto;
+    }
+    .desk-tab {
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--muted);
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .desk-tab.active {
+      color: var(--accent-purple);
+      border-bottom-color: var(--accent-purple);
     }
 
-    .looker-header-bar {
-      background: #1e293b;
-      padding: 12px 20px;
+    /* CARD STRUCTURES */
+    .v-card {
+      background: #ffffff;
+      border: 1px solid #eae6f7;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .v-card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #334155;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
     }
-
-    .looker-browser-controls {
+    .v-card-title {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: var(--dark);
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .looker-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      display: inline-block;
+    /* FORM CONTROLS & GRIDS */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 12.5px; font-weight: 700; color: #475569; }
+    .form-input {
+      border: 1px solid #cbd5e1;
+      padding: 9px 12px;
+      border-radius: 7px;
+      font-size: 13.5px;
+      background: #f8fafc;
+      color: var(--dark);
     }
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #f59e0b; }
-    .dot-green { background: #10b981; }
+    .form-input:focus { outline: none; border-color: var(--accent-purple); background: #ffffff; }
 
-    .looker-title-tag {
+    /* GPS INTAKE ENGINE */
+    .gps-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--purple-soft);
+      border: 1px dashed var(--purple-border);
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .btn-gps {
+      background: var(--accent-purple);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
       font-size: 12px;
+      font-weight: 750;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-gps:hover { background: var(--accent-purple-hover); }
+
+    /* GATES */
+    .gate-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .gate-btn {
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid #10b981;
+      background: #ecfdf5;
+      color: #047857;
       font-weight: 700;
-      color: #cbd5e1;
-      margin-left: 8px;
-      letter-spacing: 0.03em;
+      cursor: pointer;
     }
 
-    .looker-badge-live {
-      background: #042f2e;
-      color: #2dd4bf;
-      border: 1px solid #115e59;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 3px 8px;
-      border-radius: 4px;
-      text-transform: uppercase;
+    /* METERS & TABLES */
+    .score-banner {
+      background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+      border: 1px solid #ddd6fe;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 20px;
     }
+    .score-headline { font-size: 48px; font-weight: 900; color: var(--accent-purple); line-height: 1.1; margin: 6px 0; }
+    .table-ledger { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+    .table-ledger th, .table-ledger td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; text-align: left; }
+    .table-ledger th { background: #f8fafc; font-weight: 750; color: var(--dark); }
 
-    .looker-iframe-container {
-      position: relative;
-      width: 100%;
-      height: 943px;
+    /* SANDBOX MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-box {
       background: #ffffff;
-    }
-
-    .looker-iframe-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
+      max-width: 480px;
       width: 100%;
-      height: 100%;
-      border: 0;
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+      text-align: left;
     }
-
-    .looker-action-bar {
-      background: #111827;
-      border-top: 1px solid #1e293b;
-      padding: 14px 20px;
+    .pkg-choice {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .pkg-choice.selected {
+      border-color: var(--accent-purple);
+      background: var(--purple-soft);
     }
 
-    .looker-action-text {
-      font-size: 13px;
-      color: #94a3b8;
+    /* AUDIT CERTIFICATE WRAPPER (PRINT READY) */
+    #cert-dossier {
+      display: none;
+      border: 2px solid var(--accent-purple);
+      border-radius: 12px;
+      padding: 30px;
+      background: #ffffff;
+      margin-top: 24px;
       text-align: left;
     }
 
-    .looker-action-text strong {
-      color: #f8fafc;
-    }
-
-    /* 5. PROCESS STEPS & CIRCULAR SERVICES */
-    .circular-process { display: flex; justify-content: center; gap: 8px; margin: 24px 0 35px; flex-wrap: wrap; }
-    .process-badge { background: #fff; border: 1px solid var(--border); border-radius: 30px; padding: 6px 14px; font-size: 12px; font-weight: 700; color: var(--dark); display: flex; align-items: center; gap: 6px; }
-    .process-badge span { background: var(--primary); color: #fff; border-radius: 50%; width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; }
-
-    .service-wheel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 15px; }
-    .service-tile { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 16px; cursor: pointer; text-align: left; transition: all 0.15s; }
-    .service-tile:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-    .service-tile.active { border: 2px solid var(--primary); background: var(--primary-soft); }
-    .s-num { font-size: 11px; font-weight: 800; color: var(--primary); }
-    .s-title { font-size: 14px; font-weight: 700; color: var(--dark); margin: 4px 0; }
-    .s-desc { font-size: 12px; color: var(--muted); line-height: 1.4; }
-
-    /* SERVICE DETAIL PANE */
-    .service-detail-pane { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-top: 20px; text-align: left; }
-    .pane-split { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 13px; }
-    .pane-box { background: var(--light); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
-    .tier-selector { display: flex; gap: 8px; margin: 16px 0; }
-    .tier-btn { flex: 1; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: #fff; cursor: pointer; font-size: 12px; font-weight: 700; }
-    .tier-btn.active { border-color: var(--primary); background: var(--primary-soft); color: var(--primary-dark); }
-
-    /* FAQ ACCORDION */
-    .faq-list { margin-top: 20px; }
-    .faq-item { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px; background: #fff; overflow: hidden; }
-    .faq-q { padding: 14px 18px; font-weight: 600; font-size: 14px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    .faq-q::after { content: "+"; font-size: 16px; color: var(--primary); }
-    .faq-item.open .faq-q::after { content: "−"; }
-    .faq-a { display: none; padding: 0 18px 14px; font-size: 13px; color: var(--slate); line-height: 1.55; }
-    .faq-item.open .faq-a { display: block; }
-
     /* FOOTER */
-    .footer { background: #0f172a; color: #94a3b8; padding: 50px 0 25px; font-size: 13px; }
-    .footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 24px; margin-bottom: 35px; text-align: left; }
-    .footer-col h5 { color: #f8fafc; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em; }
+    .footer { background: #0f172a; color: #94a3b8; padding: 50px 0 25px; font-size: 13px; text-align: left; }
+    .footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 24px; margin-bottom: 35px; }
+    .footer-col h5 { color: #f8fafc; font-size: 12px; font-weight: 750; text-transform: uppercase; margin-bottom: 12px; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 8px; }
     .footer-col ul li a { color: #94a3b8; text-decoration: none; font-size: 12.5px; }
     .footer-col ul li a:hover { color: #38bdf8; }
-    .footer-btm { border-top: 1px solid #1e293b; padding-top: 20px; display: flex; justify-content: space-between; font-size: 11.5px; }
+
+    @media print {
+      body { background: #fff !important; color: #000 !important; }
+      .no-print, .nav, .hero, .stepper-bar, .desk-tabs, .footer, .modal-overlay { display: none !important; }
+      #cert-dossier { display: block !important; border: 2px solid #000; padding: 20px; }
+    }
 
     @media (max-width: 860px) {
-      .proof-grid, .service-wheel-grid { grid-template-columns: 1fr; }
-      .recovery-pipeline { grid-template-columns: 1fr; }
-      .recovery-split, .footer-grid, .pane-split { grid-template-columns: 1fr; }
-      .looker-iframe-container { height: 600px; }
+      .hero-title { font-size: 36px; }
+      .grid-2, .grid-3, .stepper-bar, .footer-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="nav">
+  <!-- TOP NAVIGATION -->
+  <nav class="nav no-print">
     <div class="container nav-inner">
       <a href="#top" class="nav-logo">
         <span class="logo-bold">ECF</span>
         <span class="logo-sub">Earth Carbon Foundation</span>
       </a>
       <div class="nav-links">
-        <a href="#proof-section">Financial Proof</a>
-        <a href="#recovery-section">Capital Recovery</a>
-        <a href="#vault-section">Executive Console</a>
-        <a href="#services-section">Services</a>
-        <a href="#faq">FAQ</a>
+        <a href="#vault-flow">Operating Vault</a>
+        <a href="#vault-flow" onclick="switchDesk('compliance')">Compliance Desk</a>
+        <a href="#vault-flow" onclick="switchDesk('escrow')">Escrow Floor</a>
+        <a href="#vault-flow" onclick="switchDesk('liquidity')">Market Inventory</a>
       </div>
-      <a href="#vault-section" class="btn-primary">Open Console ↗</a>
+      <a href="#vault-flow" class="btn-vault">
+        Enter ECF Vault →
+      </a>
     </div>
   </nav>
 
-  <!-- 1. HERO (CARBON TRUST STYLE) -->
+  <!-- 1. HERO GATEWAY (WELCOME TO WORLD IS ONE FAMILY) -->
   <section class="hero" id="top">
     <div class="container">
-      <div class="hero-content-left">
+      <div class="hero-content">
+        <span class="hero-tag">Vasudhaiva Kutumbakam · The World is One Family</span>
         <h1 class="hero-title">Make money from emission reduction.</h1>
         <p class="hero-subtitle">
-          Your business is already using energy, water, materials and technology. Some actions can reduce emissions, save costs and, where eligible, create additional environmental-market revenue. ECF helps you find out what is possible.
+          Your business is already using energy, water, materials and clean technology. ECF transforms these actions into verified natural capital balance sheets, audit-ready ESG filings, and monetizable carbon assets.
         </p>
-        <div>
-          <a href="#proof-section" class="btn-carbon-cta">
-            Find out what your business can earn →
+        <div class="hero-actions">
+          <a href="#vault-flow" class="btn-vault" style="font-size: 15px; padding: 14px 28px;">
+            Enter ECF Sovereign Vault →
           </a>
+          <span style="font-size: 13px; color: #94a3b8;">● Closed Beta Testing Active</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. FINANCIAL PROOF -->
-  <section id="proof-section" class="section bg-light text-center">
+  <!-- 2. FOUR INTEGRATED MODULES (VAULT FLOW) -->
+  <section id="vault-flow" class="section bg-light">
     <div class="container">
-      <div class="pill">Illustrative Model</div>
-      <h2 class="section-title">SEE WHAT YOUR ENVIRONMENTAL ACTION COULD RETURN.</h2>
-      <p class="section-desc">Empirical benchmarks illustrating conventional cost savings, verified tCO₂e reduction, and market upside.</p>
-
-      <div class="proof-grid">
-        <!-- SOLAR -->
-        <div class="proof-card">
-          <div class="proof-header">
-            <span class="proof-title">☀️ 1 MW Solar</span>
-            <span class="pill" style="margin:0; font-size:9.5px;">Clean Power</span>
-          </div>
-          <div class="proof-stat">
-            <div class="proof-val">~1,500 MWh</div>
-            <div class="proof-label">clean electricity generated / yr</div>
-          </div>
-          <div class="proof-stat">
-            <div class="proof-val">₹1.10 – ₹1.25 Cr</div>
-            <div class="proof-label">conventional electricity cost replaced</div>
-          </div>
-          <div class="proof-stat">
-            <div class="proof-val">~1,200 tCO₂e</div>
-            <div class="proof-label">emissions avoided (CEA grid factor)</div>
-          </div>
-          <div class="proof-rev">
-            <div class="proof-label">Potential carbon-credit revenue:*</div>
-            <div class="proof-rev-num">₹6.0 – ₹9.5 Lakhs / yr</div>
-          </div>
-        </div>
-
-        <!-- WATER -->
-        <div class="proof-card">
-          <div class="proof-header">
-            <span class="proof-title">💧 10 ML Water Saved</span>
-            <span class="pill" style="margin:0; font-size:9.5px;">Resource</span>
-          </div>
-          <div class="proof-stat">
-            <div class="proof-val">~10M Litres</div>
-            <div class="proof-label">freshwater sourcing avoided</div>
-          </div>
-          <div class="proof-stat">
-            <div class="proof-val">₹12.0 – ₹18.0 Lakhs</div>
-            <div class="proof-label">commercial water costs eliminated</div>
-          </div>
-          <div class="proof-stat">
-            <div class="proof-val">~20 tCO₂e</div>
-            <div class="proof-label">pumping & heating emissions avoided</div>
-          </div>
-          <div class="proof-rev">
-            <div class="proof-label">Potential environmental revenue:*</div>
-            <div class="proof-rev-num">₹1.5 – ₹3.0 Lakhs / yr</div>
-          </div>
-        </div>
-
-        <!-- WASTE -->
-        <div class="proof-card">
-          <div class="proof-header">
-            <span class="proof-title">♻️ 1,000 T Waste Recovered</span>
-            <span class="pill" style="margin:0; font-size:9.5px;">Material</span>
-          </div>
-          <div class="proof-stat">
-            <div class="proof-val">~1,000 Tonnes</div>
-            <div class="proof-label">diverted from landfill dumping</div>
-          </div>
-          <div class="proof-stat">
-            <div class="proof-val">₹25.0 – ₹35.0 Lakhs</div>
-            <div class="proof-label">disposal & tipping costs avoided</div>
-          </div>
-          <div class="proof-stat">
-            <div class="proof-val">~950 tCO₂e</div>
-            <div class="proof-label">methane decomposition avoided</div>
-          </div>
-          <div class="proof-rev">
-            <div class="proof-label">Potential carbon-market revenue:*</div>
-            <div class="proof-rev-num">₹4.5 – ₹7.5 Lakhs / yr</div>
-          </div>
-        </div>
-      </div>
-
-      <p class="disclaimer">
-        *Illustrative calculations based on standard commercial tariffs and voluntary registry parameters. Subject to facility eligibility, methodology validation, and market clearance.
-      </p>
-    </div>
-  </section>
-
-  <!-- 3. CAPITAL RECOVERY -->
-  <section id="recovery-section" class="section bg-white text-center">
-    <div class="container">
-      <div class="pill">Capital Recovery Logic</div>
-      <h2 class="section-title">CAN YOUR ENVIRONMENTAL ACTION PAY FOR ITSELF?</h2>
-      <p class="section-desc">Structured as a commercial asset where power savings and carbon upsides directly service the debt.</p>
-
-      <div class="recovery-box">
-        <div class="recovery-pipeline">
-          <div class="rec-step">
-            <div class="rec-step-label">1. Capital Outlay</div>
-            <div class="rec-step-val">₹50.0 Lakhs</div>
-          </div>
-          <div class="rec-step">
-            <div class="rec-step-label">2. Annual Debt Service</div>
-            <div class="rec-step-val" style="color:#b91c1c;">- ₹9.8 Lakhs (EMI)</div>
-          </div>
-          <div class="rec-step rec-highlight">
-            <div class="rec-step-label">3. Total Annual Benefit</div>
-            <div class="rec-step-val">+ ₹10.0 Lakhs (Save+Credit)</div>
-          </div>
-          <div class="rec-step rec-highlight">
-            <div class="rec-step-label">4. Net Position</div>
-            <div class="rec-step-val">Self-Funding (~5 Yrs)</div>
-          </div>
-        </div>
-
-        <div class="recovery-split">
-          <div class="balance-sheet-card">
-            <div class="res-row"><span>Investment / Loan Tenure:</span><strong>₹50 L (7 Yrs @ 9.5%)</strong></div>
-            <div class="res-row"><span>Annual Electricity Savings:</span><strong>₹8.0 Lakhs</strong></div>
-            <div class="res-row"><span>Potential Carbon Revenue:*</span><strong style="color:var(--gold);">₹2.0 Lakhs</strong></div>
-            <div class="res-row"><span>Total Annual Inflows:</span><strong style="color:var(--primary);">₹10.0 Lakhs</strong></div>
-            <div class="res-row"><span>Annual Debt Service (EMI):</span><strong>₹9.8 Lakhs</strong></div>
-            <div class="res-row-total res-row"><span>Net Annual Cash Flow (Year 1):</span><span style="color:var(--primary);">+ ₹20,000 (Positive)</span></div>
-          </div>
-
-          <div class="bonus-card">
-            <span class="pill" style="background:#0284c7; color:#fff; border:none; margin-bottom:6px;">BONUS VALUE</span>
-            <h4 style="font-size:15px; margin-bottom:8px;">~1,000 tCO₂e/yr Verified Reduction</h4>
-            <ul style="font-size:12px; color:#cbd5e1; padding-left:16px; line-height:1.7;">
-              <li><strong>Export Shield:</strong> Pre-qualified data for EU CBAM declarations</li>
-              <li><strong>Domestic Filing:</strong> Audit-ready SEBI BRSR Core indicators</li>
-              <li><strong>Vendor Priority:</strong> Satisfy Tier-1 OEM sustainability criteria</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. GOOGLE LOOKER STUDIO DASHBOARD CONSOLE -->
-  <section id="vault-section" class="section bg-light text-center">
-    <div class="container">
-      <div class="pill">Telemetry &amp; Verification Console</div>
-      <h2 class="section-title">Plant Executive Carbon &amp; Resource Dashboard</h2>
-      <p class="section-desc">
-        Real-time industrial telemetry tracking Scope 1 &amp; 2 emissions, captive solar displacement, Atmanirbhar self-reliance indexes, and verified carbon revenue potential.
-      </p>
-
-      <div class="looker-console-wrap">
-        <!-- Top Window Frame -->
-        <div class="looker-header-bar">
-          <div class="looker-browser-controls">
-            <span class="looker-dot dot-red"></span>
-            <span class="looker-dot dot-yellow"></span>
-            <span class="looker-dot dot-green"></span>
-            <span class="looker-title-tag">
-              📊 ECF Sovereign Registry · Looker Studio Live Engine
-            </span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <span class="looker-badge-live">● Live Telemetry</span>
-            <a href="https://datastudio.google.com/reporting/29975442-865b-424a-8a63-2bfda637523d/page/4AK7F" target="_blank" rel="noopener noreferrer" style="font-size: 12px; color: #38bdf8; text-decoration: none; font-weight: 600;">
-              Expand Full Screen ↗
-            </a>
-          </div>
-        </div>
-
-        <!-- Embedded Google Looker Studio Frame -->
-        <div class="looker-iframe-container">
-          <iframe 
-            src="https://datastudio.google.com/embed/reporting/29975442-865b-424a-8a63-2bfda637523d/page/4AK7F" 
-            title="ECF Plant Telemetry Dashboard"
-            frameborder="0"
-            allowfullscreen 
-            sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-          </iframe>
-        </div>
-
-        <!-- Conversion & Verification Action Strip -->
-        <div class="looker-action-bar">
-          <div class="looker-action-text">
-            <strong>Want this calibrated for your factory?</strong> 
-            Connect your sub-meters, utility bills, and clean energy assets into an auditable ECF Looker report.
-          </div>
-          <div style="display: flex; gap: 8px;">
-            <button class="btn-outline" style="padding: 8px 14px; font-size: 12px; background:#1e293b; color:#fff; border-color:#334155;" onclick="shareDashboardLink()">
-              Share Dashboard ↗
-            </button>
-            <button class="btn-primary" style="padding: 8px 18px; font-size: 12px;" onclick="bookDashboardCalibration()">
-              Connect Your Plant Facility →
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. CIRCULAR PROCESS FLOW & SERVICES -->
-  <section id="services-section" class="section bg-white text-center">
-    <div class="container">
-      <div class="pill">Circular Execution Hub</div>
-      <h2 class="section-title">WHAT DO YOU NEED TO GET DONE?</h2>
-      <p class="section-desc">Select an operational requirement. Your Master Profile data connects instantly with zero duplicate entry.</p>
-
-      <div class="circular-process">
-        <div class="process-badge"><span>1</span> Master Profile</div>
-        <div style="color:#94a3b8;">→</div>
-        <div class="process-badge"><span>2</span> Benchmark Score</div>
-        <div style="color:#94a3b8;">→</div>
-        <div class="process-badge"><span>3</span> Select Route</div>
-        <div style="color:#94a3b8;">→</div>
-        <div class="process-badge"><span>4</span> Monetize & Comply</div>
-        <div style="color:#94a3b8;">↺</div>
-        <div class="process-badge" style="background:var(--primary-soft); border-color:var(--primary-border); color:var(--primary-dark);">Continuous Loop</div>
-      </div>
-
-      <div class="service-wheel-grid">
-        <div class="service-tile active" id="tile-01" onclick="pickService('01')">
-          <span class="s-num">[01] GHG / CARBON</span>
-          <div class="s-title">Corporate Carbon Footprint</div>
-          <div class="s-desc">Scope 1 & 2 baseline inventory and verification readiness.</div>
-        </div>
-
-        <div class="service-tile" id="tile-02" onclick="pickService('02')">
-          <span class="s-num">[02] ESG / BRSR / SDG</span>
-          <div class="s-title">Stakeholder Disclosures</div>
-          <div class="s-desc">SEBI BRSR Core indicators and supply-chain sustainability filing.</div>
-        </div>
-
-        <div class="service-tile" id="tile-03" onclick="pickService('03')">
-          <span class="s-num">[03] EXPORT / CBAM</span>
-          <div class="s-title">Border Export Defense</div>
-          <div class="s-desc">EU CBAM embedded carbon dossiers and Product Carbon Footprints.</div>
-        </div>
-
-        <div class="service-tile" id="tile-04" onclick="pickService('04')">
-          <span class="s-num">[04] DECARBONISATION</span>
-          <div class="s-title">Leakage & Energy Audits</div>
-          <div class="s-desc">Sub-meter calibration and prioritized thermal capex paybacks.</div>
-        </div>
-
-        <div class="service-tile" id="tile-05" onclick="pickService('05')">
-          <span class="s-num">[05] CARBON VALUE</span>
-          <div class="s-title">Asset Monetization Pool</div>
-          <div class="s-desc">Sub-15 MW clean tech aggregation into international credit registries.</div>
-        </div>
-
-        <div class="service-tile" id="tile-06" onclick="pickService('06')">
-          <span class="s-num">[06] ATMANIRBHAR</span>
-          <div class="s-title">Self-Reliance Rating</div>
-          <div class="s-desc">Independent verified score certifying plant utility independence.</div>
-        </div>
-      </div>
-
-      <div class="service-detail-pane" id="service-detail-box">
-        <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px;">
-          <h3 style="font-size:18px; color:var(--dark);" id="serv-title">[01] GHG / Carbon Accounting</h3>
-          <span class="pill" style="margin:0;">Profile Connected</span>
-        </div>
-        <p style="font-size:13.5px; color:var(--slate); margin-bottom:14px;" id="serv-desc">
-          Audit-ready corporate boundary accounting aligned with GHG Protocol and ISO 14064.
+      <div class="text-center">
+        <div class="pill pill-purple">Unified Value Architecture</div>
+        <h2 class="section-title">Sovereign Member Operating Desks</h2>
+        <p class="section-desc">
+          Navigate the 4 integrated desks. Common facility telemetry entered into your Master Profile flows seamlessly across every compliance, balance sheet, and settlement module.
         </p>
+      </div>
 
-        <div class="tier-selector">
-          <button class="tier-btn active" id="btn-t-std" onclick="setTier('standard')">STANDARD (Comply) · ₹24,999</button>
-          <button class="tier-btn" id="btn-t-tailor" onclick="setTier('tailor')">TAILOR-MADE (Communicate) · Custom</button>
-          <button class="tier-btn" id="btn-t-pract" onclick="setTier('pract')">PRACTITIONER · Scoping Intake</button>
+      <div class="vault-wrapper">
+        <!-- LINEAR STEPPER -->
+        <div class="stepper-bar no-print">
+          <div class="step-item active" id="st-1"><span class="step-circle">1</span> Demographics &amp; GPS</div>
+          <div class="step-item active" id="st-2"><span class="step-circle">2</span> Statutory Gates</div>
+          <div class="step-item active" id="st-3"><span class="step-circle">3</span> NRBS Balance Sheet</div>
+          <div class="step-item" id="st-4"><span class="step-circle">4</span> Mint Verification Dossier</div>
         </div>
 
-        <div class="pane-split">
-          <div class="pane-box">
-            <strong style="display:block; margin-bottom:4px; font-size:12.5px;">What You Receive:</strong>
-            <ul style="padding-left:16px; color:var(--slate); line-height:1.6;" id="serv-receives">
-              <li>Scope 1 & 2 baseline computation ledger</li>
-              <li>Audit-ready export portfolio for Tier-1 buyers</li>
-              <li>Encrypted vault retention for multi-year tracking</li>
-            </ul>
-          </div>
-          <div class="pane-box">
-            <strong style="display:block; margin-bottom:4px; font-size:12.5px;">Auto-Populated from Master Profile:</strong>
-            <ul style="padding-left:16px; color:var(--slate); line-height:1.6;">
-              <li>Plant boundary & geographical scope</li>
-              <li>Clean energy baseline & fuel consumption</li>
-              <li>Key operational contact & authorization</li>
-            </ul>
-          </div>
-        </div>
-
-        <div style="margin-top:20px; text-align:center;">
-          <button class="btn-primary btn-lg" style="width:100%; max-width:380px;" onclick="executeSelectedRoute()">
-            PROCEED WITH THIS MODULE →
+        <!-- 4 DESK TABS -->
+        <div class="desk-tabs no-print">
+          <button class="desk-tab active" id="tab-btn-generator" onclick="switchDesk('generator')">
+            ⚡ 1. Generator / PoA &amp; NRBS
+          </button>
+          <button class="desk-tab" id="tab-btn-compliance" onclick="switchDesk('compliance')">
+            ⚖️ 2. Compliance Deficit (ESG/BRSR)
+          </button>
+          <button class="desk-tab" id="tab-btn-escrow" onclick="switchDesk('escrow')">
+            🏛️ 3. Tripartite Escrow Floor
+          </button>
+          <button class="desk-tab" id="tab-btn-liquidity" onclick="switchDesk('liquidity')">
+            🛒 4. Spot Market &amp; Buyers
           </button>
         </div>
+
+        <!-- ==================== DESK 1: GENERATOR & NRBS ==================== -->
+        <div id="desk-view-generator">
+          <div class="score-banner">
+            <div style="font-size: 12px; font-weight: 800; color: #6b21a8; text-transform: uppercase;">Verified Self-Reliance Metric</div>
+            <div class="score-headline" id="disp-index">61.4%</div>
+            <p style="font-size: 13.5px; color: #475569; max-width: 600px; margin: 0 auto;">
+              Calculated under the Divyajyoti Trust Natural Capital Standard. Captive clean energy and water recharging abate <strong>61.4%</strong> of annual physical utility withdrawals.
+            </p>
+          </div>
+
+          <!-- ASSET DEMOGRAPHICS & GPS INTAKE -->
+          <div class="v-card">
+            <div class="v-card-header">
+              <span class="v-card-title">📍 Asset Demographics &amp; Geo-Location Intake</span>
+              <span style="font-size: 12px; color: var(--accent-purple); font-weight: 750;">UNFCCC Article 6 Georeferenced</span>
+            </div>
+            <div class="grid-3" style="margin-bottom: 14px;">
+              <div class="form-group">
+                <label>Facility / Entity Name</label>
+                <input type="text" class="form-input" id="inp-entity" value="Divyajyoti Trust Campus" />
+              </div>
+              <div class="form-group">
+                <label>Asset Category</label>
+                <select class="form-input">
+                  <option>Captive Solar PV (Rooftop)</option>
+                  <option>Sub-15 MW Ground Mount Solar</option>
+                  <option>Rainwater Harvesting &amp; Recharge</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Installed Capacity (kWp)</label>
+                <input type="number" class="form-input" id="inp-cap" value="45" oninput="calculateNRBS()" />
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="form-group">
+                <label>Facility Latitude (° North)</label>
+                <input type="text" class="form-input" id="inp-lat" value="21.7051" />
+              </div>
+              <div class="form-group">
+                <label>Facility Longitude (° East)</label>
+                <input type="text" class="form-input" id="inp-long" value="72.9959" />
+              </div>
+            </div>
+
+            <div class="gps-bar no-print">
+              <button class="btn-gps" onclick="detectGPS()">📍 Detect Live GPS Coordinates</button>
+              <span id="gps-status" style="font-size: 12.5px; color: var(--accent-purple); font-weight: 600;">
+                Registered Pin: 21.7051° N, 72.9959° E (Mandvi, Gujarat)
+              </span>
+              <a id="gmaps-link" href="https://maps.google.com/?q=21.7051,72.9959" target="_blank" style="margin-left: auto; font-size: 12px; color: var(--accent-purple); font-weight: 700; text-decoration: underline;">
+                Verify on Map ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- STATUTORY GATES -->
+          <div class="v-card">
+            <div class="v-card-header">
+              <span class="v-card-title">🛡️ Statutory Affirmation Gates (Zero Paperwork)</span>
+              <span style="font-size: 12px; color: var(--primary); font-weight: 750;">4 of 4 Gates Passed</span>
+            </div>
+            <div class="gate-row">
+              <span>1. No Double-Counting Affirmation (Exclusive ECF serial registry assignment)</span>
+              <button class="gate-btn" onclick="toggleGate(this)">✓ Affirmed</button>
+            </div>
+            <div class="gate-row">
+              <span>2. UNFCCC Additionality Barrier Verification (Financial barrier cleared)</span>
+              <button class="gate-btn" onclick="toggleGate(this)">✓ Affirmed</button>
+            </div>
+            <div class="gate-row">
+              <span>3. Digital Inverter &amp; Bi-directional Meter Tamper Integrity</span>
+              <button class="gate-btn" onclick="toggleGate(this)">✓ Affirmed</button>
+            </div>
+            <div class="gate-row">
+              <span>4. 10-Year O&amp;M Maintenance &amp; Asset Integrity Covenant</span>
+              <button class="gate-btn" onclick="toggleGate(this)">✓ Affirmed</button>
+            </div>
+            <div style="background: #f8fafc; padding: 10px 14px; border-radius: 6px; font-family: monospace; font-size: 11.5px; margin-top: 8px; color: #475569;">
+              SHA-256 Digital Seal: <span id="sha-seal">ecf_89f02c91b162de81d092ac77b311751d8b5a04</span>
+            </div>
+          </div>
+
+          <!-- NRBS DOUBLE ENTRY LEDGER -->
+          <div class="v-card">
+            <div class="v-card-header">
+              <span class="v-card-title">📊 Double-Entry Natural Resource Balance Sheet (NRBS)</span>
+              <span style="font-size: 12px; color: var(--muted);">Divyajyoti Trust Accounting Standard</span>
+            </div>
+            <table class="table-ledger">
+              <thead>
+                <tr>
+                  <th style="width: 50%;">Annual Physical Withdrawals (Liabilities)</th>
+                  <th style="width: 50%;">Clean Mitigations &amp; Assets (Assets)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Grid Electricity Inflow: <strong>60,000 kWh</strong></td>
+                  <td>Captive Solar Yield: <strong id="val-solar">36,840 kWh</strong></td>
+                </tr>
+                <tr>
+                  <td>Thermal Fuel (LPG/Diesel): <strong>4,200 kg</strong></td>
+                  <td>Solar Thermal Abatement: <strong>2,400 kg Fuel</strong></td>
+                </tr>
+                <tr>
+                  <td>Borewell Groundwater: <strong>1,800,000 Litres</strong></td>
+                  <td>Rooftop Rainwater Vaults: <strong>1,200,000 Litres</strong></td>
+                </tr>
+                <tr style="background: #f8fafc; font-weight: 750;">
+                  <td>Scope 1 &amp; 2 Deficit: <strong>49.20 tCO₂e</strong></td>
+                  <td>Certified Offset Position: <strong style="color: var(--primary);">30.21 tCO₂e Generated</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="text-align: right; margin-top: 20px;" class="no-print">
+              <button class="btn-vault" onclick="openModal()">
+                Proceed to Verification &amp; Mint Dossier →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== DESK 2: COMPLIANCE DEFICIT ==================== -->
+        <div id="desk-view-compliance" style="display: none;">
+          <div class="v-card">
+            <div class="v-card-header">
+              <span class="v-card-title">⚖️ Corporate Deficit &amp; Surrender Gap Analyzer</span>
+              <span style="font-size: 12px; background: #fee2e2; color: #dc2626; padding: 4px 8px; border-radius: 999px; font-weight: 750;">Mandate Active</span>
+            </div>
+            <div class="grid-3" style="margin-bottom: 14px;">
+              <div class="form-group">
+                <label>Scope 1 Direct Baseline (tCO₂e)</label>
+                <input type="number" class="form-input" id="inp-sc1" value="12000" oninput="recalcDeficit()" />
+              </div>
+              <div class="form-group">
+                <label>Scope 2 Grid Baseline (tCO₂e)</label>
+                <input type="number" class="form-input" id="inp-sc2" value="8000" oninput="recalcDeficit()" />
+              </div>
+              <div class="form-group">
+                <label>Regulatory Surrender Cap (tCO₂e)</label>
+                <input type="number" class="form-input" id="inp-mandate" value="10000" oninput="recalcDeficit()" />
+              </div>
+            </div>
+            <div style="background: #fef2f2; border: 1px solid #fecaca; padding: 18px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-size: 12px; color: #991b1b; font-weight: 700; text-transform: uppercase;">Net Surrender Deficit</div>
+                <div style="font-size: 26px; font-weight: 900; color: #b91c1c;" id="disp-deficit">10,000 tCO₂e</div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-size: 12px; color: #991b1b; font-weight: 700; text-transform: uppercase;">Estimated Market Budget</div>
+                <div style="font-size: 26px; font-weight: 900; color: var(--dark);" id="disp-budget">₹4,800,000</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== DESK 3: TRIPARTITE ESCROW FLOOR ==================== -->
+        <div id="desk-view-escrow" style="display: none;">
+          <div class="v-card">
+            <div class="v-card-header">
+              <span class="v-card-title">🏛️ Tripartite Settlement &amp; Escrow Clearing Desk</span>
+              <span style="font-size: 12px; background: var(--primary-soft); color: var(--primary); padding: 4px 8px; border-radius: 999px; font-weight: 750;">Article 6 Aligned</span>
+            </div>
+            <p style="font-size: 13.5px; color: var(--muted); margin-bottom: 16px;">
+              Guaranteed institutional mechanism: 5% earnest advance held in escrow, 30-day serial reservation lock, 95% RTGS disbursement upon registry title transfer.
+            </p>
+            <div class="grid-2">
+              <div style="background: #f8fafc; padding: 18px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                <strong style="font-size: 13.5px; display: block; margin-bottom: 8px; color: var(--dark);">Buyer Protection Protocol:</strong>
+                <ul style="font-size: 12.5px; color: var(--slate); padding-left: 18px; line-height: 1.7;">
+                  <li>30-day serial lock preventing duplicate corporate allocations.</li>
+                  <li>Audit-ready SEBI BRSR Core and EU CBAM embedded verification.</li>
+                  <li>Direct bank-wire escrow bypassing secondary brokerage spreads.</li>
+                </ul>
+              </div>
+              <div style="background: #f8fafc; padding: 18px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                <strong style="font-size: 13.5px; display: block; margin-bottom: 8px; color: var(--dark);">Generator Settlement Protocol:</strong>
+                <ul style="font-size: 12.5px; color: var(--slate); padding-left: 18px; line-height: 1.7;">
+                  <li>Instant 5% reservation release upon statutory gate clearance.</li>
+                  <li>95% final liquidity release directly to operating account.</li>
+                  <li>Zero listing or verification fees for sub-15 MW installations.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== DESK 4: LIQUIDITY / SPOT MARKET ==================== -->
+        <div id="desk-view-liquidity" style="display: none;">
+          <div class="v-card">
+            <div class="v-card-header">
+              <span class="v-card-title">🛒 Bilateral Order Floor (Spot Registry Vintages)</span>
+            </div>
+            <table class="table-ledger">
+              <thead>
+                <tr>
+                  <th>Batch ID</th>
+                  <th>Methodology</th>
+                  <th>Volume</th>
+                  <th>Floor Price</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ECF-2026-SOL-092</td>
+                  <td>AMS-I.D (Captive Rooftop Solar)</td>
+                  <td>4,500 tCO₂e</td>
+                  <td>₹480 / unit</td>
+                  <td><span style="color: var(--primary); font-weight: 750;">● Available</span></td>
+                </tr>
+                <tr>
+                  <td>ECF-2026-REC-014</td>
+                  <td>AMS-I.K (Water Recharge Vaults)</td>
+                  <td>1,200 tCO₂e</td>
+                  <td>₹650 / unit</td>
+                  <td><span style="color: var(--gold); font-weight: 750;">● Escrow Locked</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ==================== PRINT READY CITATION ==================== -->
+        <div id="cert-dossier">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--accent-purple); padding-bottom: 14px; margin-bottom: 16px;">
+            <div>
+              <h2 style="font-size: 22px; color: var(--dark); margin-bottom: 4px;">Natural Capital Impact Citation</h2>
+              <span style="font-size: 12px; color: var(--accent-purple); font-weight: 800;">EARTH CARBON FOUNDATION STATUTORY REGISTRY</span>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-size: 12px; color: var(--muted);">Certificate Reference:</div>
+              <div style="font-family: monospace; font-weight: 750; font-size: 13px;">ECF-CERT-2026-DVJ-992</div>
+            </div>
+          </div>
+          <p style="font-size: 13.5px; color: var(--slate); margin-bottom: 16px;">
+            This instrument certifies that the operating facility identified below has passed all statutory affirmations and registered its environmental offset balance under the Natural Resource Balance Sheet (NRBS) framework.
+          </p>
+          <div class="grid-2" style="margin-bottom: 16px; font-size: 13px;">
+            <div>Entity Name: <strong id="cert-entity">Divyajyoti Trust Campus</strong></div>
+            <div>Geo-Coordinates: <strong id="cert-gps">21.7051° N, 72.9959° E</strong></div>
+            <div>Atmanirbhar Index: <strong id="cert-index">61.4%</strong></div>
+            <div>Offset Generation: <strong>30.21 tCO₂e / Year</strong></div>
+          </div>
+          <div style="border-top: 1px dashed #cbd5e1; padding-top: 12px; font-size: 11.5px; color: var(--muted); font-family: monospace;">
+            Cryptographic Verification Hash: ecf_89f02c91b162de81d092ac77b311751d8b5a04 · Verified Active
+          </div>
+          <div style="margin-top: 20px; text-align: right;" class="no-print">
+            <button onclick="window.print()" class="btn-vault">🖨️ Print High-Resolution PDF</button>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- FAQ SECTION -->
-  <section id="faq" class="section bg-light">
-    <div class="container-sm">
-      <div class="text-center" style="margin-bottom: 25px;">
-        <div class="pill">FAQ</div>
-        <h2 class="section-title">Frequently Asked Questions</h2>
+  <!-- SANDBOX PAYMENT MODAL -->
+  <div class="modal-overlay" id="pay-modal">
+    <div class="modal-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="font-size: 16px; font-weight: 800;">Select Document Package</h3>
+        <button onclick="closeModal()" style="border: none; background: none; font-size: 20px; cursor: pointer;">&times;</button>
+      </div>
+      <div class="pkg-choice selected">
+        <div>
+          <strong style="font-size: 13px; display: block;">Tier 1: Basic NRBS Balance Sheet</strong>
+          <span style="font-size: 12px; color: var(--muted);">Double-entry ledger with Atmanirbhar Index</span>
+        </div>
+        <strong style="font-size: 14px; color: var(--accent-purple);">₹1,999</strong>
+      </div>
+      <div class="pkg-choice">
+        <div>
+          <strong style="font-size: 13px; display: block;">Tier 2: Full ESG Compliance Dossier</strong>
+          <span style="font-size: 12px; color: var(--muted);">Scope 1-3 audit pack + SEBI BRSR alignment</span>
+        </div>
+        <strong style="font-size: 14px; color: var(--accent-purple);">₹4,999</strong>
+      </div>
+      <div class="pkg-choice">
+        <div>
+          <strong style="font-size: 13px; display: block;">Tier 3: Article 6 Registry Citation</strong>
+          <span style="font-size: 12px; color: var(--muted);">Bilateral serial reservation &amp; trading clearance</span>
+        </div>
+        <strong style="font-size: 14px; color: var(--accent-purple);">₹7,999</strong>
       </div>
 
-      <div class="faq-list">
-        <div class="faq-item open">
-          <div class="faq-q" onclick="toggleFaq(this)">What does ECF do?</div>
-          <div class="faq-a">ECF is an environmental value architecture platform. We help industrial manufacturers reduce baseline energy burn, comply with domestic and export mandates (BRSR, CBAM), and monetize clean energy investments without the permanent overhead of full-time ESG salaries.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">How can emission reduction create financial value?</div>
-          <div class="faq-a">Through direct utility expense reduction, avoiding border export tariffs, and aggregating verified sub-15 MW clean assets into pooled international carbon credit sales.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">Do I have to enter the same information again?</div>
-          <div class="faq-a">No. You enter common facility data once into your ECF Master Profile. Every reporting, verification, and monetization service pulls directly from this vault.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">Is carbon revenue guaranteed?</div>
-          <div class="faq-a">No. All carbon credit figures are potential projections subject to registry eligibility, accredited verification periods, and prevailing voluntary market clearance prices.</div>
-        </div>
+      <div style="background: var(--gold-soft); border: 1px solid var(--gold-border); padding: 10px 12px; border-radius: 6px; font-size: 12px; color: var(--gold); margin: 14px 0;">
+        💡 <strong>Beta Testing Sandbox Mode:</strong> Real payment bypassed for verification testing.
       </div>
+
+      <button onclick="completeSandboxPayment()" class="btn-vault" style="width: 100%; justify-content: center;">
+        ⚡ Complete Sandbox Verification &amp; Mint
+      </button>
     </div>
-  </section>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -676,137 +753,131 @@
         <div>
           <h4 style="color:#fff; font-size:16px; margin-bottom:8px;">Earth Carbon Foundation</h4>
           <p style="font-size:12px; line-height:1.6; color:#94a3b8;">
-            One Earth. Shared Resources. Measurable Action.<br>
-            Non-profit environmental architecture for industry.
+            Vasudhaiva Kutumbakam · One Earth. Shared Resources. Measurable Action.<br>
+            Non-profit environmental value architecture for industry.
           </p>
         </div>
         <div class="footer-col">
-          <h5>Services</h5>
+          <h5>Desks</h5>
           <ul>
-            <li><a href="#services-section" onclick="pickService('01')">GHG / Carbon</a></li>
-            <li><a href="#services-section" onclick="pickService('02')">ESG / BRSR</a></li>
-            <li><a href="#services-section" onclick="pickService('03')">Export / CBAM</a></li>
-            <li><a href="#services-section" onclick="pickService('04')">Decarbonisation</a></li>
-            <li><a href="#services-section" onclick="pickService('05')">Carbon Value</a></li>
-            <li><a href="#services-section" onclick="pickService('06')">Atmanirbhar</a></li>
+            <li><a href="#vault-flow" onclick="switchDesk('generator')">Generator / PoA</a></li>
+            <li><a href="#vault-flow" onclick="switchDesk('compliance')">Compliance Desk</a></li>
+            <li><a href="#vault-flow" onclick="switchDesk('escrow')">Escrow Trading</a></li>
+            <li><a href="#vault-flow" onclick="switchDesk('liquidity')">Market Floor</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Platform</h5>
           <ul>
-            <li><a href="#proof-section">Financial Proof</a></li>
-            <li><a href="#recovery-section">Capital Recovery</a></li>
-            <li><a href="#vault-section">Master Console</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#vault-flow">Atmanirbhar Index</a></li>
+            <li><a href="#vault-flow">NRBS Ledger</a></li>
+            <li><a href="#vault-flow">GPS Intake</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Connect</h5>
           <ul>
-            <li><a href="https://wa.me/919824025431" target="_blank" rel="noopener noreferrer">WhatsApp Desk</a></li>
-            <li><a href="https://cal.com/amit-sinh-earth-carbon-wbfdu4" target="_blank" rel="noopener noreferrer">Book Practitioner</a></li>
+            <li><a href="https://wa.me/919824025431" target="_blank">WhatsApp Desk</a></li>
+            <li><a href="https://cal.com/amit-sinh-earth-carbon-wbfdu4" target="_blank">Book Practitioner</a></li>
             <li><a href="mailto:info@earthcarbonfoundation.org">Email Desk</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Legal</h5>
           <ul>
-            <li><a href="https://drive.google.com/file/d/1Kf7iX6x33_UceGFR4ZCLCP7TfDoYynZE/view?usp=sharing" target="_blank" rel="noopener noreferrer">Terms & Privacy</a></li>
+            <li><a href="https://drive.google.com/file/d/1Kf7iX6x33_UceGFR4ZCLCP7TfDoYynZE/view?usp=sharing" target="_blank">Terms &amp; Privacy</a></li>
             <li><a href="#">Methodology</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer-btm">
+      <div style="border-top: 1px solid #1e293b; padding-top: 20px; display: flex; justify-content: space-between; font-size: 11.5px;">
         <div>CIN: U85300GJ2019NPL106818 · Registered Foundation · Gujarat, India</div>
         <div>© 2026 Earth Carbon Foundation. All rights reserved.</div>
       </div>
     </div>
   </footer>
 
-  <!-- DYNAMIC LOGIC -->
+  <!-- SCRIPT ENGINE -->
   <script>
-    const SERVICES = {
-      '01': {
-        title: '[01] GHG / Carbon Accounting',
-        desc: 'Audit-ready corporate boundary accounting aligned with GHG Protocol and ISO 14064.',
-        receives: ['Scope 1 & 2 baseline computation ledger', 'Audit-ready export portfolio for Tier-1 buyers', 'Encrypted vault retention for multi-year tracking']
-      },
-      '02': {
-        title: '[02] ESG / BRSR / SDG Reporting',
-        desc: 'SEBI BRSR Core reporting indicators and supply-chain customer disclosure packs.',
-        receives: ['Standardized BRSR Core KPI filing tables', 'Executive ESG board presentation deck', 'Tier-1 customer supply chain certificate']
-      },
-      '03': {
-        title: '[03] Export / CBAM Compliance',
-        desc: 'Customs-ready embedded emissions calculations for European trade defense.',
-        receives: ['CBAM communication template file', 'Product Carbon Footprint (PCF) technical dossier', 'Customs audit defense documentation']
-      },
-      '04': {
-        title: '[04] Decarbonisation / Improvement',
-        desc: 'Shop-floor leakage identification, sub-meter calibration, and heat recovery roadmaps.',
-        receives: ['Prioritized energy leak audit sheet', 'Top 3 actionable Capex paybacks', 'Tariff power-factor correction plan']
-      },
-      '05': {
-        title: '[05] Carbon Value Pathway',
-        desc: 'Asset monetization aggregating sub-15 MW installations into international registries.',
-        receives: ['Carbon credit eligibility score memo', 'Registry pool aggregation onboarding', '75% net credit revenue off-take terms']
-      },
-      '06': {
-        title: '[06] Atmanirbhar Index',
-        desc: 'Independent assessment benchmark certifying plant utility independence.',
-        receives: ['Verified Atmanirbhar Scorecard (0-100%)', 'Digital verification badge for LinkedIn/Buyers', 'Resource independence gap report']
-      }
-    };
-
-    let activeCode = '01';
-    let activeTier = 'standard';
-
-    function shareDashboardLink() {
-      const msg = encodeURIComponent("Check out the live industrial environmental dashboard on Earth Carbon Foundation: https://atmanirbharnow.github.io/ecf-landing-page/#vault-section");
-      window.open(`https://wa.me/?text=${msg}`, '_blank');
+    // 1. DESK TAB SWITCHING
+    function switchDesk(desk) {
+      document.querySelectorAll('[id^="desk-view-"]').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.desk-tab').forEach(el => el.classList.remove('active'));
+      const activeDesk = document.getElementById('desk-view-' + desk);
+      const activeBtn = document.getElementById('tab-btn-' + desk);
+      if (activeDesk) activeDesk.style.display = 'block';
+      if (activeBtn) activeBtn.classList.add('active');
     }
 
-    function bookDashboardCalibration() {
-      const msg = encodeURIComponent("Hi ECF! We reviewed the live Looker Studio executive dashboard on your site and want to calibrate our plant's energy and carbon data into this reporting engine.");
-      window.open(`https://wa.me/919824025431?text=${msg}`, '_blank');
-    }
-
-    function pickService(code) {
-      activeCode = code;
-      document.querySelectorAll('.service-tile').forEach(t => t.classList.remove('active'));
-      const activeTile = document.getElementById('tile-' + code);
-      if (activeTile) activeTile.classList.add('active');
-
-      const s = SERVICES[code];
-      document.getElementById('serv-title').innerText = s.title;
-      document.getElementById('serv-desc').innerText = s.desc;
-      document.getElementById('serv-receives').innerHTML = s.receives.map(item => `<li>${item}</li>`).join('');
-    }
-
-    function setTier(tier) {
-      activeTier = tier;
-      document.getElementById('btn-t-std').className = 'tier-btn' + (tier === 'standard' ? ' active' : '');
-      document.getElementById('btn-t-tailor').className = 'tier-btn' + (tier === 'tailor' ? ' active' : '');
-      document.getElementById('btn-t-pract').className = 'tier-btn' + (tier === 'pract' ? ' active' : '');
-    }
-
-    function executeSelectedRoute() {
-      const s = SERVICES[activeCode];
-      if (activeTier === 'pract') {
-        window.open('https://cal.com/amit-sinh-earth-carbon-wbfdu4', '_blank');
+    // 2. LIVE GPS AUTO-DETECTION
+    function detectGPS() {
+      const status = document.getElementById('gps-status');
+      const gmapsLink = document.getElementById('gmaps-link');
+      if (!navigator.geolocation) {
+        status.innerText = "Geolocation not supported by this browser.";
         return;
       }
-      const msg = encodeURIComponent(`Hi ECF! We want to proceed with ${s.title} under the ${activeTier.toUpperCase()} route.`);
-      window.open(`https://wa.me/919824025431?text=${msg}`, '_blank');
+      status.innerText = "Detecting satellites...";
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const lat = pos.coords.latitude.toFixed(5);
+          const long = pos.coords.longitude.toFixed(5);
+          document.getElementById('inp-lat').value = lat;
+          document.getElementById('inp-long').value = long;
+          status.innerText = `Registered Pin: ${lat}° N, ${long}° E`;
+          gmapsLink.href = `https://maps.google.com/?q=${lat},${long}`;
+        },
+        () => { status.innerText = "GPS unavailable. Please enter coordinates manually."; }
+      );
     }
 
-    function toggleFaq(elem) {
-      elem.parentElement.classList.toggle('open');
+    // 3. STATUTORY GATE AFFIRMATION
+    function toggleGate(btn) {
+      if (btn.innerText === "✓ Affirmed") {
+        btn.innerText = "Pending";
+        btn.style.background = "#fff";
+        btn.style.borderColor = "#cbd5e1";
+        btn.style.color = "#64748b";
+      } else {
+        btn.innerText = "✓ Affirmed";
+        btn.style.background = "#ecfdf5";
+        btn.style.borderColor = "#10b981";
+        btn.style.color = "#047857";
+      }
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      pickService('01');
-    });
+    // 4. ATMANIRBHAR & NRBS CALCULATION
+    function calculateNRBS() {
+      const cap = parseFloat(document.getElementById('inp-cap').value) || 0;
+      const annualKwh = cap * 818.66;
+      document.getElementById('val-solar').innerText = `${annualKwh.toLocaleString(undefined, {maximumFractionDigits:0})} kWh`;
+      const index = Math.min(100, Math.max(0, (annualKwh / 60000) * 100)).toFixed(1);
+      document.getElementById('disp-index').innerText = `${index}%`;
+    }
+
+    // 5. COMPLIANCE DEFICIT CALCULATION
+    function recalcDeficit() {
+      const sc1 = parseFloat(document.getElementById('inp-sc1').value) || 0;
+      const sc2 = parseFloat(document.getElementById('inp-sc2').value) || 0;
+      const cap = parseFloat(document.getElementById('inp-mandate').value) || 0;
+      const deficit = Math.max(0, (sc1 + sc2) - cap);
+      document.getElementById('disp-deficit').innerText = `${deficit.toLocaleString()} tCO₂e`;
+      document.getElementById('disp-budget').innerText = `₹${(deficit * 480).toLocaleString()}`;
+    }
+
+    // 6. MODAL & CITATION MINTING
+    function openModal() { document.getElementById('pay-modal').style.display = 'flex'; }
+    function closeModal() { document.getElementById('pay-modal').style.display = 'none'; }
+    
+    function completeSandboxPayment() {
+      closeModal();
+      document.getElementById('st-4').classList.add('active');
+      document.getElementById('cert-entity').innerText = document.getElementById('inp-entity').value;
+      document.getElementById('cert-gps').innerText = `${document.getElementById('inp-lat').value}° N, ${document.getElementById('inp-long').value}° E`;
+      document.getElementById('cert-index').innerText = document.getElementById('disp-index').innerText;
+      document.getElementById('cert-dossier').style.display = 'block';
+      document.getElementById('cert-dossier').scrollIntoView({ behavior: 'smooth' });
+    }
   </script>
 </body>
 </html>
