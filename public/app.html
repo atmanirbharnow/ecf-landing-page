@@ -7,10 +7,10 @@
   
   <style>
     :root {
-      --bg-lavender-subtle: #FBFBFE;
-      --bg-lavender-card: #FFFFFF;
+      --bg-lavender-subtle: #FAF8FF;
+      --bg-card: #FFFFFF;
       --border-lavender: #EAE6F7;
-      --border-lavender-active: #D4CBF7;
+      --border-active: #C4B5FD;
       --accent-purple: #6D28D9;
       --accent-purple-light: #F3F0FF;
       --accent-purple-hover: #5B21B6;
@@ -20,7 +20,6 @@
       --success-bg: #ECFDF5;
       --warning-gold: #D97706;
       --warning-bg: #FFFBEB;
-      --danger-red: #DC2626;
       --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
@@ -33,9 +32,9 @@
       padding-bottom: 60px;
     }
 
-    /* NAVIGATION */
+    /* TOP BAR */
     .top-header {
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.96);
       border-bottom: 1px solid var(--border-lavender);
       position: sticky;
       top: 0;
@@ -45,7 +44,7 @@
     .header-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 14px 20px;
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -69,30 +68,61 @@
       color: var(--text-main);
     }
 
-    .status-badge-live {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--success-bg);
-      color: var(--success-green);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(5, 150, 105, 0.2);
-    }
-
-    /* MODULE TAB BAR */
-    .tab-bar {
+    /* LINEAR STEPPER */
+    .stepper-bar {
       max-width: 1100px;
       margin: 20px auto 0;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .step-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-lavender);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .step-item.active {
+      border-color: var(--accent-purple);
+      color: var(--accent-purple);
+      background: var(--accent-purple-light);
+      font-weight: 700;
+    }
+    .step-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #E5E7EB;
+      color: #4B5563;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+    }
+    .step-item.active .step-circle {
+      background: var(--accent-purple);
+      color: #fff;
+    }
+
+    /* TAB NAV */
+    .tab-bar {
+      max-width: 1100px;
+      margin: 15px auto 0;
       padding: 0 20px;
       display: flex;
       gap: 8px;
       border-bottom: 1px solid var(--border-lavender);
+      overflow-x: auto;
     }
     .module-tab {
-      padding: 10px 18px;
+      padding: 10px 16px;
       font-size: 13.5px;
       font-weight: 600;
       color: var(--text-muted);
@@ -100,39 +130,22 @@
       border-bottom: 2px solid transparent;
       background: transparent;
       border-top: none; border-left: none; border-right: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
+      white-space: nowrap;
     }
     .module-tab.active {
       color: var(--accent-purple);
       border-bottom-color: var(--accent-purple);
       font-weight: 700;
     }
-    .module-tab.disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
-    }
-    .pill-phase {
-      font-size: 10px;
-      background: #EDE9FE;
-      color: var(--accent-purple);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-weight: 700;
-    }
 
-    /* LAYOUT CONTAINER */
+    /* CONTAINER & CARDS */
     .container {
       max-width: 1100px;
-      margin: 25px auto 0;
+      margin: 20px auto 0;
       padding: 0 20px;
     }
-
-    /* CARDS */
     .card {
-      background: var(--bg-lavender-card);
+      background: var(--bg-card);
       border: 1px solid var(--border-lavender);
       border-radius: 12px;
       padding: 24px;
@@ -148,15 +161,12 @@
       padding-bottom: 12px;
     }
     .card-title {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 750;
       color: var(--text-main);
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
-    /* FORM GRID */
+    /* FORMS & GRIDS */
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; }
@@ -167,21 +177,20 @@
       border-radius: 7px;
       font-size: 13.5px;
       background: #FAFAFD;
-      color: var(--text-main);
     }
     .form-input:focus {
       outline: none;
       border-color: var(--accent-purple);
-      background: #FFFFFF;
+      background: #FFF;
     }
 
-    /* GPS INTAKE ENHANCEMENT */
+    /* GPS BAR */
     .gps-bar {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       background: var(--accent-purple-light);
-      border: 1px dashed var(--border-lavender-active);
+      border: 1px dashed var(--border-active);
       padding: 10px 14px;
       border-radius: 8px;
       margin-top: 6px;
@@ -192,55 +201,36 @@
       border: none;
       padding: 6px 12px;
       border-radius: 6px;
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 700;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
     }
-    .btn-detect:hover { background: var(--accent-purple-hover); }
 
     /* STATUTORY GATES */
     .gate-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 14px;
+      padding: 10px 14px;
       border-radius: 8px;
       background: #F9FAFB;
       border: 1px solid #F3F4F6;
-      margin-bottom: 10px;
-    }
-    .gate-label {
+      margin-bottom: 8px;
       font-size: 13px;
-      font-weight: 600;
-      color: #374151;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .radio-pill-group {
-      display: flex;
-      gap: 6px;
     }
     .radio-pill {
       font-size: 12px;
       padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid #D1D5DB;
-      cursor: pointer;
-      background: #fff;
-      font-weight: 600;
-    }
-    .radio-pill.selected {
+      border: 1px solid #10B981;
       background: #ECFDF5;
       color: #047857;
-      border-color: #6EE7B7;
+      cursor: pointer;
+      font-weight: 600;
     }
 
-    /* ATMANIRBHAR METER */
-    .atmanirbhar-box {
+    /* SCORE CARD */
+    .score-box {
       background: linear-gradient(135deg, #FAF5FF 0%, #F5F3FF 100%);
       border: 1px solid #E9D5FF;
       border-radius: 12px;
@@ -248,41 +238,29 @@
       text-align: center;
       margin-bottom: 20px;
     }
-    .score-headline {
-      font-size: 52px;
+    .score-val {
+      font-size: 48px;
       font-weight: 850;
       color: var(--accent-purple);
-      line-height: 1;
-      margin: 8px 0;
-    }
-    .score-sub {
-      font-size: 13px;
-      font-weight: 700;
-      color: #6B21A8;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      line-height: 1.1;
+      margin: 6px 0;
     }
 
-    /* DOUBLE-ENTRY TABLE */
+    /* TABLES */
     .ledger-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 13px;
       margin-top: 10px;
     }
-    .ledger-table th {
-      background: #F3F4F6;
-      padding: 8px 12px;
-      text-align: left;
-      font-weight: 700;
-      border-bottom: 2px solid #E5E7EB;
-    }
-    .ledger-table td {
-      padding: 8px 12px;
+    .ledger-table th, .ledger-table td {
+      padding: 10px 12px;
       border-bottom: 1px solid #F3F4F6;
+      text-align: left;
     }
+    .ledger-table th { background: #F9FAFB; font-weight: 700; }
 
-    /* BUTTONS */
+    /* ACTION BUTTON */
     .btn-action {
       background: var(--accent-purple);
       color: #fff;
@@ -295,275 +273,456 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 4px 12px rgba(109, 40, 217, 0.25);
     }
     .btn-action:hover { background: var(--accent-purple-hover); }
 
-    /* PRINT DELIVERABLE STYLES */
+    /* MODAL */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-card {
+      background: #fff;
+      max-width: 480px;
+      width: 100%;
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .tier-option {
+      border: 1px solid var(--border-lavender);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .tier-option.selected {
+      border-color: var(--accent-purple);
+      background: var(--accent-purple-light);
+    }
+
+    /* CERTIFICATE VIEW */
+    #certificate-view {
+      display: none;
+      border: 2px solid #6D28D9;
+      border-radius: 12px;
+      padding: 30px;
+      background: #fff;
+      margin-top: 20px;
+    }
+
+    /* PRINT RULES */
     @media print {
-      body { background: #FFFFFF; color: #000000; padding: 0; }
-      .top-header, .tab-bar, .no-print, .btn-detect, .btn-action { display: none !important; }
-      .container { max-width: 100%; margin: 0; padding: 0; }
-      .card { border: none !important; box-shadow: none !important; padding: 0 !important; }
-      .print-page { page-break-after: always; padding: 24px; border: 1px solid #CCC; margin-bottom: 20px; }
+      body { background: #fff !important; color: #000 !important; }
+      .no-print, .top-header, .stepper-bar, .tab-bar, .modal-backdrop { display: none !important; }
+      #certificate-view { display: block !important; border: 2px solid #000; }
+    }
+    @media (max-width: 768px) {
+      .grid-2, .grid-3, .stepper-bar { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- TOP APP HEADER -->
+  <!-- HEADER -->
   <header class="top-header no-print">
     <div class="header-inner">
       <div class="brand-group">
         <span class="brand-badge">ECF</span>
-        <span class="brand-title">Sovereign Vault &amp; Asset Desk</span>
+        <span class="brand-title">Sovereign Vault &amp; Asset Clearinghouse</span>
       </div>
-      <div style="display: flex; align-items: center; gap: 14px;">
-        <span class="status-badge-live">● Sandbox Closed Beta</span>
-        <button onclick="window.print()" style="padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border-lavender); font-size: 12px; font-weight: 700; cursor: pointer; background: #fff;">
-          🖨️ Export PDF Reports
+      <div style="display:flex; gap:10px; align-items:center;">
+        <span style="font-size:12px; background:#ECFDF5; color:#059669; padding:4px 8px; border-radius:999px; font-weight:700;">
+          ● Sandbox Verification Active
+        </span>
+        <button onclick="openModal()" class="btn-action" style="padding:6px 12px; font-size:12px;">
+          💳 Mint Dossier (Sandbox)
         </button>
       </div>
     </div>
   </header>
 
-  <!-- ISOLATED TABS -->
-  <nav class="tab-bar no-print">
-    <button class="module-tab active" id="tab-gen" onclick="switchDesk('generator')">
-      ⚡ 1. Generator / PoA &amp; Balance Sheet
-    </button>
-    <button class="module-tab disabled" title="Unlocking in Phase 2 after first 10-15 asset verifications">
-      ⚖️ 2. Compliance Deficit (ESG/BRSR) <span class="pill-phase">Phase 2</span>
-    </button>
-    <button class="module-tab disabled" title="Unlocking in Phase 2">
-      🏛️ 3. Tripartite Escrow Floor <span class="pill-phase">Phase 2</span>
-    </button>
-    <button class="module-tab disabled" title="Unlocking in Phase 2">
-      🛒 4. Liquidity &amp; Buyer Desk <span class="pill-phase">Phase 2</span>
-    </button>
-  </nav>
+  <!-- STEPPER -->
+  <div class="stepper-bar no-print">
+    <div class="step-item active" id="st-1"><span class="step-circle">1</span> Demographics &amp; GPS</div>
+    <div class="step-item active" id="st-2"><span class="step-circle">2</span> Statutory Gates</div>
+    <div class="step-item active" id="st-3"><span class="step-circle">3</span> NRBS Capital Ledger</div>
+    <div class="step-item" id="st-4"><span class="step-circle">4</span> Verification &amp; Minting</div>
+  </div>
 
-  <!-- MAIN MODULE CONTAINER -->
+  <!-- TABS -->
+  <div class="tab-bar no-print">
+    <button class="module-tab active" onclick="showTab('generator')">⚡ 1. Generator / PoA &amp; NRBS</button>
+    <button class="module-tab" onclick="showTab('compliance')">⚖️ 2. Compliance Deficit (ESG/BRSR)</button>
+    <button class="module-tab" onclick="showTab('escrow')">🏛️ 3. Tripartite Escrow Desk</button>
+    <button class="module-tab" onclick="showTab('liquidity')">🛒 4. Liquidity &amp; Market Desk</button>
+  </div>
+
   <main class="container">
 
-    <!-- DESK: GENERATOR & NATURAL RESOURCE BALANCE SHEET (PHASE 1 CORE) -->
-    <div id="desk-generator">
-      
-      <!-- ATMANIRBHAR SCORE CARD -->
-      <section class="atmanirbhar-box">
-        <div class="score-sub">Verified Plant Self-Reliance Index</div>
-        <div class="score-headline" id="disp-index">61.4%</div>
-        <p style="font-size: 13px; color: #4B5563; max-width: 620px; margin: 0 auto;">
-          Measured under the Divyajyoti Trust Natural Capital Standard. Captive clean generation and water recycling abate <strong>61.4%</strong> of physical plant utility withdrawals.
+    <!-- TAB 1: GENERATOR & NRBS -->
+    <div id="tab-content-generator">
+      <div class="score-box">
+        <div style="font-size:12px; font-weight:700; color:#6B21A8; text-transform:uppercase;">Verified Self-Reliance Index</div>
+        <div class="score-val" id="disp-index">61.4%</div>
+        <p style="font-size:13px; color:#4B5563;">
+          Physical baseline withdrawals abated through captive solar, thermal abatement, and water recharge.
         </p>
-      </section>
+      </div>
 
-      <!-- STEP 1: PHYSICAL ASSET INTAKE & GEO-COORDINATES -->
+      <!-- INTAKE -->
       <section class="card">
         <div class="card-header">
-          <h2 class="card-title">📍 Asset Demographics &amp; Geo-Location Intake</h2>
-          <span style="font-size: 12px; color: var(--accent-purple); font-weight: 700;">UNFCCC Article 6 Validated</span>
+          <span class="card-title">📍 Asset Demographics &amp; GPS Intake</span>
+          <span style="font-size:12px; color:var(--accent-purple); font-weight:700;">UNFCCC Article 6 Georeference</span>
         </div>
-
-        <div class="grid-3" style="margin-bottom: 16px;">
+        <div class="grid-3" style="margin-bottom:14px;">
           <div class="form-group">
-            <label>Operating Entity / Facility Name</label>
-            <input type="text" class="form-input" id="inp-entity" value="Divyajyoti Trust Complex" />
+            <label>Facility / Entity Name</label>
+            <input type="text" class="form-input" id="inp-entity" value="Divyajyoti Trust Campus" />
           </div>
           <div class="form-group">
             <label>Asset Category</label>
-            <select class="form-input" id="inp-type">
-              <option value="Solar Rooftop">Captive Solar PV (Rooftop)</option>
-              <option value="Solar Ground">Sub-15 MW Ground Mount</option>
-              <option value="Water Recycling">Rainwater Harvesting System</option>
+            <select class="form-input">
+              <option>Captive Solar PV (Rooftop)</option>
+              <option>Ground Mount Solar</option>
+              <option>Rainwater Harvesting System</option>
             </select>
           </div>
           <div class="form-group">
-            <label>Installed Capacity (kWp / Litres)</label>
-            <input type="number" class="form-input" id="inp-capacity" value="45" oninput="recalcLedger()" />
+            <label>Installed Capacity (kWp)</label>
+            <input type="number" class="form-input" id="inp-cap" value="45" oninput="calculateNRBS()" />
           </div>
         </div>
 
-        <!-- GPS LATITUDE & LONGITUDE INPUTS -->
         <div class="grid-2">
           <div class="form-group">
-            <label>Facility Latitude (° North)</label>
-            <input type="text" class="form-input" id="inp-lat" value="21.7051" placeholder="e.g. 21.705132" />
+            <label>Latitude (° North)</label>
+            <input type="text" class="form-input" id="inp-lat" value="21.7051" />
           </div>
           <div class="form-group">
-            <label>Facility Longitude (° East)</label>
-            <input type="text" class="form-input" id="inp-long" value="72.9959" placeholder="e.g. 72.995874" />
+            <label>Longitude (° East)</label>
+            <input type="text" class="form-input" id="inp-long" value="72.9959" />
           </div>
         </div>
 
-        <div class="gps-bar">
-          <button class="btn-detect no-print" onclick="detectGPS()">
-            📍 Detect My Live GPS Coordinates
-          </button>
-          <span id="gps-status" style="font-size: 12px; color: var(--accent-purple);">
-            Registered Geo-Pin: 21.7051° N, 72.9959° E (Mandvi, Gujarat)
-          </span>
-          <a id="gmaps-link" href="https://maps.google.com/?q=21.7051,72.9959" target="_blank" style="margin-left: auto; font-size: 12px; color: var(--accent-purple); text-decoration: underline; font-weight: 600;">
-            Verify On Map ↗
-          </a>
+        <div class="gps-bar no-print">
+          <button class="btn-detect" onclick="detectGPS()">📍 Detect My Live GPS Coordinates</button>
+          <span id="gps-status" style="font-size:12px; color:var(--accent-purple);">Geo-pin: 21.7051° N, 72.9959° E (Mandvi, Gujarat)</span>
+          <a id="gmaps-link" href="https://maps.google.com/?q=21.7051,72.9959" target="_blank" style="margin-left:auto; font-size:12px; color:var(--accent-purple); font-weight:700;">View Map ↗</a>
         </div>
       </section>
 
-      <!-- STEP 2: STATUTORY ZERO-UPLOAD GATES -->
+      <!-- GATES -->
       <section class="card">
         <div class="card-header">
-          <h2 class="card-title">🛡️ Statutory Affirmations (Zero Paperwork Gate)</h2>
-          <span style="font-size: 12px; color: var(--success-green); font-weight: 700;">4 of 4 Gates Affirmed</span>
+          <span class="card-title">🛡️ Statutory Affirmations (Zero Paperwork)</span>
+          <span style="font-size:12px; color:var(--success-green); font-weight:700;">4/4 Clear</span>
         </div>
-
         <div class="gate-row">
-          <div class="gate-label">
-            <span>1.</span> No Double-Counting Affirmation (CCTS / Gold Standard / CDM exclusion)
-          </div>
-          <div class="radio-pill-group">
-            <button class="radio-pill selected" onclick="toggleGate(this)">✓ Affirmed</button>
-          </div>
+          <span>1. No Double-Counting Affirmation (Exclusive ECF serial assignment)</span>
+          <button class="radio-pill">✓ Affirmed</button>
         </div>
-
         <div class="gate-row">
-          <div class="gate-label">
-            <span>2.</span> UNFCCC Additionality Compliance (Investment barrier cleared)
-          </div>
-          <div class="radio-pill-group">
-            <button class="radio-pill selected" onclick="toggleGate(this)">✓ Affirmed</button>
-          </div>
+          <span>2. UNFCCC Additionality Barrier Verification</span>
+          <button class="radio-pill">✓ Affirmed</button>
         </div>
-
         <div class="gate-row">
-          <div class="gate-label">
-            <span>3.</span> Telemetry &amp; Inverter Meter Authenticity (Tamper-proof log)
-          </div>
-          <div class="radio-pill-group">
-            <button class="radio-pill selected" onclick="toggleGate(this)">✓ Affirmed</button>
-          </div>
+          <span>3. Digital Inverter &amp; Bi-directional Meter Tamper Seal</span>
+          <button class="radio-pill">✓ Affirmed</button>
         </div>
-
         <div class="gate-row">
-          <div class="gate-label">
-            <span>4.</span> Operational Continuity (Minimum 10-Year O&amp;M Maintenance)
-          </div>
-          <div class="radio-pill-group">
-            <button class="radio-pill selected" onclick="toggleGate(this)">✓ Affirmed</button>
-          </div>
+          <span>4. 10-Year O&amp;M Maintenance &amp; Asset Integrity Covenant</span>
+          <button class="radio-pill">✓ Affirmed</button>
         </div>
-
-        <div style="background:#F9FAFB; padding:10px 14px; border-radius:6px; font-family:monospace; font-size:11.5px; color:#4B5563; margin-top:8px;">
-          SHA-256 Statutory Seal: <span id="sha-seal">ecf_89f02c91b162de81d092ac77b311751d8b5a04</span>
+        <div style="background:#F9FAFB; padding:8px 12px; border-radius:6px; font-family:monospace; font-size:11px; margin-top:8px; color:#4B5563;">
+          Cryptographic Hash: <span id="sha-seal">ecf_89f02c91b162de81d092ac77b311751d8b5a04</span>
         </div>
       </section>
 
-      <!-- STEP 3: NRBS DOUBLE-ENTRY CAPITAL LEDGER -->
+      <!-- NRBS TABLE -->
       <section class="card">
         <div class="card-header">
-          <h2 class="card-title">📊 Natural Resource Balance Sheet (NRBS Ledger)</h2>
-          <span style="font-size: 12px; color: var(--text-muted);">Period: FY 2025–26</span>
+          <span class="card-title">📊 Double-Entry Natural Resource Balance Sheet</span>
+          <span style="font-size:12px; color:var(--text-muted);">Divyajyoti Trust Accounting Standard</span>
         </div>
-
         <table class="ledger-table">
           <thead>
             <tr>
-              <th style="width: 50%;">Resource Withdrawals (Liabilities)</th>
-              <th style="width: 50%;">Clean Mitigations &amp; Assets</th>
+              <th>Annual Physical Withdrawals (Liabilities)</th>
+              <th>Clean Assets &amp; Abatements (Assets)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Grid Electricity Inflow: <strong>60,000 kWh</strong></td>
-              <td>Captive Solar Generation: <strong id="val-solar-gen">36,840 kWh</strong></td>
+              <td>Grid Electricity Demand: <strong>60,000 kWh</strong></td>
+              <td>Captive Solar Yield: <strong id="val-solar">36,840 kWh</strong></td>
             </tr>
             <tr>
-              <td>Thermal Fuel (LPG/Diesel): <strong>4,200 kg</strong></td>
-              <td>Solar Water Heating: <strong>2,400 kg Fuel Abated</strong></td>
+              <td>Thermal Fuel Consumption: <strong>4,200 kg</strong></td>
+              <td>Solar Water Thermal Abatement: <strong>2,400 kg Fuel</strong></td>
             </tr>
             <tr>
-              <td>Borewell Groundwater: <strong>1,800,000 Litres</strong></td>
-              <td>Rainwater Recharge Vault: <strong>1,200,000 Litres</strong></td>
+              <td>Groundwater Pumping: <strong>1,800,000 Litres</strong></td>
+              <td>Rooftop Rainwater Vaults: <strong>1,200,000 Litres</strong></td>
             </tr>
-            <tr style="background: #F9FAFB; font-weight: 700;">
-              <td>Net Carbon Position: <strong>49.20 tCO₂e Deficit</strong></td>
-              <td>Abated Offset: <strong style="color: var(--success-green);">30.21 tCO₂e Generated</strong></td>
+            <tr style="background:#F9FAFB;">
+              <td>Scope 1 &amp; 2 Deficit: <strong>49.20 tCO₂e</strong></td>
+              <td>Certified Offsets: <strong style="color:var(--success-green);">30.21 tCO₂e Generated</strong></td>
             </tr>
           </tbody>
         </table>
-
-        <div style="text-align: right; margin-top: 20px;" class="no-print">
-          <button class="btn-action" onclick="window.print()">
-            🖨️ Mint Audit-Ready NRBS PDF &amp; UN SDG Certificate →
+        <div style="text-align:right; margin-top:16px;" class="no-print">
+          <button class="btn-action" onclick="openModal()">
+            Proceed to Verification &amp; Mint Dossier →
           </button>
         </div>
       </section>
-
     </div>
+
+    <!-- TAB 2: COMPLIANCE DEFICIT -->
+    <div id="tab-content-compliance" style="display:none;">
+      <section class="card">
+        <div class="card-header">
+          <span class="card-title">⚖️ Corporate Deficit &amp; Surrender Gap Analyzer</span>
+          <span style="font-size:12px; background:#FEE2E2; color:#DC2626; padding:4px 8px; border-radius:999px; font-weight:700;">Mandate Active</span>
+        </div>
+        <div class="grid-3" style="margin-bottom:14px;">
+          <div class="form-group">
+            <label>Scope 1 Direct Baseline (tCO₂e)</label>
+            <input type="number" class="form-input" value="12000" id="inp-sc1" oninput="recalcDeficit()" />
+          </div>
+          <div class="form-group">
+            <label>Scope 2 Grid Baseline (tCO₂e)</label>
+            <input type="number" class="form-input" value="8000" id="inp-sc2" oninput="recalcDeficit()" />
+          </div>
+          <div class="form-group">
+            <label>Regulatory Surrender Cap (tCO₂e)</label>
+            <input type="number" class="form-input" value="10000" id="inp-cap-mandate" oninput="recalcDeficit()" />
+          </div>
+        </div>
+        <div style="background:#FEF2F2; border:1px solid #FECACA; padding:16px; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-size:12px; color:#991B1B; font-weight:700; text-transform:uppercase;">Net Surrender Deficit</div>
+            <div style="font-size:24px; font-weight:850; color:#B91C1C;" id="disp-deficit">10,000 tCO₂e</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:12px; color:#991B1B; font-weight:700; text-transform:uppercase;">Estimated Settlement Budget</div>
+            <div style="font-size:24px; font-weight:850; color:#1E293B;" id="disp-budget">₹4,800,000</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB 3: TRIPARTITE ESCROW FLOOR -->
+    <div id="tab-content-escrow" style="display:none;">
+      <section class="card">
+        <div class="card-header">
+          <span class="card-title">🏛️ Tripartite Settlement &amp; Registry Clearing Desk</span>
+          <span style="font-size:12px; background:#ECFDF5; color:#059669; padding:4px 8px; border-radius:999px; font-weight:700;">Article 6 Aligned</span>
+        </div>
+        <p style="font-size:13px; color:#4B5563; margin-bottom:16px;">
+          Guaranteed settlement mechanism: 5% earnest advance held in escrow, 30-day serial lock, 95% final disbursement upon verified serial registry issuance.
+        </p>
+        <div class="grid-2">
+          <div style="background:#F9FAFB; padding:16px; border-radius:8px; border:1px solid #E5E7EB;">
+            <strong style="font-size:13px; display:block; margin-bottom:6px;">Buyer Protection Protocol:</strong>
+            <ul style="font-size:12px; color:#4B5563; padding-left:18px; line-height:1.7;">
+              <li>Serial reservation lock preventing multi-buyer allocation.</li>
+              <li>SEBI BRSR Core / CBAM embedded audit guarantee.</li>
+              <li>Bypasses intermediary brokerage spreads.</li>
+            </ul>
+          </div>
+          <div style="background:#F9FAFB; padding:16px; border-radius:8px; border:1px solid #E5E7EB;">
+            <strong style="font-size:13px; display:block; margin-bottom:6px;">Generator Settlement Protocol:</strong>
+            <ul style="font-size:12px; color:#4B5563; padding-left:18px; line-height:1.7;">
+              <li>Instant 5% advance release upon technical audit passing.</li>
+              <li>95% RTGS clearance directly to operating bank account.</li>
+              <li>Zero upfront listing fees for sub-15 MW arrays.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB 4: LIQUIDITY DESK -->
+    <div id="tab-content-liquidity" style="display:none;">
+      <section class="card">
+        <div class="card-header">
+          <span class="card-title">🛒 Bilateral Order Floor (Spot Vintages)</span>
+        </div>
+        <table class="ledger-table">
+          <thead>
+            <tr>
+              <th>Batch ID</th>
+              <th>Methodology</th>
+              <th>Volume</th>
+              <th>Floor Price</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ECF-2026-SOL-092</td>
+              <td>AMS-I.D (Grid Connected Solar)</td>
+              <td>4,500 tCO₂e</td>
+              <td>₹480 / unit</td>
+              <td><span style="color:#059669; font-weight:700;">● Available</span></td>
+            </tr>
+            <tr>
+              <td>ECF-2026-REC-014</td>
+              <td>AMS-I.K (Water Efficiency)</td>
+              <td>1,200 tCO₂e</td>
+              <td>₹650 / unit</td>
+              <td><span style="color:#D97706; font-weight:700;">● Escrow Locked</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- VERIFIED CERTIFICATE OUTPUT (PRINT READY) -->
+    <div id="certificate-view">
+      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #6D28D9; padding-bottom:14px; margin-bottom:16px;">
+        <div>
+          <h2 style="font-size:22px; color:#1F2937; margin-bottom:4px;">Natural Capital Impact Citation</h2>
+          <span style="font-size:12px; color:#6D28D9; font-weight:700;">EARTH CARBON FOUNDATION STATUTORY REGISTRY</span>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:12px; color:#6B7280;">Certificate Reference:</div>
+          <div style="font-family:monospace; font-weight:700; font-size:13px;">ECF-CERT-2026-DVJ-992</div>
+        </div>
+      </div>
+      <p style="font-size:13px; color:#374151; margin-bottom:16px;">
+        This document certifies that the operating facility identified below has passed the statutory affirmations and registered its environmental offset balance under the Natural Resource Balance Sheet (NRBS) framework.
+      </p>
+      <div class="grid-2" style="margin-bottom:16px; font-size:13px;">
+        <div>Entity Name: <strong id="cert-entity">Divyajyoti Trust Campus</strong></div>
+        <div>Geo-Coordinates: <strong id="cert-gps">21.7051° N, 72.9959° E</strong></div>
+        <div>Atmanirbhar Index: <strong id="cert-index">61.4%</strong></div>
+        <div>Offset Generation: <strong>30.21 tCO₂e / Year</strong></div>
+      </div>
+      <div style="border-top:1px dashed #CCC; padding-top:12px; font-size:11px; color:#6B7280; font-family:monospace;">
+        Statutory Verification Hash: ecf_89f02c91b162de81d092ac77b311751d8b5a04 · Verified Active
+      </div>
+      <div style="margin-top:20px; text-align:right;" class="no-print">
+        <button onclick="window.print()" class="btn-action">🖨️ Print Final PDF Certificate</button>
+      </div>
+    </div>
+
   </main>
 
+  <!-- SANDBOX PAYMENT MODAL -->
+  <div class="modal-backdrop" id="pay-modal">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <h3 style="font-size:16px; font-weight:800;">Select Document Package</h3>
+        <button onclick="closeModal()" style="border:none; background:none; font-size:18px; cursor:pointer;">&times;</button>
+      </div>
+      <div class="tier-option selected">
+        <div>
+          <strong style="font-size:13px; display:block;">Tier 1: Basic NRBS Balance Sheet</strong>
+          <span style="font-size:12px; color:#6B7280;">Double-entry ledger with Atmanirbhar Index</span>
+        </div>
+        <strong style="font-size:14px; color:#6D28D9;">₹1,999</strong>
+      </div>
+      <div class="tier-option">
+        <div>
+          <strong style="font-size:13px; display:block;">Tier 2: Full ESG Compliance Dossier</strong>
+          <span style="font-size:12px; color:#6B7280;">Scope 1-3 audit pack + SEBI BRSR alignment</span>
+        </div>
+        <strong style="font-size:14px; color:#6D28D9;">₹4,999</strong>
+      </div>
+      <div class="tier-option">
+        <div>
+          <strong style="font-size:13px; display:block;">Tier 3: Article 6 Registry Citation</strong>
+          <span style="font-size:12px; color:#6B7280;">Bilateral serial reservation &amp; trading clearance</span>
+        </div>
+        <strong style="font-size:14px; color:#6D28D9;">₹7,999</strong>
+      </div>
+
+      <div style="background:#FFFBEB; border:1px solid #FDE68A; padding:10px 12px; border-radius:6px; font-size:12px; color:#92400E; margin:14px 0;">
+        💡 <strong>Beta Tester Sandbox Mode:</strong> Real payment bypassed for verification testing.
+      </div>
+
+      <button onclick="completeSandboxPayment()" class="btn-action" style="width:100%; justify-content:center;">
+        ⚡ Complete Sandbox Verification &amp; Mint
+      </button>
+    </div>
+  </div>
+
   <script>
-    // 1. LIVE GPS DETECTION ENGINE
+    // TAB SWITCHING
+    function showTab(tabId) {
+      document.querySelectorAll('[id^="tab-content-"]').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.module-tab').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-content-' + tabId).style.display = 'block';
+      event.target.classList.add('active');
+    }
+
+    // LIVE GPS AUTO-DETECT
     function detectGPS() {
       const status = document.getElementById('gps-status');
       const gmapsLink = document.getElementById('gmaps-link');
-      
       if (!navigator.geolocation) {
-        status.innerText = "Geolocation not supported by this browser.";
+        status.innerText = "Geolocation not supported.";
         return;
       }
-
-      status.innerText = "Locating facility satellites...";
-      
+      status.innerText = "Detecting satellites...";
       navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const lat = position.coords.latitude.toFixed(5);
-          const long = position.coords.longitude.toFixed(5);
+        (pos) => {
+          const lat = pos.coords.latitude.toFixed(5);
+          const long = pos.coords.longitude.toFixed(5);
           document.getElementById('inp-lat').value = lat;
           document.getElementById('inp-long').value = long;
-          status.innerText = `Registered Geo-Pin: ${lat}° N, ${long}° E`;
+          status.innerText = `Geo-Pin: ${lat}° N, ${long}° E`;
           gmapsLink.href = `https://maps.google.com/?q=${lat},${long}`;
-          updateSha();
         },
-        (error) => {
-          status.innerText = "Unable to retrieve GPS automatically. Please enter manually.";
-        }
+        () => { status.innerText = "GPS unavailable. Please enter coordinates manually."; }
       );
     }
 
-    // 2. STATUTORY GATE INTERACTION
-    function toggleGate(btn) {
-      btn.classList.toggle('selected');
-      if (btn.classList.contains('selected')) {
-        btn.innerText = "✓ Affirmed";
-      } else {
-        btn.innerText = "Pending";
-      }
-      updateSha();
-    }
-
-    // 3. SHA-256 PSEUDO-HASH GENERATOR
-    function updateSha() {
-      const entity = document.getElementById('inp-entity').value;
-      const lat = document.getElementById('inp-lat').value;
-      const long = document.getElementById('inp-long').value;
-      const rand = Math.floor(Math.random() * 89999 + 10000);
-      document.getElementById('sha-seal').innerText = `ecf_${btoa(entity + lat + long).substring(0, 16).toLowerCase()}_${rand}`;
-    }
-
-    // 4. ATMANIRBHAR CALCULATION ENGINE
-    function recalcLedger() {
-      const cap = parseFloat(document.getElementById('inp-capacity').value) || 0;
-      const annualKwh = cap * 818.66; // Standard empirical solar irradiance factor
-      document.getElementById('val-solar-gen').innerText = `${annualKwh.toLocaleString(undefined, {maximumFractionDigits:0})} kWh`;
-      
+    // NRBS MATH
+    function calculateNRBS() {
+      const cap = parseFloat(document.getElementById('inp-cap').value) || 0;
+      const annualKwh = cap * 818.66;
+      document.getElementById('val-solar').innerText = `${annualKwh.toLocaleString(undefined, {maximumFractionDigits:0})} kWh`;
       const index = Math.min(100, Math.max(0, (annualKwh / 60000) * 100)).toFixed(1);
       document.getElementById('disp-index').innerText = `${index}%`;
     }
 
-    // 5. DESK SWITCHER
-    function switchDesk(desk) {
-      // Future expansion for Compliance & Escrow
-      console.log(`Active desk: ${desk}`);
+    // COMPLIANCE MATH
+    function recalcDeficit() {
+      const sc1 = parseFloat(document.getElementById('inp-sc1').value) || 0;
+      const sc2 = parseFloat(document.getElementById('inp-sc2').value) || 0;
+      const cap = parseFloat(document.getElementById('inp-cap-mandate').value) || 0;
+      const deficit = Math.max(0, (sc1 + sc2) - cap);
+      document.getElementById('disp-deficit').innerText = `${deficit.toLocaleString()} tCO₂e`;
+      document.getElementById('disp-budget').innerText = `₹${(deficit * 480).toLocaleString()}`;
+    }
+
+    // MODAL & MINTING
+    function openModal() { document.getElementById('pay-modal').style.display = 'flex'; }
+    function closeModal() { document.getElementById('pay-modal').style.display = 'none'; }
+    
+    function completeSandboxPayment() {
+      closeModal();
+      document.getElementById('st-4').classList.add('active');
+      document.getElementById('cert-entity').innerText = document.getElementById('inp-entity').value;
+      document.getElementById('cert-gps').innerText = `${document.getElementById('inp-lat').value}° N, ${document.getElementById('inp-long').value}° E`;
+      document.getElementById('cert-index').innerText = document.getElementById('disp-index').innerText;
+      document.getElementById('certificate-view').style.display = 'block';
+      document.getElementById('certificate-view').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>
