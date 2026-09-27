@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Earth Carbon Foundation | Sovereign Environmental & Natural Capital Registry</title>
+    <meta name="description" content="Transform clean energy and water conservation into verified natural capital balance sheets, audit-ready ESG compliance, and monetizable carbon assets.">
+    
+    <!-- Tailwind CSS with Plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#003527",
+                        "primary-dark": "#002117",
+                        secondary: "#0F172A",
+                        mint: "#10B981",
+                        "surface-light": "#F8FAFC",
+                        border: "#E2E8F0"
+                    },
+                    fontFamily: {
+                        display: ["Public Sans", "sans-serif"],
+                        body: ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-secondary antialiased font-body">
+
+<!-- Master Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-border shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+        
+        <!-- Brand Logo & Title -->
+        <a href="https://earthcarbonfoundation.org" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-black text-lg">ECF</div>
+            <div>
+                <span class="font-display font-black text-lg text-primary tracking-tight block leading-none">Earth Carbon</span>
+                <span class="text-[10px] font-extrabold text-secondary/60 uppercase tracking-widest block mt-1">Sovereign Registry</span>
+            </div>
+        </a>
+
+        <!-- Cross-Domain Navigation Tabs -->
+        <div class="hidden md:flex items-center gap-1 lg:gap-2 text-sm font-extrabold text-secondary">
+            <a href="https://swalamban.com" class="px-4 py-2 rounded-lg hover:bg-surface-light hover:text-primary transition-all flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-primary text-base">verified</span>
+                <span>Swalamban Index</span>
+            </a>
+            <a href="#requirements-section" class="px-4 py-2 rounded-lg hover:bg-surface-light hover:text-primary transition-all">
+                Compliance Desk
+            </a>
+            <a href="https://100mtons.com" class="px-4 py-2 rounded-lg hover:bg-surface-light hover:text-primary transition-all flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-primary text-base">factory</span>
+                <span>PoA Carbon Pool</span>
+            </a>
+            <a href="#requirements-section" class="px-4 py-2 rounded-lg hover:bg-surface-light hover:text-primary transition-all">
+                Directory & Outcomes
+            </a>
+        </div>
+
+        <!-- Authentication & Action Access -->
+        <div class="flex items-center gap-3">
+            <button onclick="openLoginModal()" class="text-xs sm:text-sm font-extrabold text-secondary hover:text-primary px-3 py-2 transition-all">
+                Sign In
+            </button>
+            <a href="#requirements-section" class="bg-primary hover:bg-primary-dark text-white text-xs sm:text-sm font-extrabold px-5 py-2.5 rounded-xl transition-all shadow-sm flex items-center gap-2">
+                <span>Access Portal</span>
+                <span class="material-symbols-outlined text-mint text-sm">lock</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section: Problem & Solution Architecture -->
+<header class="bg-surface-light border-b border-border py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Column: Core Narrative -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider">
+                    <span class="material-symbols-outlined text-sm">shield</span>
+                    Divyajyoti Trust Natural Capital Standard & ISO 14067 Aligned
+                </div>
+                
+                <h1 class="font-display font-black text-3xl sm:text-5xl text-secondary tracking-tight uppercase leading-tight">
+                    Measure Resource Self-Reliance. <span class="text-primary">Unlock Certified Carbon Labels.</span>
+                </h1>
+                
+                <p class="text-secondary/70 text-base sm:text-lg leading-relaxed">
+                    Transform your products, organizational operations, and institutional campuses into verified natural capital assets. Use our ISO-aligned certification across product ingredient labels, electronic signatures, and public tenders.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="https://swalamban.com" class="bg-primary hover:bg-primary-dark text-white font-black px-7 py-3.5 rounded-xl text-sm transition-all shadow-md uppercase tracking-wider flex items-center gap-2">
+                        <span>Get Swalamban Certified</span>
+                        <span class="material-symbols-outlined text-mint text-sm">arrow_forward</span>
+                    </a>
+                    <a href="#requirements-section" class="bg-white border-2 border-border hover:border-primary text-secondary font-black px-7 py-3.5 rounded-xl text-sm transition-all shadow-xs uppercase tracking-wider">
+                        Explore Requirements & LCA
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Visual Trust & Spec Card -->
+            <div class="lg:col-span-5">
+                <div class="bg-white border-2 border-primary/20 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-primary text-white text-[10px] font-black uppercase px-4 py-1.5 rounded-bl-xl tracking-widest">
+                        Active Verification Standard
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <span class="text-xs font-extrabold uppercase text-secondary/60 tracking-wider">Live Ecosystem Telemetry</span>
+                        <div class="text-4xl font-black font-display text-primary">20,426+ tCO₂e</div>
+                        <p class="text-xs text-secondary/70">Verified aggregate impact across registered campuses and industrial product lines in India.</p>
+                    </div>
+
+                    <div class="border-t border-border pt-4 space-y-3">
+                        <div class="flex items-center justify-between text-xs font-extrabold text-secondary">
+                            <span>Product & Campus Index</span>
+                            <span class="text-mint">ISO 14067 / CDM</span>
+                        </div>
+                        <div class="flex items-center justify-between text-xs font-extrabold text-secondary">
+                            <span>Statutory Affirmation Gates</span>
+                            <span class="text-primary">4 / 4 Passed</span>
+                        </div>
+                        <div class="flex items-center justify-between text-xs font-extrabold text-secondary">
+                            <span>Cryptographic Seal</span>
+                            <code class="text-[10px] text-primary bg-primary/10 px-2 py-0.5 rounded">sha-256_secure</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<!-- Interactive Requirements & Outcome Preview Section -->
+<section class="py-20 bg-white border-b border-border" id="requirements-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto space-y-4">
+            <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1.5 rounded-full">Interactive Discovery Portal</span>
+            <h2 class="font-display font-black text-3xl sm:text-4xl text-secondary uppercase tracking-tight">
+                Select Your Requirement. Inspect the Process & Outcomes.
+            </h2>
+            <p class="text-secondary/70 text-sm sm:text-base leading-relaxed">
+                Choose your institutional or product pathway below to explore our Life Cycle Assessment (LCA) workflows[cite: 4], international compliance standards (ISO 14067, CDM, UNFCCC Article 6), and verified sample certificates.
+            </p>
+        </div>
+
+        <!-- Requirement Selector Tabs -->
+        <div class="flex flex-wrap justify-center gap-3">
+            <button onclick="switchRequirement('product')" id="btn-product" class="px-6 py-3 rounded-xl font-extrabold text-sm transition-all bg-primary text-white shadow-md">
+                📦 Product & Ingredient Carbon Label
+            </button>
+            <button onclick="switchRequirement('campus')" id="btn-campus" class="px-6 py-3 rounded-xl font-extrabold text-sm transition-all bg-surface-light text-secondary border border-border hover:border-primary">
+                🎓 Swalamban Campus Index
+            </button>
+            <button onclick="switchRequirement('directory')" id="btn-directory" class="px-6 py-3 rounded-xl font-extrabold text-sm transition-all bg-surface-light text-secondary border border-border hover:border-primary">
+                📂 Certified User Directory (Dummy)
+            </button>
+        </div>
+
+        <!-- Dynamic Content Display Box -->
+        <div class="bg-surface-light border-2 border-primary/20 rounded-3xl p-6 sm:p-10 shadow-lg">
+            
+            <!-- VIEW 1: PRODUCT CARBON LABEL -->
+            <div id="view-product" class="space-y-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-4">
+                        <span class="text-xs font-bold text-mint bg-mint/10 px-3 py-1 rounded">Standard: ISO 14067 & Cradle-to-Gate / Grave</span>
+                        <h3 class="font-display font-black text-2xl text-secondary uppercase">Product Carbon Footprint Labeling</h3>
+                        <p class="text-secondary/70 text-sm leading-relaxed">
+                            For manufacturers, consumer brands, and industrial suppliers. Every product undergoes a rigorous Life Cycle Assessment (LCA) to measure greenhouse gas emissions ($tCO_2e$) from raw material extraction to final packaging[cite: 4].
+                        </p>
+                        <div class="space-y-2 text-xs font-bold text-secondary">
+                            <div class="flex items-center gap-2">✓ Verified under ISO 14067 standards[cite: 3, 4]</div>
+                            <div class="flex items-center gap-2">✓ Useable on ingredient labels, product packaging, and electronic signatures</div>
+                            <div class="flex items-center gap-2">✓ Complete verification dossier and cryptographic SHA-256 seal</div>
+                        </div>
+                    </div>
+                    <div class="bg-white border border-border rounded-2xl p-6 shadow-sm space-y-4 text-center">
+                        <div class="text-[10px] font-black uppercase text-secondary/50 tracking-widest">Sample Outcome Preview</div>
+                        <div class="border-2 border-dashed border-primary/30 rounded-xl p-6 bg-surface-light space-y-3">
+                            <div class="font-display font-black text-primary text-lg">EARTH CARBON FOUNDATION</div>
+                            <div class="text-xs font-extrabold text-secondary">VERIFIED CO₂e FOOTPRINT LABEL</div>
+                            <div class="text-[11px] text-secondary/70">Emissions reduced in accordance with ISO 14067. Verified annually[cite: 3, 4].</div>
+                            <code class="text-[10px] bg-primary/10 text-primary px-2 py-1 rounded block">SHA-256: ecf_prod_99812401f</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW 2: CAMPUS INDEX -->
+            <div id="view-campus" class="hidden space-y-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-4">
+                        <span class="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded">Standard: Divyajyoti Trust & UNFCCC Article 6</span>
+                        <h3 class="font-display font-black text-2xl text-secondary uppercase">Atmanirbhar Campus Index & Audit</h3>
+                        <p class="text-secondary/70 text-sm leading-relaxed">
+                            Designed for educational institutions and universities across India[cite: 6]. Measures physical resource self-reliance (energy grid independence and water recharging) alongside parallel greenhouse gas abatement.
+                        </p>
+                        <div class="space-y-2 text-xs font-bold text-secondary">
+                            <div class="flex items-center gap-2">✓ 6-Category Assessment (Energy, Water, Circularity, Biodiversity, Students, Leadership)[cite: 7]</div>
+                            <div class="flex items-center gap-2">✓ Official Atmanirbhar Grade and Climate Positive Score[cite: 8]</div>
+                            <div class="flex items-center gap-2">✓ Public registry profile and annual benchmarking report[cite: 8]</div>
+                        </div>
+                    </div>
+                    <div class="bg-white border border-border rounded-2xl p-6 shadow-sm space-y-4 text-center">
+                        <div class="text-[10px] font-black uppercase text-secondary/50 tracking-widest">Sample Campus Outcome</div>
+                        <div class="border-2 border-dashed border-primary/30 rounded-xl p-6 bg-surface-light space-y-3">
+                            <div class="font-display font-black text-primary text-lg">ATMANIRBHAR CAMPUS INDEX</div>
+                            <div class="text-3xl font-black text-secondary font-display">76.4%</div>
+                            <div class="text-xs text-secondary/70">Verified Self-Reliance Metric & Climate Positive Rating[cite: 8]</div>
+                            <code class="text-[10px] bg-primary/10 text-primary px-2 py-1 rounded block">Status: Certified Active Institution</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW 3: CERTIFIED DIRECTORY (DUMMY LISTING) -->
+            <div id="view-directory" class="hidden space-y-6">
+                <div class="space-y-2">
+                    <h3 class="font-display font-black text-2xl text-secondary uppercase">Public Directory of Certified Users (Dummy Preview)</h3>
+                    <p class="text-secondary/70 text-sm">Explore organizations and campuses currently listed on the ECF sovereign registry public ledger.</p>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="bg-primary text-white">
+                                <th class="p-3 rounded-l-lg">Entity / Institution Name</th>
+                                <th class="p-3">Category</th>
+                                <th class="p-3">Verification Standard</th>
+                                <th class="p-3 rounded-r-lg">Registry ID & Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-border text-secondary">
+                            <tr class="hover:bg-white">
+                                <td class="p-3 font-bold">Gujarat Technological University Campus</td>
+                                <td class="p-3">Educational Institution</td>
+                                <td class="p-3">Atmanirbhar Campus Standard</td>
+                                <td class="p-3"><span class="text-mint font-bold">ECF-CAMPUS-2026-001</span></td>
+                            </tr>
+                            <tr class="hover:bg-white">
+                                <td class="p-3 font-bold">Razon Solar & Polymer Industries</td>
+                                <td class="p-3">Industrial Manufacturer</td>
+                                <td class="p-3">ISO 14067 Product LCA[cite: 3, 4]</td>
+                                <td class="p-3"><span class="text-mint font-bold">ECF-PROD-2026-042</span></td>
+                            </tr>
+                            <tr class="hover:bg-white">
+                                <td class="p-3 font-bold">Mandvi Community Science College</td>
+                                <td class="p-3">Educational Institution</td>
+                                <td class="p-3">Atmanirbhar Campus Standard</td>
+                                <td class="p-3"><span class="text-mint font-bold">ECF-CAMPUS-2026-088</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Member Authentication Modal (Hidden by Default) -->
+<div id="authModal" class="hidden fixed inset-0 z-50 bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 space-y-6 shadow-2xl border border-border relative">
+        
+        <!-- Modal Header -->
+        <div class="flex justify-between items-center border-b border-border pb-4">
+            <div>
+                <span class="text-[10px] font-black uppercase tracking-widest text-primary bg-primary/10 px-2.5 py-1 rounded-full">Secure Member Access</span>
+                <h3 id="authModalTitle" class="font-display font-black text-xl text-secondary uppercase mt-1">Returning Member Sign In</h3>
+            </div>
+            <button onclick="closeLoginModal()" class="text-secondary/50 hover:text-secondary text-xl font-bold">&times;</button>
+        </div>
+
+        <!-- Login Form View -->
+        <form id="loginForm" class="space-y-4" onsubmit="handleAuthSubmit(event)">
+            <div class="space-y-1.5">
+                <label class="text-xs font-extrabold uppercase text-secondary">Institutional Email</label>
+                <input type="email" required placeholder="admin@institution.org" class="w-full bg-surface-light border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary"/>
+            </div>
+
+            <div class="space-y-1.5">
+                <div class="flex justify-between items-center">
+                    <label class="text-xs font-extrabold uppercase text-secondary">Secure Password</label>
+                    <button type="button" onclick="switchAuthView('forgot')" class="text-xs font-bold text-primary hover:underline">Forgot Password?</button>
+                </div>
+                <input type="password" required placeholder="••••••••••••" class="w-full bg-surface-light border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary"/>
+            </div>
+
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-black py-4 rounded-xl text-sm transition-all shadow-md uppercase tracking-wider flex items-center justify-center gap-2">
+                <span>Access Member Dashboard</span>
+                <span class="material-symbols-outlined text-mint text-sm">arrow_forward</span>
+            </button>
+        </form>
+
+        <!-- Forgot Password Form View (Initially Hidden) -->
+        <form id="forgotForm" class="hidden space-y-4" onsubmit="handleForgotSubmit(event)">
+            <p class="text-xs text-secondary/70 leading-relaxed">
+                Enter your registered institutional email address. We will send a secure cryptographic reset link to restore your vault access.
+            </p>
+            <div class="space-y-1.5">
+                <label class="text-xs font-extrabold uppercase text-secondary">Institutional Email</label>
+                <input type="email" required placeholder="admin@institution.org" class="w-full bg-surface-light border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary"/>
+            </div>
+
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-black py-4 rounded-xl text-sm transition-all shadow-md uppercase tracking-wider">
+                Send Recovery Link
+            </button>
+
+            <div class="text-center pt-2">
+                <button type="button" onclick="switchAuthView('login')" class="text-xs font-bold text-primary hover:underline">← Back to Sign In</button>
+            </div>
+        </form>
+
+        <div class="text-[10px] text-center text-secondary/50 pt-2 border-t border-border">
+            Secured under Earth Carbon Foundation Sovereign Data Protection Framework.
+        </div>
+    </div>
+</div>
+
+<script>
+    function openLoginModal() {
+        document.getElementById('authModal').classList.remove('hidden');
+    }
+    function closeLoginModal() {
+        document.getElementById('authModal').classList.add('hidden');
+    }
+    function switchAuthView(view) {
+        if(view === 'forgot') {
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('forgotForm').classList.remove('hidden');
+            document.getElementById('authModalTitle').innerText = 'Password Recovery';
+        } else {
+            document.getElementById('forgotForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.remove('hidden');
+            document.getElementById('authModalTitle').innerText = 'Returning Member Sign In';
+        }
+    }
+    function handleAuthSubmit(e) {
+        e.preventDefault();
+        alert('Authenticating secure member session...');
+    }
+    function handleForgotSubmit(e) {
+        e.preventDefault();
+        alert('Recovery link sent to your registered institutional email.');
+        switchAuthView('login');
+    }
+    function switchRequirement(type) {
+        document.getElementById('view-product').classList.add('hidden');
+        document.getElementById('view-campus').classList.add('hidden');
+        document.getElementById('view-directory').classList.add('hidden');
+        
+        document.getElementById('btn-product').className = "px-6 py-3 rounded-xl font-extrabold text-sm transition-all bg-surface-light text-secondary border border-border hover:border-primary";
+        document.getElementById('btn-campus').className = "px-6 py-3 rounded-xl font-extrabold text-sm transition-all bg-surface-light text-secondary border border-border hover:border-primary";
+        document.getElementById('btn-directory').className = "px-6 py-3 rounded-xl font-extrabold text-sm transition-all bg-surface-light text-secondary border border-border hover:border-primary";
+
+        document.getElementById('view-' + type).classList.remove('hidden');
+        document.getElementById('btn-' + type).className = "px-6 py-3 rounded-xl font-extrabold text-sm transition-all bg-primary text-white shadow-md";
+    }
+</script>
+
+</body>
+</html>
