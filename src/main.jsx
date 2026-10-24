@@ -8,3 +8,4 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
+<script type="module" src="/src/main.jsx"></script>
