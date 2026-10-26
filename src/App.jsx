@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState(0); // 0: Welcome Landing, 1: Main Dashboard, 2: Checkout
+  const [currentScreen, setCurrentScreen] = useState(0); // 0: Welcome, 1: Dashboard, 2: Checkout, 3: Confirmation HUD, 4: Referral Boosts
   const [currency, setCurrency] = useState('INR');
   const [selectedTier, setSelectedTier] = useState('micro');
   const [selectedRail, setSelectedRail] = useState('upi');
   const [metricVal, setMetricVal] = useState(120);
   const [actionType, setActionType] = useState('ev');
+  const [queuePosition, setQueuePosition] = useState(412);
   const [copied, setCopied] = useState(false);
 
   const factors = { ev: 0.14, solar: 0.82, waste: 0.55, bio: 1.20 };
@@ -66,10 +67,10 @@ export default function App() {
         </div>
       </header>
 
-      {/* Fullscreen Main Content Area */}
+      {/* Main Content Area */}
       <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-10 space-y-12 flex flex-col justify-center">
 
-        {/* ---------------- PAGE 0: WELCOME & PRINCIPLES SCREEN ---------------- */}
+        {/* SCREEN 0: WELCOME & PRINCIPLES */}
         {currentScreen === 0 && (
           <div className="max-w-2xl mx-auto text-center space-y-8 bg-white border border-[#c2c8c4]/60 rounded-3xl p-10 sm:p-14 shadow-sm animate-fadeIn">
             <div className="w-20 h-20 mx-auto rounded-2xl bg-[#0f241d] text-[#6ffbbe] flex items-center justify-center shadow-md">
@@ -102,10 +103,10 @@ export default function App() {
               </div>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
               <button 
                 onClick={() => setCurrentScreen(1)}
-                className="w-full sm:w-auto px-10 h-14 bg-[#0f241d] hover:bg-black text-white font-bold rounded-xl text-base flex items-center justify-center gap-3 shadow-md transition-all cursor-pointer mx-auto"
+                className="px-10 h-14 bg-[#0f241d] hover:bg-black text-white font-bold rounded-xl text-base flex items-center justify-center gap-3 shadow-md transition-all cursor-pointer"
               >
                 <span>Enter Registry Portal</span>
                 <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
@@ -114,7 +115,7 @@ export default function App() {
           </div>
         )}
 
-        {/* ---------------- PAGE 1: MAIN DASHBOARD & ACTION TRACKER ---------------- */}
+        {/* SCREEN 1: MAIN DASHBOARD & ACTION TRACKER */}
         {currentScreen === 1 && (
           <div className="space-y-12 animate-fadeIn">
             <div className="flex items-center justify-between">
@@ -123,7 +124,6 @@ export default function App() {
               </button>
             </div>
 
-            {/* Hero Section */}
             <section className="bg-white border border-[#c2c8c4]/60 rounded-2xl p-8 sm:p-12 shadow-xs space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#eff4ff] text-[#006c49] text-xs font-bold border border-[#c2c8c4]/40">
                 <span className="w-2 h-2 rounded-full bg-[#006c49] animate-pulse"></span>
@@ -146,7 +146,6 @@ export default function App() {
               </div>
             </section>
 
-            {/* Core Metrics & Abatement Grid */}
             <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white p-6 rounded-2xl border border-[#c2c8c4]/60 shadow-xs space-y-2">
                 <span className="text-xs font-bold text-[#727875] uppercase tracking-wider">Net Abatement Progress</span>
@@ -167,7 +166,6 @@ export default function App() {
               </div>
             </section>
 
-            {/* Interactive Climate Action Logger Preview */}
             <section className="bg-white border border-[#c2c8c4]/60 rounded-2xl p-8 shadow-xs space-y-6">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-[#c2c8c4]/30 pb-4">
                 <div>
@@ -233,11 +231,10 @@ export default function App() {
                 <span>Proceed to Forward Token Checkout →</span>
               </button>
             </section>
-
           </div>
         )}
 
-        {/* ---------------- PAGE 2: CHECKOUT & PAYMENT RAILS ---------------- */}
+        {/* SCREEN 2: CHECKOUT & PAYMENT RAILS */}
         {currentScreen === 2 && (
           <div className="max-w-xl mx-auto space-y-6 bg-white border border-[#c2c8c4]/60 rounded-2xl p-8 shadow-xs animate-fadeIn">
             <div className="flex justify-between items-center">
@@ -306,7 +303,7 @@ export default function App() {
             </div>
 
             <button 
-              onClick={() => alert("Checkout simulated successfully! Registry lock confirmed.")}
+              onClick={() => setCurrentScreen(3)}
               className="w-full h-14 bg-[#0f241d] hover:bg-black text-white font-bold rounded-xl text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
             >
               <span className="material-symbols-outlined text-[#6ffbbe]">fingerprint</span>
@@ -315,9 +312,78 @@ export default function App() {
           </div>
         )}
 
+        {/* SCREEN 3: BOOKING CONFIRMED & QUEUE HUD */}
+        {currentScreen === 3 && (
+          <div className="max-w-xl mx-auto space-y-6 bg-white border border-[#c2c8c4]/60 rounded-2xl p-8 text-center shadow-xs animate-fadeIn">
+            <div className="relative w-20 h-20 mx-auto flex items-center justify-center">
+              <div className="absolute inset-0 rounded-full bg-[#6cf8bb]/30 animate-ping"></div>
+              <div className="relative w-16 h-16 rounded-full bg-[#006c49] text-white flex items-center justify-center shadow-lg">
+                <span className="material-symbols-outlined text-3xl">check_circle</span>
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <span className="text-[10px] bg-[#6cf8bb]/20 text-[#00714d] px-2.5 py-1 rounded-full font-bold">Priority Reservation Verified</span>
+              <h1 className="text-xl font-bold text-[#000b07] mt-2">You're Booked on Batch #2 Genesis Queue!</h1>
+              <p className="text-xs text-[#424845]">Deposit locked in institutional smart escrow. Priority queue position active.</p>
+            </div>
+
+            <div className="bg-[#f8f9ff] border border-[#c2c8c4]/60 rounded-xl p-4 shadow-xs flex items-center justify-between text-left">
+              <div>
+                <span className="text-[10px] text-[#727875] uppercase block">Priority Queue Index</span>
+                <span className="text-2xl font-extrabold text-[#000b07]">#{queuePosition}</span>
+              </div>
+              <div className="bg-[#0f241d] text-white px-3 py-1.5 rounded-lg text-right">
+                <span className="text-[10px] text-[#b4ccc1] block">Mint Window</span>
+                <span className="text-xs font-bold">Q3 2025</span>
+              </div>
+            </div>
+
+            <button 
+              onClick={() => setCurrentScreen(4)}
+              className="w-full h-12 bg-[#006c49] text-white font-bold rounded-lg flex items-center justify-center gap-2 shadow-sm hover:bg-[#059669] cursor-pointer"
+            >
+              <span>Explore Perks & Referral Boosts →</span>
+            </button>
+          </div>
+        )}
+
+        {/* SCREEN 4: REFERRAL BOOST & PERKS CONSOLE */}
+        {currentScreen === 4 && (
+          <div className="max-w-xl mx-auto space-y-6 bg-white border border-[#c2c8c4]/60 rounded-2xl p-8 shadow-xs animate-fadeIn">
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#0f241d] text-white text-[10px]">
+                <span className="material-symbols-outlined text-[12px] text-[#6ffbbe]">bolt</span> Genesis Allocations Live
+              </div>
+              <h1 className="text-xl font-bold text-[#000b07]">Climb the Genesis Queue & Unlock Offsets</h1>
+              <p className="text-xs text-[#424845]">Share your unique link to advance 50 spots per referral.</p>
+            </div>
+
+            <div className="p-4 rounded-xl border border-[#c2c8c4]/50 bg-[#f8f9ff] space-y-3">
+              <h2 className="text-sm font-bold text-[#000b07]">Your Genesis Link</h2>
+              <div className="flex items-center gap-2 p-1.5 rounded-lg bg-white border border-[#c2c8c4]/50">
+                <span className="flex-1 font-mono text-xs font-bold text-[#000b07] px-2 select-all">CARBODEX-EARTH412</span>
+                <button 
+                  onClick={() => handleCopy('CARBODEX-EARTH412')}
+                  className="px-3 py-1.5 rounded bg-[#0f241d] text-white text-xs font-semibold cursor-pointer"
+                >
+                  {copied ? 'Copied!' : 'Copy Code'}
+                </button>
+              </div>
+            </div>
+
+            <button 
+              onClick={() => setCurrentScreen(1)}
+              className="w-full h-12 bg-[#0f241d] text-white font-bold rounded-lg text-xs cursor-pointer shadow-sm hover:bg-black"
+            >
+              Return to Executive Tracker Home
+            </button>
+          </div>
+        )}
+
       </main>
 
-      {/* Full-Width Footer */}
+      {/* Footer */}
       <footer className="bg-[#000b07] text-white py-8 px-6 border-t border-[#0f241d]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-xs text-[#727875] gap-4">
           <p>© 2026 Earth Carbon Foundation. Ahmedabad, Gujarat, India. All rights reserved.</p>
