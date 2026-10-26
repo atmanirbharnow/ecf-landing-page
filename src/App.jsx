@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState(1);
+  const [currentScreen, setCurrentScreen] = useState(0); // 0: Welcome Landing, 1: Main Dashboard, 2: Checkout
   const [currency, setCurrency] = useState('INR');
   const [selectedTier, setSelectedTier] = useState('micro');
   const [selectedRail, setSelectedRail] = useState('upi');
@@ -31,7 +31,7 @@ export default function App() {
       {/* Full-Width Institutional Header */}
       <header className="bg-white border-b border-[#c2c8c4]/40 sticky top-0 z-50 shadow-xs">
         <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setCurrentScreen(1)}>
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setCurrentScreen(0)}>
             <div className="w-10 h-10 rounded-lg bg-[#0f241d] text-[#6ffbbe] flex items-center justify-center font-bold">
               <span className="material-symbols-outlined text-[24px]">eco</span>
             </div>
@@ -59,19 +59,70 @@ export default function App() {
                 $ USD
               </button>
             </div>
-            <a href="#dashboard" className="hidden sm:inline-flex items-center text-sm font-semibold bg-[#0f241d] text-white px-5 py-2.5 rounded-lg hover:bg-black transition-all">
+            <button onClick={() => setCurrentScreen(1)} className="hidden sm:inline-flex items-center text-sm font-semibold bg-[#0f241d] text-white px-5 py-2.5 rounded-lg hover:bg-black transition-all cursor-pointer">
               Member Access
-            </a>
+            </button>
           </div>
         </div>
       </header>
 
       {/* Fullscreen Main Content Area */}
-      <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-10 space-y-12">
+      <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-10 space-y-12 flex flex-col justify-center">
 
+        {/* ---------------- PAGE 0: WELCOME & PRINCIPLES SCREEN ---------------- */}
+        {currentScreen === 0 && (
+          <div className="max-w-2xl mx-auto text-center space-y-8 bg-white border border-[#c2c8c4]/60 rounded-3xl p-10 sm:p-14 shadow-sm animate-fadeIn">
+            <div className="w-20 h-20 mx-auto rounded-2xl bg-[#0f241d] text-[#6ffbbe] flex items-center justify-center shadow-md">
+              <span className="material-symbols-outlined text-[40px]">eco</span>
+            </div>
+
+            <div className="space-y-4">
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#eff4ff] text-[#006c49] border border-[#c2c8c4]/40">
+                Sovereign Registry Foundation
+              </span>
+              <h1 className="text-3xl sm:text-5xl font-extrabold text-[#000b07] tracking-tight">
+                Welcome to Earth Carbon
+              </h1>
+
+              <div className="py-2 space-y-2">
+                <p className="text-xl font-semibold text-[#006c49] italic">
+                  "World is one family"
+                </p>
+                <p className="text-xs text-[#727875] font-mono uppercase tracking-widest">
+                  — Vasudhaiva Kutumbakam —
+                </p>
+              </div>
+
+              <div className="pt-2 max-w-md mx-auto">
+                <div className="bg-[#eff4ff] py-4 px-6 rounded-2xl border border-[#c2c8c4]/40 shadow-xs">
+                  <p className="text-base font-bold text-[#000b07]">
+                    Natural resources are common to all
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4">
+              <button 
+                onClick={() => setCurrentScreen(1)}
+                className="w-full sm:w-auto px-10 h-14 bg-[#0f241d] hover:bg-black text-white font-bold rounded-xl text-base flex items-center justify-center gap-3 shadow-md transition-all cursor-pointer mx-auto"
+              >
+                <span>Enter Registry Portal</span>
+                <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* ---------------- PAGE 1: MAIN DASHBOARD & ACTION TRACKER ---------------- */}
         {currentScreen === 1 && (
           <div className="space-y-12 animate-fadeIn">
-            
+            <div className="flex items-center justify-between">
+              <button onClick={() => setCurrentScreen(0)} className="text-xs text-[#006c49] font-bold flex items-center gap-1 cursor-pointer">
+                <span className="material-symbols-outlined text-[16px]">arrow_back</span> Return to Welcome
+              </button>
+            </div>
+
             {/* Hero Section */}
             <section className="bg-white border border-[#c2c8c4]/60 rounded-2xl p-8 sm:p-12 shadow-xs space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#eff4ff] text-[#006c49] text-xs font-bold border border-[#c2c8c4]/40">
@@ -91,12 +142,6 @@ export default function App() {
                 >
                   <span>Explore Forward Token Checkout</span>
                   <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-                </button>
-                <button 
-                  onClick={() => setCurrentScreen(1)}
-                  className="px-6 py-3.5 bg-[#eff4ff] hover:bg-[#dce9ff] text-[#000b07] font-bold rounded-xl border border-[#c2c8c4]/60 transition-all text-sm cursor-pointer"
-                >
-                  Access Action Dashboard
                 </button>
               </div>
             </section>
@@ -192,11 +237,12 @@ export default function App() {
           </div>
         )}
 
+        {/* ---------------- PAGE 2: CHECKOUT & PAYMENT RAILS ---------------- */}
         {currentScreen === 2 && (
           <div className="max-w-xl mx-auto space-y-6 bg-white border border-[#c2c8c4]/60 rounded-2xl p-8 shadow-xs animate-fadeIn">
             <div className="flex justify-between items-center">
               <button onClick={() => setCurrentScreen(1)} className="text-xs text-[#006c49] font-bold flex items-center gap-1 cursor-pointer">
-                <span className="material-symbols-outlined text-[16px]">arrow_back</span> Back to Home
+                <span className="material-symbols-outlined text-[16px]">arrow_back</span> Back to Dashboard
               </button>
               <span className="text-xs font-mono bg-[#6cf8bb]/30 px-2.5 py-1 rounded text-[#00714d] font-bold">256-bit SSL Secured</span>
             </div>
