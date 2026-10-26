@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState(0); // 0: Welcome, 1: Dashboard, 2: Checkout, 3: Confirmation HUD, 4: Referral Boosts
+  const [currentScreen, setCurrentScreen] = useState(0); // 0: Welcome, 1: Registry Portal Dashboard, 2: Checkout, 3: Confirmation, 4: Perks
   const [currency, setCurrency] = useState('INR');
-  const [selectedTier, setSelectedTier] = useState('micro');
   const [selectedRail, setSelectedRail] = useState('upi');
   const [metricVal, setMetricVal] = useState(120);
   const [actionType, setActionType] = useState('ev');
-  const [queuePosition, setQueuePosition] = useState(412);
+  const [queuePosition] = useState(412);
   const [copied, setCopied] = useState(false);
 
   const factors = { ev: 0.14, solar: 0.82, waste: 0.55, bio: 1.20 };
-  const tierPrices = {
-    micro: { inr: '₹2,100', usd: '$25.00', tco2e: '1.00 tCO2e' },
-    enterprise: { inr: '₹21,000', usd: '$250.00', tco2e: '10.00 tCO2e' }
-  };
-
   const avoidedTons = ((metricVal * (factors[actionType] || 0.14)) / 1000).toFixed(4);
   const inrSavings = Math.round(avoidedTons * 8000);
   const usdSavings = (avoidedTons * 96.3).toFixed(2);
@@ -29,7 +23,7 @@ export default function App() {
   return (
     <div className="bg-[#f8f9ff] text-[#0b1c30] antialiased min-h-screen flex flex-col justify-between selection:bg-[#6cf8bb] selection:text-[#00714d] font-sans">
       
-      {/* Full-Width Institutional Header */}
+      {/* Institutional Header */}
       <header className="bg-white border-b border-[#c2c8c4]/40 sticky top-0 z-50 shadow-xs">
         <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setCurrentScreen(0)}>
@@ -60,17 +54,20 @@ export default function App() {
                 $ USD
               </button>
             </div>
-            <button onClick={() => setCurrentScreen(1)} className="hidden sm:inline-flex items-center text-sm font-semibold bg-[#0f241d] text-white px-5 py-2.5 rounded-lg hover:bg-black transition-all cursor-pointer">
+            <button 
+              onClick={() => setCurrentScreen(1)} 
+              className="hidden sm:inline-flex items-center text-sm font-semibold bg-[#0f241d] text-white px-5 py-2.5 rounded-lg hover:bg-black transition-all cursor-pointer"
+            >
               Member Access
             </button>
           </div>
         </div>
       </header>
 
-      {/* Main Content Area */}
+      {/* Main Content */}
       <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-10 space-y-12 flex flex-col justify-center">
 
-        {/* SCREEN 0: WELCOME & PRINCIPLES */}
+        {/* SCREEN 0: WELCOME PRINCIPLES */}
         {currentScreen === 0 && (
           <div className="max-w-2xl mx-auto text-center space-y-8 bg-white border border-[#c2c8c4]/60 rounded-3xl p-10 sm:p-14 shadow-sm animate-fadeIn">
             <div className="w-20 h-20 mx-auto rounded-2xl bg-[#0f241d] text-[#6ffbbe] flex items-center justify-center shadow-md">
@@ -79,15 +76,15 @@ export default function App() {
 
             <div className="space-y-4">
               <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#eff4ff] text-[#006c49] border border-[#c2c8c4]/40">
-                Sovereign Registry Foundation
+                Environmental Registry
               </span>
-              <h1 className="text-3xl sm:text-5xl font-extrabold text-[#000b07] tracking-tight">
-                Welcome to Earth Carbon
+              <h1 className="text-3xl sm:text-4xl font-extrabold text-[#000b07] tracking-tight">
+                Welcome to Earth Carbon Foundation
               </h1>
 
               <div className="py-2 space-y-2">
                 <p className="text-xl font-semibold text-[#006c49] italic">
-                  "World is one family"
+                  "The World Is One Family"
                 </p>
                 <p className="text-xs text-[#727875] font-mono uppercase tracking-widest">
                   — Vasudhaiva Kutumbakam —
@@ -97,7 +94,7 @@ export default function App() {
               <div className="pt-2 max-w-md mx-auto">
                 <div className="bg-[#eff4ff] py-4 px-6 rounded-2xl border border-[#c2c8c4]/40 shadow-xs">
                   <p className="text-base font-bold text-[#000b07]">
-                    Natural resources are common to all
+                    Natural resources belong to us all.
                   </p>
                 </div>
               </div>
@@ -106,16 +103,22 @@ export default function App() {
             <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
               <button 
                 onClick={() => setCurrentScreen(1)}
-                className="px-10 h-14 bg-[#0f241d] hover:bg-black text-white font-bold rounded-xl text-base flex items-center justify-center gap-3 shadow-md transition-all cursor-pointer"
+                className="px-8 h-14 bg-[#0f241d] hover:bg-black text-white font-bold rounded-xl text-base flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
               >
-                <span>Enter Registry Portal</span>
-                <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                <span>Enter the Registry Portal</span>
+                <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+              </button>
+              <button 
+                onClick={() => setCurrentScreen(1)}
+                className="px-6 h-14 bg-[#eff4ff] hover:bg-[#dce9ff] text-[#000b07] font-bold rounded-xl text-base border border-[#c2c8c4]/40 transition-all cursor-pointer"
+              >
+                Member Login
               </button>
             </div>
           </div>
         )}
 
-        {/* SCREEN 1: MAIN DASHBOARD & ACTION TRACKER */}
+        {/* SCREEN 1: SIMPLIFIED REGISTRY DASHBOARD */}
         {currentScreen === 1 && (
           <div className="space-y-12 animate-fadeIn">
             <div className="flex items-center justify-between">
@@ -129,13 +132,13 @@ export default function App() {
                 <span className="w-2 h-2 rounded-full bg-[#006c49] animate-pulse"></span>
                 Official Public Registry Protocol
               </div>
-              <h1 className="text-3xl sm:text-5xl font-extrabold text-[#000b07] tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-4xl font-extrabold text-[#000b07] tracking-tight leading-tight">
                 Transparent Baseline Records for Institutional & Grassroots Actions
               </h1>
               <p className="text-base sm:text-lg text-[#424845] max-w-3xl leading-relaxed">
                 Establishing verifiable environmental records across Ahmedabad, Gujarat, and nationwide—maintaining absolute data sovereignty without forced commercial estimations.
               </p>
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="pt-2">
                 <button 
                   onClick={() => setCurrentScreen(2)}
                   className="px-6 py-3.5 bg-[#006c49] hover:bg-[#059669] text-white font-bold rounded-xl shadow-sm transition-all text-sm flex items-center gap-2 cursor-pointer"
@@ -146,6 +149,7 @@ export default function App() {
               </div>
             </section>
 
+            {/* Metrics Grid */}
             <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white p-6 rounded-2xl border border-[#c2c8c4]/60 shadow-xs space-y-2">
                 <span className="text-xs font-bold text-[#727875] uppercase tracking-wider">Net Abatement Progress</span>
@@ -166,6 +170,7 @@ export default function App() {
               </div>
             </section>
 
+            {/* Climate Action Logger */}
             <section className="bg-white border border-[#c2c8c4]/60 rounded-2xl p-8 shadow-xs space-y-6">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-[#c2c8c4]/30 pb-4">
                 <div>
@@ -234,7 +239,7 @@ export default function App() {
           </div>
         )}
 
-        {/* SCREEN 2: CHECKOUT & PAYMENT RAILS */}
+        {/* SCREEN 2: CHECKOUT */}
         {currentScreen === 2 && (
           <div className="max-w-xl mx-auto space-y-6 bg-white border border-[#c2c8c4]/60 rounded-2xl p-8 shadow-xs animate-fadeIn">
             <div className="flex justify-between items-center">
@@ -312,7 +317,7 @@ export default function App() {
           </div>
         )}
 
-        {/* SCREEN 3: BOOKING CONFIRMED & QUEUE HUD */}
+        {/* SCREEN 3: CONFIRMATION */}
         {currentScreen === 3 && (
           <div className="max-w-xl mx-auto space-y-6 bg-white border border-[#c2c8c4]/60 rounded-2xl p-8 text-center shadow-xs animate-fadeIn">
             <div className="relative w-20 h-20 mx-auto flex items-center justify-center">
@@ -348,7 +353,7 @@ export default function App() {
           </div>
         )}
 
-        {/* SCREEN 4: REFERRAL BOOST & PERKS CONSOLE */}
+        {/* SCREEN 4: PERKS & REFERRAL */}
         {currentScreen === 4 && (
           <div className="max-w-xl mx-auto space-y-6 bg-white border border-[#c2c8c4]/60 rounded-2xl p-8 shadow-xs animate-fadeIn">
             <div className="space-y-1">
