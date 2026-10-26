@@ -321,13 +321,3 @@ export default function App() {
                 </div>
               )}
             </div>
-
-            <button 
-              onClick={() => {
-                setIsConfirmed(true);
-                setCurrentScreen(3);
-              }}
-              className="w-full h-14 bg-[#0f241d] text-white rounded-lg text-sm font-bold flex items-center justify-center gap-2 shadow-md hover:bg-black transition-all"
-            >
-              <span className="material-symbols-outlined text-[#6ffbbe]">fingerprint</span>
-              
