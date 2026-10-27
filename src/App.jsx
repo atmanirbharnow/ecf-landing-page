@@ -135,17 +135,17 @@ export default function App() {
                 Official Public Registry Protocol
               </div>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-[#000b07] tracking-tight leading-tight">
-                Transparent Baseline Records for Institutional & Grassroots Actions
+                Wait list your Low Carbon Actions  &  Monetise in to carbon Instuments. 
               </h1>
               <p className="text-base sm:text-lg text-[#424845] max-w-3xl leading-relaxed">
-                Establishing verifiable environmental records across Ahmedabad, Gujarat, and nationwide—maintaining absolute data sovereignty without forced commercial estimations.
+                Help to Convert Low carbon Actions into Monetised Carbon Instruments.
               </p>
               <div className="pt-2">
                 <button 
                   onClick={() => setCurrentScreen(2)}
                   className="px-6 py-3.5 bg-[#006c49] hover:bg-[#059669] text-white font-bold rounded-xl shadow-sm transition-all text-sm flex items-center gap-2 cursor-pointer"
                 >
-                  <span>Explore Forward Token Checkout</span>
+                  <span>Explore Your Wait listed Token.</span>
                   <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </button>
               </div>
