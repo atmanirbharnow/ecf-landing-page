@@ -94,7 +94,9 @@ export default function App() {
               <div className="pt-2 max-w-md mx-auto">
                 <div className="bg-[#eff4ff] py-4 px-6 rounded-2xl border border-[#c2c8c4]/40 shadow-xs">
                   <p className="text-base font-bold text-[#000b07]">
-                    Natural resources belong to us all.
+                    Natural Resources are common to All of Us .
+                    Protecting them is our shared responsibility.
+                    
                   </p>
                 </div>
               </div>
